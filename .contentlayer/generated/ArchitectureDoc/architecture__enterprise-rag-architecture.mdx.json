@@ -1,0 +1,38 @@
+{
+  "title": "Enterprise RAG Architecture",
+  "summary": "Ingestion through grounded generation, and the failure points that actually show up in production.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-01-20T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "system-design",
+    "architecture"
+  ],
+  "related": [
+    "rag-chunking-strategies",
+    "evaluating-retrieval-quality-in-production-rag",
+    "building-production-rag-systems"
+  ],
+  "components": "Ingestion service, chunker, embedding model, vector store, reranker, generation model, citation checker.",
+  "dataFlow": "Document → ingestion → chunk + embed → vector store → query-time retrieve + rerank → grounded generation → citation check → response.",
+  "tradeoffs": "Reranking improves precision but adds 100-300ms of latency per query; skipping it is viable only when the vector store's raw top-k is already precise enough for the domain.",
+  "scalability": "Vector store read load scales with query volume, not corpus size, so sharding decisions should be driven by QPS projections, not document count alone.",
+  "failurePoints": "Silent retrieval failure (the wrong chunk is retrieved but confidently cited) is the most common and hardest-to-detect failure mode — it doesn't throw an error, it just produces a plausible-sounding wrong answer.",
+  "costAnalysis": "Embedding cost is one-time per document at ingestion; generation cost recurs per query and dominates total spend once query volume exceeds roughly 10x the corpus size.",
+  "body": {
+    "raw": "\n## The pipeline\n\nDocuments are ingested, chunked, and embedded once. At query time, the system retrieves candidate chunks, reranks them, and generates a response grounded in the retrieved context — then checks that the response's citations actually correspond to retrieved content before returning it.\n\n## The failure mode that matters most\n\nMost RAG failures aren't crashes — they're the system confidently answering from the wrong chunk. That's why the citation-check step exists as a distinct stage, not a side effect of generation: it's the one point in the pipeline explicitly designed to catch silent retrieval failure before it reaches a user.\n",
+    "code": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},v=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},a=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of g(e))!y.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(s=m(e,i))||s.enumerable});return t};var k=(t,e,r)=>(r=t!=null?l(p(t)):{},a(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),b=t=>a(o({},\"__esModule\",{value:!0}),t);var d=f((q,c)=>{c.exports=_jsx_runtime});var w={};v(w,{default:()=>h,frontmatter:()=>x});var n=k(d()),x={title:\"Enterprise RAG Architecture\",summary:\"Ingestion through grounded generation, and the failure points that actually show up in production.\",status:\"PUBLISHED\",publishedAt:\"2026-01-20\",components:\"Ingestion service, chunker, embedding model, vector store, reranker, generation model, citation checker.\",dataFlow:\"Document \\u2192 ingestion \\u2192 chunk + embed \\u2192 vector store \\u2192 query-time retrieve + rerank \\u2192 grounded generation \\u2192 citation check \\u2192 response.\",tradeoffs:\"Reranking improves precision but adds 100-300ms of latency per query; skipping it is viable only when the vector store's raw top-k is already precise enough for the domain.\",scalability:\"Vector store read load scales with query volume, not corpus size, so sharding decisions should be driven by QPS projections, not document count alone.\",failurePoints:\"Silent retrieval failure (the wrong chunk is retrieved but confidently cited) is the most common and hardest-to-detect failure mode \\u2014 it doesn't throw an error, it just produces a plausible-sounding wrong answer.\",costAnalysis:\"Embedding cost is one-time per document at ingestion; generation cost recurs per query and dominates total spend once query volume exceeds roughly 10x the corpus size.\",tags:[\"rag\",\"system-design\",\"architecture\"],related:[\"rag-chunking-strategies\",\"evaluating-retrieval-quality-in-production-rag\",\"building-production-rag-systems\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"The pipeline\"}),`\n`,(0,n.jsx)(e.p,{children:\"Documents are ingested, chunked, and embedded once. At query time, the system retrieves candidate chunks, reranks them, and generates a response grounded in the retrieved context \\u2014 then checks that the response's citations actually correspond to retrieved content before returning it.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"The failure mode that matters most\"}),`\n`,(0,n.jsx)(e.p,{children:\"Most RAG failures aren't crashes \\u2014 they're the system confidently answering from the wrong chunk. That's why the citation-check step exists as a distinct stage, not a side effect of generation: it's the one point in the pipeline explicitly designed to catch silent retrieval failure before it reaches a user.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(u,{...t})}):u(t)}return b(w);})();\n;return Component;"
+  },
+  "_id": "architecture/enterprise-rag-architecture.mdx",
+  "_raw": {
+    "sourceFilePath": "architecture/enterprise-rag-architecture.mdx",
+    "sourceFileName": "enterprise-rag-architecture.mdx",
+    "sourceFileDir": "architecture",
+    "contentType": "mdx",
+    "flattenedPath": "architecture/enterprise-rag-architecture"
+  },
+  "type": "ArchitectureDoc",
+  "slug": "enterprise-rag-architecture",
+  "url": "/architecture/enterprise-rag-architecture",
+  "readingTime": 1
+}

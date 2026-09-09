@@ -1,0 +1,57 @@
+{
+  "title": "RAG Engineering Roadmap",
+  "summary": "A dependency-ordered path from embeddings basics to production-grade retrieval systems.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-04-15T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "roadmap"
+  ],
+  "related": [
+    "rag-chunking-strategies",
+    "building-production-rag-systems",
+    "enterprise-rag-architecture"
+  ],
+  "stages": [
+    {
+      "title": "Embeddings fundamentals",
+      "order": 1
+    },
+    {
+      "title": "Chunking strategy",
+      "order": 2
+    },
+    {
+      "title": "Vector store selection",
+      "order": 3
+    },
+    {
+      "title": "Retrieval evaluation",
+      "order": 4
+    },
+    {
+      "title": "Reranking",
+      "order": 5
+    },
+    {
+      "title": "Production hardening",
+      "order": 6
+    }
+  ],
+  "body": {
+    "raw": "\nEach stage links to the Knowledge articles, Playbooks, and Architecture pages that actually teach it — this roadmap is a map, not a substitute for the content it points to.\n",
+    "code": "var Component=(()=>{var g=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},b=(t,e)=>{for(var r in e)a(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of p(e))!f.call(t,n)&&n!==r&&a(t,n,{get:()=>e[n],enumerable:!(i=m(e,n))||i.enumerable});return t};var x=(t,e,r)=>(r=t!=null?g(h(t)):{},s(e||!t||!t.__esModule?a(r,\"default\",{value:t,enumerable:!0}):r,t)),k=t=>s(a({},\"__esModule\",{value:!0}),t);var c=y((R,d)=>{d.exports=_jsx_runtime});var A={};b(A,{default:()=>u,frontmatter:()=>_});var o=x(c()),_={title:\"RAG Engineering Roadmap\",summary:\"A dependency-ordered path from embeddings basics to production-grade retrieval systems.\",status:\"PUBLISHED\",publishedAt:\"2026-04-15\",stages:[{title:\"Embeddings fundamentals\",order:1},{title:\"Chunking strategy\",order:2},{title:\"Vector store selection\",order:3},{title:\"Retrieval evaluation\",order:4},{title:\"Reranking\",order:5},{title:\"Production hardening\",order:6}],tags:[\"rag\",\"roadmap\"],related:[\"rag-chunking-strategies\",\"building-production-rag-systems\",\"enterprise-rag-architecture\"]};function l(t){let e={p:\"p\",...t.components};return(0,o.jsx)(e.p,{children:\"Each stage links to the Knowledge articles, Playbooks, and Architecture pages that actually teach it \\u2014 this roadmap is a map, not a substitute for the content it points to.\"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(l,{...t})}):l(t)}return k(A);})();\n;return Component;"
+  },
+  "_id": "roadmaps/rag-engineering-roadmap.mdx",
+  "_raw": {
+    "sourceFilePath": "roadmaps/rag-engineering-roadmap.mdx",
+    "sourceFileName": "rag-engineering-roadmap.mdx",
+    "sourceFileDir": "roadmaps",
+    "contentType": "mdx",
+    "flattenedPath": "roadmaps/rag-engineering-roadmap"
+  },
+  "type": "Roadmap",
+  "slug": "rag-engineering-roadmap",
+  "url": "/roadmaps/rag-engineering-roadmap",
+  "readingTime": 1
+}

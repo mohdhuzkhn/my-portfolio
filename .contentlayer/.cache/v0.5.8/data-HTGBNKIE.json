@@ -1,0 +1,603 @@
+{
+  "cacheItemsMap": {
+    "architecture/enterprise-rag-architecture.mdx": {
+      "document": {
+        "title": "Enterprise RAG Architecture",
+        "summary": "Ingestion through grounded generation, and the failure points that actually show up in production.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-01-20T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "system-design",
+          "architecture"
+        ],
+        "related": [
+          "rag-chunking-strategies",
+          "evaluating-retrieval-quality-in-production-rag",
+          "building-production-rag-systems"
+        ],
+        "components": "Ingestion service, chunker, embedding model, vector store, reranker, generation model, citation checker.",
+        "dataFlow": "Document → ingestion → chunk + embed → vector store → query-time retrieve + rerank → grounded generation → citation check → response.",
+        "tradeoffs": "Reranking improves precision but adds 100-300ms of latency per query; skipping it is viable only when the vector store's raw top-k is already precise enough for the domain.",
+        "scalability": "Vector store read load scales with query volume, not corpus size, so sharding decisions should be driven by QPS projections, not document count alone.",
+        "failurePoints": "Silent retrieval failure (the wrong chunk is retrieved but confidently cited) is the most common and hardest-to-detect failure mode — it doesn't throw an error, it just produces a plausible-sounding wrong answer.",
+        "costAnalysis": "Embedding cost is one-time per document at ingestion; generation cost recurs per query and dominates total spend once query volume exceeds roughly 10x the corpus size.",
+        "body": {
+          "raw": "\n## The pipeline\n\nDocuments are ingested, chunked, and embedded once. At query time, the system retrieves candidate chunks, reranks them, and generates a response grounded in the retrieved context — then checks that the response's citations actually correspond to retrieved content before returning it.\n\n## The failure mode that matters most\n\nMost RAG failures aren't crashes — they're the system confidently answering from the wrong chunk. That's why the citation-check step exists as a distinct stage, not a side effect of generation: it's the one point in the pipeline explicitly designed to catch silent retrieval failure before it reaches a user.\n",
+          "code": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},v=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},a=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of g(e))!y.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(s=m(e,i))||s.enumerable});return t};var k=(t,e,r)=>(r=t!=null?l(p(t)):{},a(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),b=t=>a(o({},\"__esModule\",{value:!0}),t);var d=f((q,c)=>{c.exports=_jsx_runtime});var w={};v(w,{default:()=>h,frontmatter:()=>x});var n=k(d()),x={title:\"Enterprise RAG Architecture\",summary:\"Ingestion through grounded generation, and the failure points that actually show up in production.\",status:\"PUBLISHED\",publishedAt:\"2026-01-20\",components:\"Ingestion service, chunker, embedding model, vector store, reranker, generation model, citation checker.\",dataFlow:\"Document \\u2192 ingestion \\u2192 chunk + embed \\u2192 vector store \\u2192 query-time retrieve + rerank \\u2192 grounded generation \\u2192 citation check \\u2192 response.\",tradeoffs:\"Reranking improves precision but adds 100-300ms of latency per query; skipping it is viable only when the vector store's raw top-k is already precise enough for the domain.\",scalability:\"Vector store read load scales with query volume, not corpus size, so sharding decisions should be driven by QPS projections, not document count alone.\",failurePoints:\"Silent retrieval failure (the wrong chunk is retrieved but confidently cited) is the most common and hardest-to-detect failure mode \\u2014 it doesn't throw an error, it just produces a plausible-sounding wrong answer.\",costAnalysis:\"Embedding cost is one-time per document at ingestion; generation cost recurs per query and dominates total spend once query volume exceeds roughly 10x the corpus size.\",tags:[\"rag\",\"system-design\",\"architecture\"],related:[\"rag-chunking-strategies\",\"evaluating-retrieval-quality-in-production-rag\",\"building-production-rag-systems\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"The pipeline\"}),`\n`,(0,n.jsx)(e.p,{children:\"Documents are ingested, chunked, and embedded once. At query time, the system retrieves candidate chunks, reranks them, and generates a response grounded in the retrieved context \\u2014 then checks that the response's citations actually correspond to retrieved content before returning it.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"The failure mode that matters most\"}),`\n`,(0,n.jsx)(e.p,{children:\"Most RAG failures aren't crashes \\u2014 they're the system confidently answering from the wrong chunk. That's why the citation-check step exists as a distinct stage, not a side effect of generation: it's the one point in the pipeline explicitly designed to catch silent retrieval failure before it reaches a user.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(u,{...t})}):u(t)}return b(w);})();\n;return Component;"
+        },
+        "_id": "architecture/enterprise-rag-architecture.mdx",
+        "_raw": {
+          "sourceFilePath": "architecture/enterprise-rag-architecture.mdx",
+          "sourceFileName": "enterprise-rag-architecture.mdx",
+          "sourceFileDir": "architecture",
+          "contentType": "mdx",
+          "flattenedPath": "architecture/enterprise-rag-architecture"
+        },
+        "type": "ArchitectureDoc",
+        "slug": "enterprise-rag-architecture",
+        "url": "/architecture/enterprise-rag-architecture",
+        "readingTime": 1
+      },
+      "documentHash": "1788807128000",
+      "hasWarnings": false,
+      "documentTypeName": "ArchitectureDoc"
+    },
+    "datasets/hc3.mdx": {
+      "document": {
+        "title": "HC3",
+        "summary": "Human ChatGPT Comparison Corpus — paired human and AI responses to the same prompts.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-02-10T00:00:00.000Z",
+        "tags": [
+          "nlp",
+          "datasets"
+        ],
+        "related": [
+          "ai-generated-text-detection"
+        ],
+        "source": "Hugging Face Hub",
+        "license": "Check dataset card for current terms",
+        "domain": "NLP",
+        "useCases": "AI-generated text detection, stylistic comparison between human and model responses.",
+        "body": {
+          "raw": "\nUsed as the training and evaluation base for the AI-generated text detection project — see that project page for how it was applied.\n",
+          "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},C=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of l(t))!g.call(e,a)&&a!==n&&s(e,a,{get:()=>t[a],enumerable:!(r=h(t,a))||r.enumerable});return e};var j=(e,t,n)=>(n=e!=null?m(x(e)):{},i(t||!e||!e.__esModule?s(n,\"default\",{value:e,enumerable:!0}):n,e)),H=e=>i(s({},\"__esModule\",{value:!0}),e);var d=f((A,c)=>{c.exports=_jsx_runtime});var b={};C(b,{default:()=>u,frontmatter:()=>_});var o=j(d()),_={title:\"HC3\",summary:\"Human ChatGPT Comparison Corpus \\u2014 paired human and AI responses to the same prompts.\",status:\"PUBLISHED\",publishedAt:\"2026-02-10\",source:\"Hugging Face Hub\",license:\"Check dataset card for current terms\",domain:\"NLP\",useCases:\"AI-generated text detection, stylistic comparison between human and model responses.\",tags:[\"nlp\",\"datasets\"],related:[\"ai-generated-text-detection\"]};function p(e){let t={p:\"p\",...e.components};return(0,o.jsx)(t.p,{children:\"Used as the training and evaluation base for the AI-generated text detection project \\u2014 see that project page for how it was applied.\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}return H(b);})();\n;return Component;"
+        },
+        "_id": "datasets/hc3.mdx",
+        "_raw": {
+          "sourceFilePath": "datasets/hc3.mdx",
+          "sourceFileName": "hc3.mdx",
+          "sourceFileDir": "datasets",
+          "contentType": "mdx",
+          "flattenedPath": "datasets/hc3"
+        },
+        "type": "Dataset",
+        "slug": "hc3",
+        "url": "/datasets/hc3",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "Dataset"
+    },
+    "case-studies/neuroflow-cfd-case-study.mdx": {
+      "document": {
+        "title": "NeuroFlow CFD — Case Study",
+        "summary": "Why the architecture looks like it does, not just what was built.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-03-20T00:00:00.000Z",
+        "tags": [
+          "healthcare-ai",
+          "case-study"
+        ],
+        "related": [
+          "neuroflow-cfd",
+          "hemodynamic-feature-extraction"
+        ],
+        "problem": "Rupture-risk assessment does not scale as a manual, specialist-only process.",
+        "constraints": "Clinical DICOM data is noisy; the pipeline had to tolerate imaging artifacts without silently producing bad meshes.",
+        "technicalDecisions": "Validating mesh quality before simulation, rather than after a solver crash, was the single highest-leverage decision in the whole pipeline.",
+        "challenges": "Non-manifold geometry from imaging artifacts crashed the CFD solver in ways that were hard to distinguish from genuine simulation failures.",
+        "lessonsLearned": "Catch data-quality problems as early in the pipeline as possible — every stage they slip past multiplies the cost of diagnosing them.",
+        "body": {
+          "raw": "\nThe Project page is the artifact record. This page is the decision log — why the pipeline is shaped the way it is, not just what it does.\n",
+          "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}},w=(e,t)=>{for(var s in t)a(e,s,{get:t[s],enumerable:!0})},r=(e,t,s,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of m(t))!f.call(e,i)&&i!==s&&a(e,i,{get:()=>t[i],enumerable:!(o=p(t,i))||o.enumerable});return e};var x=(e,t,s)=>(s=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?a(s,\"default\",{value:e,enumerable:!0}):s,e)),C=e=>r(a({},\"__esModule\",{value:!0}),e);var h=y((_,l)=>{l.exports=_jsx_runtime});var D={};w(D,{default:()=>u,frontmatter:()=>b});var n=x(h()),b={title:\"NeuroFlow CFD \\u2014 Case Study\",summary:\"Why the architecture looks like it does, not just what was built.\",status:\"PUBLISHED\",publishedAt:\"2026-03-20\",problem:\"Rupture-risk assessment does not scale as a manual, specialist-only process.\",constraints:\"Clinical DICOM data is noisy; the pipeline had to tolerate imaging artifacts without silently producing bad meshes.\",technicalDecisions:\"Validating mesh quality before simulation, rather than after a solver crash, was the single highest-leverage decision in the whole pipeline.\",challenges:\"Non-manifold geometry from imaging artifacts crashed the CFD solver in ways that were hard to distinguish from genuine simulation failures.\",lessonsLearned:\"Catch data-quality problems as early in the pipeline as possible \\u2014 every stage they slip past multiplies the cost of diagnosing them.\",tags:[\"healthcare-ai\",\"case-study\"],related:[\"neuroflow-cfd\",\"hemodynamic-feature-extraction\"]};function c(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"The Project page is the artifact record. This page is the decision log \\u2014 why the pipeline is shaped the way it is, not just what it does.\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(c,{...e})}):c(e)}return C(D);})();\n;return Component;"
+        },
+        "_id": "case-studies/neuroflow-cfd-case-study.mdx",
+        "_raw": {
+          "sourceFilePath": "case-studies/neuroflow-cfd-case-study.mdx",
+          "sourceFileName": "neuroflow-cfd-case-study.mdx",
+          "sourceFileDir": "case-studies",
+          "contentType": "mdx",
+          "flattenedPath": "case-studies/neuroflow-cfd-case-study"
+        },
+        "type": "CaseStudy",
+        "slug": "neuroflow-cfd-case-study",
+        "url": "/case-studies/neuroflow-cfd-case-study",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "CaseStudy"
+    },
+    "journey/rag-systems.mdx": {
+      "document": {
+        "title": "RAG Systems",
+        "summary": "The stage where retrieval architecture became the primary focus.",
+        "status": "PUBLISHED",
+        "publishedAt": "2025-09-01T00:00:00.000Z",
+        "tags": [
+          "journey"
+        ],
+        "related": [
+          "enterprise-rag-architecture",
+          "rag-chunking-strategies",
+          "building-production-rag-systems"
+        ],
+        "milestoneDate": "2025-09-01T00:00:00.000Z",
+        "sequenceIndex": 4,
+        "stageName": "RAG Systems",
+        "body": {
+          "raw": "\nMoved from applying machine learning generally to specializing in retrieval architecture — chunking strategy, embeddings, reranking, and grounding — as the primary technical focus.\n",
+          "code": "var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of h(t))!y.call(e,r)&&r!==n&&a(e,r,{get:()=>t[r],enumerable:!(s=d(t,r))||s.enumerable});return e};var _=(e,t,n)=>(n=e!=null?l(p(e)):{},c(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),b=e=>c(a({},\"__esModule\",{value:!0}),e);var u=f((k,o)=>{o.exports=_jsx_runtime});var D={};x(D,{default:()=>g,frontmatter:()=>j});var i=_(u()),j={title:\"RAG Systems\",summary:\"The stage where retrieval architecture became the primary focus.\",status:\"PUBLISHED\",publishedAt:\"2025-09-01\",milestoneDate:\"2025-09-01\",sequenceIndex:4,stageName:\"RAG Systems\",tags:[\"journey\"],related:[\"enterprise-rag-architecture\",\"rag-chunking-strategies\",\"building-production-rag-systems\"]};function m(e){let t={p:\"p\",...e.components};return(0,i.jsx)(t.p,{children:\"Moved from applying machine learning generally to specializing in retrieval architecture \\u2014 chunking strategy, embeddings, reranking, and grounding \\u2014 as the primary technical focus.\"})}function g(e={}){let{wrapper:t}=e.components||{};return t?(0,i.jsx)(t,{...e,children:(0,i.jsx)(m,{...e})}):m(e)}return b(D);})();\n;return Component;"
+        },
+        "_id": "journey/rag-systems.mdx",
+        "_raw": {
+          "sourceFilePath": "journey/rag-systems.mdx",
+          "sourceFileName": "rag-systems.mdx",
+          "sourceFileDir": "journey",
+          "contentType": "mdx",
+          "flattenedPath": "journey/rag-systems"
+        },
+        "type": "JourneyMilestone",
+        "slug": "rag-systems",
+        "url": "/journey/rag-systems",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "JourneyMilestone"
+    },
+    "knowledge/rag-chunking-strategies.mdx": {
+      "document": {
+        "title": "RAG — Chunking Strategies",
+        "summary": "Fixed, semantic, and recursive chunking compared, with the tradeoff each one is actually making.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-02-02T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "retrieval",
+          "embeddings"
+        ],
+        "related": [
+          "evaluating-retrieval-quality-in-production-rag",
+          "building-production-rag-systems"
+        ],
+        "category": "RAG",
+        "examples": "A 2,000-word support article chunked at 512 tokens fixed-size will frequently split a numbered troubleshooting list mid-step; semantic chunking keyed on heading boundaries keeps the list intact but produces wildly uneven chunk sizes across a corpus with inconsistent authoring style.",
+        "body": {
+          "raw": "\n## The three approaches\n\n**Fixed-size chunking** splits text every N tokens, usually with overlap. Cheap, predictable, and the default in most RAG tutorials — the tradeoff is that it has no idea where a sentence, list, or section actually ends, so it frequently cuts through the middle of a coherent idea.\n\n**Semantic chunking** splits at detected topic or heading boundaries instead of a fixed token count. This keeps ideas intact, at the cost of unpredictable chunk sizes — a corpus with inconsistent heading structure produces wildly uneven chunks, which then complicates embedding-model context limits and retrieval scoring.\n\n**Recursive chunking** tries both: it attempts to split at natural boundaries (paragraph, then sentence) and only falls back to a hard token cut when a natural boundary can't be found within the target size. This is the most commonly recommended default in production because it fails gracefully rather than failing silently.\n\n## The actual tradeoff\n\nNone of these is \"correct\" — the real question is what your corpus's structure looks like. Densely-headed technical documentation tolerates semantic chunking well. Unstructured chat logs or transcripts usually don't have reliable boundaries to key off, so recursive or fixed-size chunking is the more honest choice there.\n",
+          "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var k=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(i){throw e=0,i}},y=(t,e)=>{for(var i in e)a(t,i,{get:e[i],enumerable:!0})},o=(t,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of g(e))!f.call(t,s)&&s!==i&&a(t,s,{get:()=>e[s],enumerable:!(r=p(e,s))||r.enumerable});return t};var b=(t,e,i)=>(i=t!=null?d(m(t)):{},o(e||!t||!t.__esModule?a(i,\"default\",{value:t,enumerable:!0}):i,t)),x=t=>o(a({},\"__esModule\",{value:!0}),t);var l=k((z,c)=>{c.exports=_jsx_runtime});var v={};y(v,{default:()=>u,frontmatter:()=>w});var n=b(l()),w={title:\"RAG \\u2014 Chunking Strategies\",summary:\"Fixed, semantic, and recursive chunking compared, with the tradeoff each one is actually making.\",status:\"PUBLISHED\",publishedAt:\"2026-02-02\",category:\"RAG\",examples:\"A 2,000-word support article chunked at 512 tokens fixed-size will frequently split a numbered troubleshooting list mid-step; semantic chunking keyed on heading boundaries keeps the list intact but produces wildly uneven chunk sizes across a corpus with inconsistent authoring style.\",tags:[\"rag\",\"retrieval\",\"embeddings\"],related:[\"evaluating-retrieval-quality-in-production-rag\",\"building-production-rag-systems\"]};function h(t){let e={h2:\"h2\",p:\"p\",strong:\"strong\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"The three approaches\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Fixed-size chunking\"}),\" splits text every N tokens, usually with overlap. Cheap, predictable, and the default in most RAG tutorials \\u2014 the tradeoff is that it has no idea where a sentence, list, or section actually ends, so it frequently cuts through the middle of a coherent idea.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Semantic chunking\"}),\" splits at detected topic or heading boundaries instead of a fixed token count. This keeps ideas intact, at the cost of unpredictable chunk sizes \\u2014 a corpus with inconsistent heading structure produces wildly uneven chunks, which then complicates embedding-model context limits and retrieval scoring.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Recursive chunking\"}),\" tries both: it attempts to split at natural boundaries (paragraph, then sentence) and only falls back to a hard token cut when a natural boundary can't be found within the target size. This is the most commonly recommended default in production because it fails gracefully rather than failing silently.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"The actual tradeoff\"}),`\n`,(0,n.jsx)(e.p,{children:`None of these is \"correct\" \\u2014 the real question is what your corpus's structure looks like. Densely-headed technical documentation tolerates semantic chunking well. Unstructured chat logs or transcripts usually don't have reliable boundaries to key off, so recursive or fixed-size chunking is the more honest choice there.`})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return x(v);})();\n;return Component;"
+        },
+        "_id": "knowledge/rag-chunking-strategies.mdx",
+        "_raw": {
+          "sourceFilePath": "knowledge/rag-chunking-strategies.mdx",
+          "sourceFileName": "rag-chunking-strategies.mdx",
+          "sourceFileDir": "knowledge",
+          "contentType": "mdx",
+          "flattenedPath": "knowledge/rag-chunking-strategies"
+        },
+        "type": "KnowledgeArticle",
+        "slug": "rag-chunking-strategies",
+        "url": "/knowledge/rag-chunking-strategies",
+        "readingTime": 1
+      },
+      "documentHash": "1788807118000",
+      "hasWarnings": false,
+      "documentTypeName": "KnowledgeArticle"
+    },
+    "playbooks/building-production-rag-systems.mdx": {
+      "document": {
+        "title": "Building Production RAG Systems",
+        "summary": "The execution path from a working retrieval demo to something that survives real traffic and real documents.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-04-10T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "playbook",
+          "production-ai"
+        ],
+        "related": [
+          "rag-chunking-strategies",
+          "enterprise-rag-architecture",
+          "evaluating-retrieval-quality-in-production-rag"
+        ],
+        "overview": "Most RAG tutorials stop at 'retrieve and generate.' Production RAG is mostly the parts that come after that: evaluation, guardrails, and handling the documents that don't fit your assumptions.",
+        "problem": "A RAG demo that works on ten clean PDFs usually breaks on a real document corpus — inconsistent formatting, duplicate content, and documents that contradict each other.",
+        "prerequisites": "A working embeddings + vector store setup; familiarity with the tradeoffs in the Chunking Strategies knowledge article.",
+        "recommendedStack": "A vector store with metadata filtering (Qdrant or pgvector), a reranker, and a generation model with a context window large enough to hold reranked results comfortably.",
+        "commonMistakes": "Treating retrieval and generation quality as one metric — a system can generate fluent, well-cited answers from the wrong retrieved chunk, and that failure is invisible unless retrieval is evaluated separately.",
+        "tradeoffs": "Reranking adds latency for a precision gain; skipping it only makes sense once you've measured that your base retrieval precision is already high enough for your domain.",
+        "steps": [
+          {
+            "order": 1,
+            "title": "Establish a retrieval-only evaluation set",
+            "detail": "Before touching generation quality, build a set of queries with known-correct source chunks, so retrieval precision can be measured independently of how fluent the final answer sounds."
+          },
+          {
+            "order": 2,
+            "title": "Pick a chunking strategy deliberately",
+            "detail": "Match the strategy to your corpus's actual structure — see the Chunking Strategies knowledge article for the concrete tradeoff."
+          },
+          {
+            "order": 3,
+            "title": "Add reranking once retrieval precision plateaus",
+            "detail": "Rerankers help most when the vector store's raw top-k is noisy; measure before adding the latency cost."
+          },
+          {
+            "order": 4,
+            "title": "Add a citation check before shipping",
+            "detail": "Verify generated citations actually correspond to retrieved chunks — this is what catches silent retrieval failure, per the Enterprise RAG Architecture page."
+          },
+          {
+            "order": 5,
+            "title": "Re-run the retrieval eval after every corpus change",
+            "detail": "Document corpus changes are the most common cause of retrieval regressions that generation-level evals won't catch."
+          }
+        ],
+        "body": {
+          "raw": "\nBuilding a RAG demo and building a RAG system that survives production traffic are different jobs. This playbook is the second one — the execution path, not the concept explanation (that's what the Knowledge base entries are for).\n",
+          "code": "var Component=(()=>{var h=Object.create;var n=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},y=(e,t)=>{for(var r in t)n(e,r,{get:t[r],enumerable:!0})},s=(e,t,r,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of m(t))!f.call(e,a)&&a!==r&&n(e,a,{get:()=>t[a],enumerable:!(i=g(t,a))||i.enumerable});return e};var k=(e,t,r)=>(r=e!=null?h(p(e)):{},s(t||!e||!e.__esModule?n(r,\"default\",{value:e,enumerable:!0}):r,e)),w=e=>s(n({},\"__esModule\",{value:!0}),e);var l=v((R,c)=>{c.exports=_jsx_runtime});var A={};y(A,{default:()=>u,frontmatter:()=>b});var o=k(l()),b={title:\"Building Production RAG Systems\",summary:\"The execution path from a working retrieval demo to something that survives real traffic and real documents.\",status:\"PUBLISHED\",publishedAt:\"2026-04-10\",overview:\"Most RAG tutorials stop at 'retrieve and generate.' Production RAG is mostly the parts that come after that: evaluation, guardrails, and handling the documents that don't fit your assumptions.\",problem:\"A RAG demo that works on ten clean PDFs usually breaks on a real document corpus \\u2014 inconsistent formatting, duplicate content, and documents that contradict each other.\",prerequisites:\"A working embeddings + vector store setup; familiarity with the tradeoffs in the Chunking Strategies knowledge article.\",recommendedStack:\"A vector store with metadata filtering (Qdrant or pgvector), a reranker, and a generation model with a context window large enough to hold reranked results comfortably.\",commonMistakes:\"Treating retrieval and generation quality as one metric \\u2014 a system can generate fluent, well-cited answers from the wrong retrieved chunk, and that failure is invisible unless retrieval is evaluated separately.\",tradeoffs:\"Reranking adds latency for a precision gain; skipping it only makes sense once you've measured that your base retrieval precision is already high enough for your domain.\",steps:[{order:1,title:\"Establish a retrieval-only evaluation set\",detail:\"Before touching generation quality, build a set of queries with known-correct source chunks, so retrieval precision can be measured independently of how fluent the final answer sounds.\"},{order:2,title:\"Pick a chunking strategy deliberately\",detail:\"Match the strategy to your corpus's actual structure \\u2014 see the Chunking Strategies knowledge article for the concrete tradeoff.\"},{order:3,title:\"Add reranking once retrieval precision plateaus\",detail:\"Rerankers help most when the vector store's raw top-k is noisy; measure before adding the latency cost.\"},{order:4,title:\"Add a citation check before shipping\",detail:\"Verify generated citations actually correspond to retrieved chunks \\u2014 this is what catches silent retrieval failure, per the Enterprise RAG Architecture page.\"},{order:5,title:\"Re-run the retrieval eval after every corpus change\",detail:\"Document corpus changes are the most common cause of retrieval regressions that generation-level evals won't catch.\"}],tags:[\"rag\",\"playbook\",\"production-ai\"],related:[\"rag-chunking-strategies\",\"enterprise-rag-architecture\",\"evaluating-retrieval-quality-in-production-rag\"]};function d(e){let t={p:\"p\",...e.components};return(0,o.jsx)(t.p,{children:\"Building a RAG demo and building a RAG system that survives production traffic are different jobs. This playbook is the second one \\u2014 the execution path, not the concept explanation (that's what the Knowledge base entries are for).\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}return w(A);})();\n;return Component;"
+        },
+        "_id": "playbooks/building-production-rag-systems.mdx",
+        "_raw": {
+          "sourceFilePath": "playbooks/building-production-rag-systems.mdx",
+          "sourceFileName": "building-production-rag-systems.mdx",
+          "sourceFileDir": "playbooks",
+          "contentType": "mdx",
+          "flattenedPath": "playbooks/building-production-rag-systems"
+        },
+        "type": "Playbook",
+        "slug": "building-production-rag-systems",
+        "url": "/playbooks/building-production-rag-systems",
+        "readingTime": 1
+      },
+      "documentHash": "1788807160000",
+      "hasWarnings": false,
+      "documentTypeName": "Playbook"
+    },
+    "lab/rag-reranker-latency-experiment.mdx": {
+      "document": {
+        "title": "Measuring Reranker Latency vs. Precision Gain",
+        "summary": "Does a cross-encoder reranker precision gain justify its latency cost for a mid-size support-doc corpus?",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-05-01T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "evals",
+          "experiment"
+        ],
+        "related": [
+          "enterprise-rag-architecture",
+          "building-production-rag-systems"
+        ],
+        "category": "RAG",
+        "experimentStatus": "ACTIVE",
+        "hypothesis": "A cross-encoder reranker improves top-3 retrieval precision enough to justify 100-300ms of added query latency for a ~5,000-document support corpus.",
+        "goal": "Quantify the precision/latency tradeoff on a realistic corpus size, not a toy benchmark.",
+        "setup": "Baseline vector search (top-20) vs. baseline plus cross-encoder reranking to top-5, measured against the retrieval-only evaluation set from the Production RAG playbook.",
+        "results": "Early runs show a measurable precision improvement, still being validated against a larger held-out query set before drawing a firm conclusion.",
+        "body": {
+          "raw": "\nStill active — this entry updates in place as the experiment progresses, per the Lab section design (status moves IDEA to ACTIVE to COMPLETED as the work happens, not published once at the end).\n",
+          "code": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},v=(e,t)=>{for(var r in t)o(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of h(t))!g.call(e,s)&&s!==r&&o(e,s,{get:()=>t[s],enumerable:!(a=m(t,s))||a.enumerable});return e};var b=(e,t,r)=>(r=e!=null?d(y(e)):{},i(t||!e||!e.__esModule?o(r,\"default\",{value:e,enumerable:!0}):r,e)),x=e=>i(o({},\"__esModule\",{value:!0}),e);var u=f((D,c)=>{c.exports=_jsx_runtime});var A={};v(A,{default:()=>l,frontmatter:()=>k});var n=b(u()),k={title:\"Measuring Reranker Latency vs. Precision Gain\",summary:\"Does a cross-encoder reranker precision gain justify its latency cost for a mid-size support-doc corpus?\",status:\"PUBLISHED\",publishedAt:\"2026-05-01\",category:\"RAG\",experimentStatus:\"ACTIVE\",hypothesis:\"A cross-encoder reranker improves top-3 retrieval precision enough to justify 100-300ms of added query latency for a ~5,000-document support corpus.\",goal:\"Quantify the precision/latency tradeoff on a realistic corpus size, not a toy benchmark.\",setup:\"Baseline vector search (top-20) vs. baseline plus cross-encoder reranking to top-5, measured against the retrieval-only evaluation set from the Production RAG playbook.\",results:\"Early runs show a measurable precision improvement, still being validated against a larger held-out query set before drawing a firm conclusion.\",tags:[\"rag\",\"evals\",\"experiment\"],related:[\"enterprise-rag-architecture\",\"building-production-rag-systems\"]};function p(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Still active \\u2014 this entry updates in place as the experiment progresses, per the Lab section design (status moves IDEA to ACTIVE to COMPLETED as the work happens, not published once at the end).\"})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(p,{...e})}):p(e)}return x(A);})();\n;return Component;"
+        },
+        "_id": "lab/rag-reranker-latency-experiment.mdx",
+        "_raw": {
+          "sourceFilePath": "lab/rag-reranker-latency-experiment.mdx",
+          "sourceFileName": "rag-reranker-latency-experiment.mdx",
+          "sourceFileDir": "lab",
+          "contentType": "mdx",
+          "flattenedPath": "lab/rag-reranker-latency-experiment"
+        },
+        "type": "LabExperiment",
+        "slug": "rag-reranker-latency-experiment",
+        "url": "/lab/rag-reranker-latency-experiment",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "LabExperiment"
+    },
+    "projects/neuroflow-cfd.mdx": {
+      "document": {
+        "title": "NeuroFlow CFD",
+        "summary": "A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-03-14T00:00:00.000Z",
+        "tags": [
+          "healthcare-ai",
+          "cfd"
+        ],
+        "related": [
+          "hemodynamic-feature-extraction",
+          "neuroflow-cfd-case-study",
+          "neuroflow-architecture"
+        ],
+        "repoUrl": "https://github.com/example/neuroflow-cfd",
+        "demoUrl": "",
+        "challenges": "Mesh generation from noisy clinical DICOM data was the single largest source of pipeline failures early on — imaging artifacts produced non-manifold geometry that crashed the CFD solver silently.",
+        "lessons": "Validating mesh quality before simulation, not after, cut failed runs by most of what was previously lost to downstream solver crashes.",
+        "futureWork": "Prospective multi-center validation, and extending beyond middle cerebral artery aneurysms.",
+        "screenshots": [],
+        "body": {
+          "raw": "\n## What it is\n\nNeuroFlow CFD turns a manual, specialist-only rupture-risk read into a structured, reproducible pipeline: simulate blood flow through the patient's aneurysm geometry, extract hemodynamic features, and score risk.\n\n## Where the depth is\n\nThe research paper covers the modeling methodology and its limitations in full; this page is the artifact record — what was built, what broke, and what's next.\n",
+          "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}},w=(t,e)=>{for(var a in e)s(t,a,{get:e[a],enumerable:!0})},i=(t,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of p(e))!y.call(t,n)&&n!==a&&s(t,n,{get:()=>e[n],enumerable:!(o=m(e,n))||o.enumerable});return t};var x=(t,e,a)=>(a=t!=null?d(f(t)):{},i(e||!t||!t.__esModule?s(a,\"default\",{value:t,enumerable:!0}):a,t)),b=t=>i(s({},\"__esModule\",{value:!0}),t);var c=g((_,l)=>{l.exports=_jsx_runtime});var F={};w(F,{default:()=>h,frontmatter:()=>D});var r=x(c()),D={title:\"NeuroFlow CFD\",summary:\"A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model.\",status:\"PUBLISHED\",publishedAt:\"2026-03-14\",repoUrl:\"https://github.com/example/neuroflow-cfd\",demoUrl:\"\",challenges:\"Mesh generation from noisy clinical DICOM data was the single largest source of pipeline failures early on \\u2014 imaging artifacts produced non-manifold geometry that crashed the CFD solver silently.\",lessons:\"Validating mesh quality before simulation, not after, cut failed runs by most of what was previously lost to downstream solver crashes.\",futureWork:\"Prospective multi-center validation, and extending beyond middle cerebral artery aneurysms.\",screenshots:[],tags:[\"healthcare-ai\",\"cfd\"],related:[\"hemodynamic-feature-extraction\",\"neuroflow-cfd-case-study\",\"neuroflow-architecture\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"What it is\"}),`\n`,(0,r.jsx)(e.p,{children:\"NeuroFlow CFD turns a manual, specialist-only rupture-risk read into a structured, reproducible pipeline: simulate blood flow through the patient's aneurysm geometry, extract hemodynamic features, and score risk.\"}),`\n`,(0,r.jsx)(e.h2,{children:\"Where the depth is\"}),`\n`,(0,r.jsx)(e.p,{children:\"The research paper covers the modeling methodology and its limitations in full; this page is the artifact record \\u2014 what was built, what broke, and what's next.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return b(F);})();\n;return Component;"
+        },
+        "_id": "projects/neuroflow-cfd.mdx",
+        "_raw": {
+          "sourceFilePath": "projects/neuroflow-cfd.mdx",
+          "sourceFileName": "neuroflow-cfd.mdx",
+          "sourceFileDir": "projects",
+          "contentType": "mdx",
+          "flattenedPath": "projects/neuroflow-cfd"
+        },
+        "type": "Project",
+        "slug": "neuroflow-cfd",
+        "url": "/projects/neuroflow-cfd",
+        "readingTime": 1
+      },
+      "documentHash": "1788807146000",
+      "hasWarnings": false,
+      "documentTypeName": "Project"
+    },
+    "research/hemodynamic-feature-extraction.mdx": {
+      "document": {
+        "title": "Hemodynamic Feature Extraction for Cerebral Aneurysm Rupture Risk",
+        "summary": "A CFD-derived feature pipeline for aneurysm rupture risk scoring, and what its limitations say about deploying it clinically.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-03-14T00:00:00.000Z",
+        "tags": [
+          "healthcare-ai",
+          "cfd",
+          "risk-modeling"
+        ],
+        "related": [
+          "neuroflow-cfd",
+          "rag-chunking-strategies"
+        ],
+        "layer": "PAPER",
+        "category": "Healthcare AI",
+        "abstract": "Manual CFD interpretation for cerebral aneurysm rupture-risk assessment does not scale and varies between readers. This paper describes a pipeline that extracts hemodynamic features from simulated blood flow and feeds them into a learned risk-scoring model, and reports where that pipeline currently falls short of clinical readiness.",
+        "methodology": "Patient-specific vessel geometries were reconstructed from DICOM scans, meshed, and simulated under pulsatile inflow boundary conditions. Wall shear stress, oscillatory shear index, and flow impingement metrics were extracted at the aneurysm surface and used as model inputs.",
+        "results": "The resulting model separated ruptured from unruptured cases with a level of accuracy comparable to specialist manual review on the held-out set, while running in a fraction of the wall-clock time.",
+        "limitations": "The training set skews toward middle cerebral artery aneurysms, so performance on other vessel locations is unverified. Mesh quality sensitivity was not fully characterized, and the model has not been validated on a prospective, multi-center cohort.",
+        "futureWork": "Prospective validation across multiple imaging centers, and mesh-quality robustness testing, are the two gating items before any clinical pilot.",
+        "body": {
+          "raw": "\n## Problem\n\nRupture-risk assessment for cerebral aneurysms traditionally depends on a specialist manually interpreting a computational fluid dynamics (CFD) simulation. That doesn't scale, and it isn't fully reproducible between readers.\n\n## What this pipeline does\n\nBlood flow through the aneurysm geometry is simulated, and a fixed set of hemodynamic features — wall shear stress, oscillatory shear index, and flow impingement — is extracted at the aneurysm surface. Those features feed a risk-scoring model rather than requiring a specialist to read the simulation directly.\n\n## Where it stands today\n\nThe model performs comparably to specialist manual review on the held-out evaluation set. That is a meaningfully different claim than \"ready for clinical use\" — see Limitations above for exactly why, and Future Work for what needs to happen before that gap closes.\n",
+          "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},w=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},o=(t,e,r,n)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of p(e))!y.call(t,s)&&s!==r&&i(t,s,{get:()=>e[s],enumerable:!(n=h(e,s))||n.enumerable});return t};var b=(t,e,r)=>(r=t!=null?m(f(t)):{},o(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),x=t=>o(i({},\"__esModule\",{value:!0}),t);var d=g((D,l)=>{l.exports=_jsx_runtime});var k={};w(k,{default:()=>u,frontmatter:()=>v});var a=b(d()),v={title:\"Hemodynamic Feature Extraction for Cerebral Aneurysm Rupture Risk\",summary:\"A CFD-derived feature pipeline for aneurysm rupture risk scoring, and what its limitations say about deploying it clinically.\",status:\"PUBLISHED\",publishedAt:\"2026-03-14\",layer:\"PAPER\",category:\"Healthcare AI\",abstract:\"Manual CFD interpretation for cerebral aneurysm rupture-risk assessment does not scale and varies between readers. This paper describes a pipeline that extracts hemodynamic features from simulated blood flow and feeds them into a learned risk-scoring model, and reports where that pipeline currently falls short of clinical readiness.\",methodology:\"Patient-specific vessel geometries were reconstructed from DICOM scans, meshed, and simulated under pulsatile inflow boundary conditions. Wall shear stress, oscillatory shear index, and flow impingement metrics were extracted at the aneurysm surface and used as model inputs.\",results:\"The resulting model separated ruptured from unruptured cases with a level of accuracy comparable to specialist manual review on the held-out set, while running in a fraction of the wall-clock time.\",limitations:\"The training set skews toward middle cerebral artery aneurysms, so performance on other vessel locations is unverified. Mesh quality sensitivity was not fully characterized, and the model has not been validated on a prospective, multi-center cohort.\",futureWork:\"Prospective validation across multiple imaging centers, and mesh-quality robustness testing, are the two gating items before any clinical pilot.\",tags:[\"healthcare-ai\",\"cfd\",\"risk-modeling\"],related:[\"neuroflow-cfd\",\"rag-chunking-strategies\"]};function c(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Problem\"}),`\n`,(0,a.jsx)(e.p,{children:\"Rupture-risk assessment for cerebral aneurysms traditionally depends on a specialist manually interpreting a computational fluid dynamics (CFD) simulation. That doesn't scale, and it isn't fully reproducible between readers.\"}),`\n`,(0,a.jsx)(e.h2,{children:\"What this pipeline does\"}),`\n`,(0,a.jsx)(e.p,{children:\"Blood flow through the aneurysm geometry is simulated, and a fixed set of hemodynamic features \\u2014 wall shear stress, oscillatory shear index, and flow impingement \\u2014 is extracted at the aneurysm surface. Those features feed a risk-scoring model rather than requiring a specialist to read the simulation directly.\"}),`\n`,(0,a.jsx)(e.h2,{children:\"Where it stands today\"}),`\n`,(0,a.jsx)(e.p,{children:'The model performs comparably to specialist manual review on the held-out evaluation set. That is a meaningfully different claim than \"ready for clinical use\" \\u2014 see Limitations above for exactly why, and Future Work for what needs to happen before that gap closes.'})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(c,{...t})}):c(t)}return x(k);})();\n;return Component;"
+        },
+        "_id": "research/hemodynamic-feature-extraction.mdx",
+        "_raw": {
+          "sourceFilePath": "research/hemodynamic-feature-extraction.mdx",
+          "sourceFileName": "hemodynamic-feature-extraction.mdx",
+          "sourceFileDir": "research",
+          "contentType": "mdx",
+          "flattenedPath": "research/hemodynamic-feature-extraction"
+        },
+        "type": "ResearchPaper",
+        "slug": "hemodynamic-feature-extraction",
+        "url": "/research/hemodynamic-feature-extraction",
+        "readingTime": 1
+      },
+      "documentHash": "1788807108000",
+      "hasWarnings": false,
+      "documentTypeName": "ResearchPaper"
+    },
+    "roadmaps/rag-engineering-roadmap.mdx": {
+      "document": {
+        "title": "RAG Engineering Roadmap",
+        "summary": "A dependency-ordered path from embeddings basics to production-grade retrieval systems.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-04-15T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "roadmap"
+        ],
+        "related": [
+          "rag-chunking-strategies",
+          "building-production-rag-systems",
+          "enterprise-rag-architecture"
+        ],
+        "stages": [
+          {
+            "title": "Embeddings fundamentals",
+            "order": 1
+          },
+          {
+            "title": "Chunking strategy",
+            "order": 2
+          },
+          {
+            "title": "Vector store selection",
+            "order": 3
+          },
+          {
+            "title": "Retrieval evaluation",
+            "order": 4
+          },
+          {
+            "title": "Reranking",
+            "order": 5
+          },
+          {
+            "title": "Production hardening",
+            "order": 6
+          }
+        ],
+        "body": {
+          "raw": "\nEach stage links to the Knowledge articles, Playbooks, and Architecture pages that actually teach it — this roadmap is a map, not a substitute for the content it points to.\n",
+          "code": "var Component=(()=>{var g=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},b=(t,e)=>{for(var r in e)a(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of p(e))!f.call(t,n)&&n!==r&&a(t,n,{get:()=>e[n],enumerable:!(i=m(e,n))||i.enumerable});return t};var x=(t,e,r)=>(r=t!=null?g(h(t)):{},s(e||!t||!t.__esModule?a(r,\"default\",{value:t,enumerable:!0}):r,t)),k=t=>s(a({},\"__esModule\",{value:!0}),t);var c=y((R,d)=>{d.exports=_jsx_runtime});var A={};b(A,{default:()=>u,frontmatter:()=>_});var o=x(c()),_={title:\"RAG Engineering Roadmap\",summary:\"A dependency-ordered path from embeddings basics to production-grade retrieval systems.\",status:\"PUBLISHED\",publishedAt:\"2026-04-15\",stages:[{title:\"Embeddings fundamentals\",order:1},{title:\"Chunking strategy\",order:2},{title:\"Vector store selection\",order:3},{title:\"Retrieval evaluation\",order:4},{title:\"Reranking\",order:5},{title:\"Production hardening\",order:6}],tags:[\"rag\",\"roadmap\"],related:[\"rag-chunking-strategies\",\"building-production-rag-systems\",\"enterprise-rag-architecture\"]};function l(t){let e={p:\"p\",...t.components};return(0,o.jsx)(e.p,{children:\"Each stage links to the Knowledge articles, Playbooks, and Architecture pages that actually teach it \\u2014 this roadmap is a map, not a substitute for the content it points to.\"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(l,{...t})}):l(t)}return k(A);})();\n;return Component;"
+        },
+        "_id": "roadmaps/rag-engineering-roadmap.mdx",
+        "_raw": {
+          "sourceFilePath": "roadmaps/rag-engineering-roadmap.mdx",
+          "sourceFileName": "rag-engineering-roadmap.mdx",
+          "sourceFileDir": "roadmaps",
+          "contentType": "mdx",
+          "flattenedPath": "roadmaps/rag-engineering-roadmap"
+        },
+        "type": "Roadmap",
+        "slug": "rag-engineering-roadmap",
+        "url": "/roadmaps/rag-engineering-roadmap",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "Roadmap"
+    },
+    "talks/first-talk-placeholder.mdx": {
+      "document": {
+        "title": "Talks",
+        "summary": "No talks yet — this section is ready for the first one.",
+        "status": "DRAFT",
+        "tags": [],
+        "related": [],
+        "talkType": "CONFERENCE",
+        "event": "none yet",
+        "eventDate": "2026-01-01T00:00:00.000Z",
+        "body": {
+          "raw": "\nThis section is intentionally live infrastructure with no content yet, per the Talks empty-state design note in the approved architecture. It stays in DRAFT status until a real talk exists, so it never renders as a published item on its own.\n",
+          "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},T=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},a=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of h(e))!f.call(t,s)&&s!==n&&o(t,s,{get:()=>e[s],enumerable:!(i=d(e,s))||i.enumerable});return t};var k=(t,e,n)=>(n=t!=null?m(y(t)):{},a(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),v=t=>a(o({},\"__esModule\",{value:!0}),t);var l=x((j,c)=>{c.exports=_jsx_runtime});var _={};T(_,{default:()=>p,frontmatter:()=>D});var r=k(l()),D={title:\"Talks\",summary:\"No talks yet \\u2014 this section is ready for the first one.\",status:\"DRAFT\",talkType:\"CONFERENCE\",event:\"none yet\",eventDate:\"2026-01-01\",tags:[],related:[]};function u(t){let e={p:\"p\",...t.components};return(0,r.jsx)(e.p,{children:\"This section is intentionally live infrastructure with no content yet, per the Talks empty-state design note in the approved architecture. It stays in DRAFT status until a real talk exists, so it never renders as a published item on its own.\"})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return v(_);})();\n;return Component;"
+        },
+        "_id": "talks/first-talk-placeholder.mdx",
+        "_raw": {
+          "sourceFilePath": "talks/first-talk-placeholder.mdx",
+          "sourceFileName": "first-talk-placeholder.mdx",
+          "sourceFileDir": "talks",
+          "contentType": "mdx",
+          "flattenedPath": "talks/first-talk-placeholder"
+        },
+        "type": "Talk",
+        "slug": "first-talk-placeholder",
+        "url": "/talks/first-talk-placeholder",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "Talk"
+    },
+    "toolbox/qdrant.mdx": {
+      "document": {
+        "title": "Qdrant",
+        "summary": "Vector database used for retrieval in production RAG systems.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-01-15T00:00:00.000Z",
+        "tags": [
+          "rag",
+          "toolbox"
+        ],
+        "related": [
+          "enterprise-rag-architecture"
+        ],
+        "whyIUseIt": "Metadata filtering alongside vector search matters more in practice than raw ANN benchmark numbers do, and Qdrant filtering is straightforward to reason about.",
+        "alternatives": "Pinecone (managed, less filtering flexibility), pgvector (simpler ops if already running Postgres, less mature at scale).",
+        "strengths": "Strong metadata filtering, reasonable self-hosting story.",
+        "weaknesses": "Smaller ecosystem than Pinecone; fewer managed-hosting options.",
+        "bestUseCases": "RAG systems where retrieval needs to be filtered by document metadata such as source, date, or permission scope, not just similarity.",
+        "body": {
+          "raw": "\nChosen and kept for the metadata-filtering tradeoff above; revisited if that stops being true.\n",
+          "code": "var Component=(()=>{var u=Object.create;var a=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},y=(e,t)=>{for(var r in t)a(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of g(t))!p.call(e,s)&&s!==r&&a(e,s,{get:()=>t[s],enumerable:!(o=f(t,s))||o.enumerable});return e};var x=(e,t,r)=>(r=e!=null?u(h(e)):{},i(t||!e||!e.__esModule?a(r,\"default\",{value:e,enumerable:!0}):r,e)),v=e=>i(a({},\"__esModule\",{value:!0}),e);var d=b((A,c)=>{c.exports=_jsx_runtime});var _={};y(_,{default:()=>m,frontmatter:()=>w});var n=x(d()),w={title:\"Qdrant\",summary:\"Vector database used for retrieval in production RAG systems.\",status:\"PUBLISHED\",publishedAt:\"2026-01-15\",whyIUseIt:\"Metadata filtering alongside vector search matters more in practice than raw ANN benchmark numbers do, and Qdrant filtering is straightforward to reason about.\",alternatives:\"Pinecone (managed, less filtering flexibility), pgvector (simpler ops if already running Postgres, less mature at scale).\",strengths:\"Strong metadata filtering, reasonable self-hosting story.\",weaknesses:\"Smaller ecosystem than Pinecone; fewer managed-hosting options.\",bestUseCases:\"RAG systems where retrieval needs to be filtered by document metadata such as source, date, or permission scope, not just similarity.\",tags:[\"rag\",\"toolbox\"],related:[\"enterprise-rag-architecture\"]};function l(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Chosen and kept for the metadata-filtering tradeoff above; revisited if that stops being true.\"})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return v(_);})();\n;return Component;"
+        },
+        "_id": "toolbox/qdrant.mdx",
+        "_raw": {
+          "sourceFilePath": "toolbox/qdrant.mdx",
+          "sourceFileName": "qdrant.mdx",
+          "sourceFileDir": "toolbox",
+          "contentType": "mdx",
+          "flattenedPath": "toolbox/qdrant"
+        },
+        "type": "ToolboxEntry",
+        "slug": "qdrant",
+        "url": "/toolbox/qdrant",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "ToolboxEntry"
+    },
+    "ventures/ai-engineering-institute.mdx": {
+      "document": {
+        "title": "This Platform",
+        "summary": "The institute itself, treated as a long-term product, not just a website.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-01-05T00:00:00.000Z",
+        "tags": [
+          "meta"
+        ],
+        "related": [],
+        "ventureStatus": "BUILDING",
+        "problem": "Most engineers public work is scattered across a resume, a GitHub profile, and a handful of unlinked blog posts, none of which show how the work connects.",
+        "vision": "A single knowledge system where research, projects, and writing all reference each other, so the body of work compounds instead of accumulating as disconnected artifacts.",
+        "currentStatus": "Foundation and content system built; content types and the knowledge graph are being populated as real work happens.",
+        "futurePlans": "Semantic search, a public knowledge graph visualization, and eventually a RAG-based assistant over the whole corpus.",
+        "body": {
+          "raw": "\nBuilt the way it recommends building things: incrementally, with the architecture decided before the code.\n",
+          "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},b=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of m(t))!w.call(e,o)&&o!==n&&a(e,o,{get:()=>t[o],enumerable:!(r=p(t,o))||r.enumerable});return e};var y=(e,t,n)=>(n=e!=null?h(f(e)):{},i(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),k=e=>i(a({},\"__esModule\",{value:!0}),e);var u=g((_,c)=>{c.exports=_jsx_runtime});var j={};b(j,{default:()=>d,frontmatter:()=>x});var s=y(u()),x={title:\"This Platform\",summary:\"The institute itself, treated as a long-term product, not just a website.\",status:\"PUBLISHED\",publishedAt:\"2026-01-05\",ventureStatus:\"BUILDING\",problem:\"Most engineers public work is scattered across a resume, a GitHub profile, and a handful of unlinked blog posts, none of which show how the work connects.\",vision:\"A single knowledge system where research, projects, and writing all reference each other, so the body of work compounds instead of accumulating as disconnected artifacts.\",currentStatus:\"Foundation and content system built; content types and the knowledge graph are being populated as real work happens.\",futurePlans:\"Semantic search, a public knowledge graph visualization, and eventually a RAG-based assistant over the whole corpus.\",tags:[\"meta\"],related:[]};function l(e){let t={p:\"p\",...e.components};return(0,s.jsx)(t.p,{children:\"Built the way it recommends building things: incrementally, with the architecture decided before the code.\"})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(l,{...e})}):l(e)}return k(j);})();\n;return Component;"
+        },
+        "_id": "ventures/ai-engineering-institute.mdx",
+        "_raw": {
+          "sourceFilePath": "ventures/ai-engineering-institute.mdx",
+          "sourceFileName": "ai-engineering-institute.mdx",
+          "sourceFileDir": "ventures",
+          "contentType": "mdx",
+          "flattenedPath": "ventures/ai-engineering-institute"
+        },
+        "type": "Venture",
+        "slug": "ai-engineering-institute",
+        "url": "/ventures/ai-engineering-institute",
+        "readingTime": 1
+      },
+      "documentHash": "1788807220000",
+      "hasWarnings": false,
+      "documentTypeName": "Venture"
+    },
+    "writing/guardrails-in-production-ai.mdx": {
+      "document": {
+        "title": "Guardrails in Production AI",
+        "summary": "What breaks first when an agent gets real tool access, and how to contain it before it reaches a user.",
+        "status": "PUBLISHED",
+        "publishedAt": "2026-04-02T00:00:00.000Z",
+        "tags": [
+          "agents",
+          "guardrails",
+          "production-ai"
+        ],
+        "related": [
+          "ai-agent-architecture",
+          "designing-llm-evaluation-systems"
+        ],
+        "category": "Engineering",
+        "body": {
+          "raw": "\nThe first time an agent had real tool access in one of my systems, the failure wasn't dramatic. It quietly called a search tool with a malformed query, got back an empty result, and then — instead of saying so — generated a plausible-sounding answer as if the search had succeeded.\n\nThat's the failure mode guardrails exist for: not the agent doing something obviously wrong, but the agent papering over its own uncertainty. A guardrail layer's job is narrower than people expect — it isn't \"make the agent safe,\" it's \"make failure visible instead of silent.\"\n",
+          "code": "var Component=(()=>{var g=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(a){throw t=0,a}},x=(e,t)=>{for(var a in t)r(e,a,{get:t[a],enumerable:!0})},o=(e,t,a,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of m(t))!p.call(e,s)&&s!==a&&r(e,s,{get:()=>t[s],enumerable:!(i=h(t,s))||i.enumerable});return e};var b=(e,t,a)=>(a=e!=null?g(f(e)):{},o(t||!e||!e.__esModule?r(a,\"default\",{value:e,enumerable:!0}):a,e)),w=e=>o(r({},\"__esModule\",{value:!0}),e);var c=y((v,l)=>{l.exports=_jsx_runtime});var j={};x(j,{default:()=>d,frontmatter:()=>_});var n=b(c()),_={title:\"Guardrails in Production AI\",summary:\"What breaks first when an agent gets real tool access, and how to contain it before it reaches a user.\",status:\"PUBLISHED\",publishedAt:\"2026-04-02\",category:\"Engineering\",tags:[\"agents\",\"guardrails\",\"production-ai\"],related:[\"ai-agent-architecture\",\"designing-llm-evaluation-systems\"]};function u(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"The first time an agent had real tool access in one of my systems, the failure wasn't dramatic. It quietly called a search tool with a malformed query, got back an empty result, and then \\u2014 instead of saying so \\u2014 generated a plausible-sounding answer as if the search had succeeded.\"}),`\n`,(0,n.jsx)(t.p,{children:`That's the failure mode guardrails exist for: not the agent doing something obviously wrong, but the agent papering over its own uncertainty. A guardrail layer's job is narrower than people expect \\u2014 it isn't \"make the agent safe,\" it's \"make failure visible instead of silent.\"`})]})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(u,{...e})}):u(e)}return w(j);})();\n;return Component;"
+        },
+        "_id": "writing/guardrails-in-production-ai.mdx",
+        "_raw": {
+          "sourceFilePath": "writing/guardrails-in-production-ai.mdx",
+          "sourceFileName": "guardrails-in-production-ai.mdx",
+          "sourceFileDir": "writing",
+          "contentType": "mdx",
+          "flattenedPath": "writing/guardrails-in-production-ai"
+        },
+        "type": "WritingPost",
+        "slug": "guardrails-in-production-ai",
+        "url": "/writing/guardrails-in-production-ai",
+        "readingTime": 1
+      },
+      "documentHash": "1788807140000",
+      "hasWarnings": false,
+      "documentTypeName": "WritingPost"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "title": "Hemodynamic Feature Extraction for Cerebral Aneurysm Rupture Risk",
+  "summary": "A CFD-derived feature pipeline for aneurysm rupture risk scoring, and what its limitations say about deploying it clinically.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-03-14T00:00:00.000Z",
+  "tags": [
+    "healthcare-ai",
+    "cfd",
+    "risk-modeling"
+  ],
+  "related": [
+    "neuroflow-cfd",
+    "rag-chunking-strategies"
+  ],
+  "layer": "PAPER",
+  "category": "Healthcare AI",
+  "abstract": "Manual CFD interpretation for cerebral aneurysm rupture-risk assessment does not scale and varies between readers. This paper describes a pipeline that extracts hemodynamic features from simulated blood flow and feeds them into a learned risk-scoring model, and reports where that pipeline currently falls short of clinical readiness.",
+  "methodology": "Patient-specific vessel geometries were reconstructed from DICOM scans, meshed, and simulated under pulsatile inflow boundary conditions. Wall shear stress, oscillatory shear index, and flow impingement metrics were extracted at the aneurysm surface and used as model inputs.",
+  "results": "The resulting model separated ruptured from unruptured cases with a level of accuracy comparable to specialist manual review on the held-out set, while running in a fraction of the wall-clock time.",
+  "limitations": "The training set skews toward middle cerebral artery aneurysms, so performance on other vessel locations is unverified. Mesh quality sensitivity was not fully characterized, and the model has not been validated on a prospective, multi-center cohort.",
+  "futureWork": "Prospective validation across multiple imaging centers, and mesh-quality robustness testing, are the two gating items before any clinical pilot.",
+  "body": {
+    "raw": "\n## Problem\n\nRupture-risk assessment for cerebral aneurysms traditionally depends on a specialist manually interpreting a computational fluid dynamics (CFD) simulation. That doesn't scale, and it isn't fully reproducible between readers.\n\n## What this pipeline does\n\nBlood flow through the aneurysm geometry is simulated, and a fixed set of hemodynamic features — wall shear stress, oscillatory shear index, and flow impingement — is extracted at the aneurysm surface. Those features feed a risk-scoring model rather than requiring a specialist to read the simulation directly.\n\n## Where it stands today\n\nThe model performs comparably to specialist manual review on the held-out evaluation set. That is a meaningfully different claim than \"ready for clinical use\" — see Limitations above for exactly why, and Future Work for what needs to happen before that gap closes.\n",
+    "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},w=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},o=(t,e,r,n)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of p(e))!y.call(t,s)&&s!==r&&i(t,s,{get:()=>e[s],enumerable:!(n=h(e,s))||n.enumerable});return t};var b=(t,e,r)=>(r=t!=null?m(f(t)):{},o(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),x=t=>o(i({},\"__esModule\",{value:!0}),t);var d=g((D,l)=>{l.exports=_jsx_runtime});var k={};w(k,{default:()=>u,frontmatter:()=>v});var a=b(d()),v={title:\"Hemodynamic Feature Extraction for Cerebral Aneurysm Rupture Risk\",summary:\"A CFD-derived feature pipeline for aneurysm rupture risk scoring, and what its limitations say about deploying it clinically.\",status:\"PUBLISHED\",publishedAt:\"2026-03-14\",layer:\"PAPER\",category:\"Healthcare AI\",abstract:\"Manual CFD interpretation for cerebral aneurysm rupture-risk assessment does not scale and varies between readers. This paper describes a pipeline that extracts hemodynamic features from simulated blood flow and feeds them into a learned risk-scoring model, and reports where that pipeline currently falls short of clinical readiness.\",methodology:\"Patient-specific vessel geometries were reconstructed from DICOM scans, meshed, and simulated under pulsatile inflow boundary conditions. Wall shear stress, oscillatory shear index, and flow impingement metrics were extracted at the aneurysm surface and used as model inputs.\",results:\"The resulting model separated ruptured from unruptured cases with a level of accuracy comparable to specialist manual review on the held-out set, while running in a fraction of the wall-clock time.\",limitations:\"The training set skews toward middle cerebral artery aneurysms, so performance on other vessel locations is unverified. Mesh quality sensitivity was not fully characterized, and the model has not been validated on a prospective, multi-center cohort.\",futureWork:\"Prospective validation across multiple imaging centers, and mesh-quality robustness testing, are the two gating items before any clinical pilot.\",tags:[\"healthcare-ai\",\"cfd\",\"risk-modeling\"],related:[\"neuroflow-cfd\",\"rag-chunking-strategies\"]};function c(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Problem\"}),`\n`,(0,a.jsx)(e.p,{children:\"Rupture-risk assessment for cerebral aneurysms traditionally depends on a specialist manually interpreting a computational fluid dynamics (CFD) simulation. That doesn't scale, and it isn't fully reproducible between readers.\"}),`\n`,(0,a.jsx)(e.h2,{children:\"What this pipeline does\"}),`\n`,(0,a.jsx)(e.p,{children:\"Blood flow through the aneurysm geometry is simulated, and a fixed set of hemodynamic features \\u2014 wall shear stress, oscillatory shear index, and flow impingement \\u2014 is extracted at the aneurysm surface. Those features feed a risk-scoring model rather than requiring a specialist to read the simulation directly.\"}),`\n`,(0,a.jsx)(e.h2,{children:\"Where it stands today\"}),`\n`,(0,a.jsx)(e.p,{children:'The model performs comparably to specialist manual review on the held-out evaluation set. That is a meaningfully different claim than \"ready for clinical use\" \\u2014 see Limitations above for exactly why, and Future Work for what needs to happen before that gap closes.'})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(c,{...t})}):c(t)}return x(k);})();\n;return Component;"
+  },
+  "_id": "research/hemodynamic-feature-extraction.mdx",
+  "_raw": {
+    "sourceFilePath": "research/hemodynamic-feature-extraction.mdx",
+    "sourceFileName": "hemodynamic-feature-extraction.mdx",
+    "sourceFileDir": "research",
+    "contentType": "mdx",
+    "flattenedPath": "research/hemodynamic-feature-extraction"
+  },
+  "type": "ResearchPaper",
+  "slug": "hemodynamic-feature-extraction",
+  "url": "/research/hemodynamic-feature-extraction",
+  "readingTime": 1
+}

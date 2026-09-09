@@ -1,0 +1,22 @@
+---
+title: "Enterprise RAG Architecture"
+summary: "Ingestion through grounded generation, and the failure points that actually show up in production."
+status: PUBLISHED
+publishedAt: 2026-01-20
+components: "Ingestion service, chunker, embedding model, vector store, reranker, generation model, citation checker."
+dataFlow: "Document → ingestion → chunk + embed → vector store → query-time retrieve + rerank → grounded generation → citation check → response."
+tradeoffs: "Reranking improves precision but adds 100-300ms of latency per query; skipping it is viable only when the vector store's raw top-k is already precise enough for the domain."
+scalability: "Vector store read load scales with query volume, not corpus size, so sharding decisions should be driven by QPS projections, not document count alone."
+failurePoints: "Silent retrieval failure (the wrong chunk is retrieved but confidently cited) is the most common and hardest-to-detect failure mode — it doesn't throw an error, it just produces a plausible-sounding wrong answer."
+costAnalysis: "Embedding cost is one-time per document at ingestion; generation cost recurs per query and dominates total spend once query volume exceeds roughly 10x the corpus size."
+tags: ["rag", "system-design", "architecture"]
+related: ["rag-chunking-strategies", "evaluating-retrieval-quality-in-production-rag", "building-production-rag-systems"]
+---
+
+## The pipeline
+
+Documents are ingested, chunked, and embedded once. At query time, the system retrieves candidate chunks, reranks them, and generates a response grounded in the retrieved context — then checks that the response's citations actually correspond to retrieved content before returning it.
+
+## The failure mode that matters most
+
+Most RAG failures aren't crashes — they're the system confidently answering from the wrong chunk. That's why the citation-check step exists as a distinct stage, not a side effect of generation: it's the one point in the pipeline explicitly designed to catch silent retrieval failure before it reaches a user.

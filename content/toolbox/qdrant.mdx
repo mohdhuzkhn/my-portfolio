@@ -1,0 +1,15 @@
+---
+title: "Qdrant"
+summary: "Vector database used for retrieval in production RAG systems."
+status: PUBLISHED
+publishedAt: 2026-01-15
+whyIUseIt: "Metadata filtering alongside vector search matters more in practice than raw ANN benchmark numbers do, and Qdrant filtering is straightforward to reason about."
+alternatives: "Pinecone (managed, less filtering flexibility), pgvector (simpler ops if already running Postgres, less mature at scale)."
+strengths: "Strong metadata filtering, reasonable self-hosting story."
+weaknesses: "Smaller ecosystem than Pinecone; fewer managed-hosting options."
+bestUseCases: "RAG systems where retrieval needs to be filtered by document metadata such as source, date, or permission scope, not just similarity."
+tags: ["rag", "toolbox"]
+related: ["enterprise-rag-architecture"]
+---
+
+Chosen and kept for the metadata-filtering tradeoff above; revisited if that stops being true.

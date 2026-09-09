@@ -1,0 +1,35 @@
+[
+  {
+    "title": "RAG Systems",
+    "summary": "The stage where retrieval architecture became the primary focus.",
+    "status": "PUBLISHED",
+    "publishedAt": "2025-09-01T00:00:00.000Z",
+    "tags": [
+      "journey"
+    ],
+    "related": [
+      "enterprise-rag-architecture",
+      "rag-chunking-strategies",
+      "building-production-rag-systems"
+    ],
+    "milestoneDate": "2025-09-01T00:00:00.000Z",
+    "sequenceIndex": 4,
+    "stageName": "RAG Systems",
+    "body": {
+      "raw": "\nMoved from applying machine learning generally to specializing in retrieval architecture — chunking strategy, embeddings, reranking, and grounding — as the primary technical focus.\n",
+      "code": "var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of h(t))!y.call(e,r)&&r!==n&&a(e,r,{get:()=>t[r],enumerable:!(s=d(t,r))||s.enumerable});return e};var _=(e,t,n)=>(n=e!=null?l(p(e)):{},c(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),b=e=>c(a({},\"__esModule\",{value:!0}),e);var u=f((k,o)=>{o.exports=_jsx_runtime});var D={};x(D,{default:()=>g,frontmatter:()=>j});var i=_(u()),j={title:\"RAG Systems\",summary:\"The stage where retrieval architecture became the primary focus.\",status:\"PUBLISHED\",publishedAt:\"2025-09-01\",milestoneDate:\"2025-09-01\",sequenceIndex:4,stageName:\"RAG Systems\",tags:[\"journey\"],related:[\"enterprise-rag-architecture\",\"rag-chunking-strategies\",\"building-production-rag-systems\"]};function m(e){let t={p:\"p\",...e.components};return(0,i.jsx)(t.p,{children:\"Moved from applying machine learning generally to specializing in retrieval architecture \\u2014 chunking strategy, embeddings, reranking, and grounding \\u2014 as the primary technical focus.\"})}function g(e={}){let{wrapper:t}=e.components||{};return t?(0,i.jsx)(t,{...e,children:(0,i.jsx)(m,{...e})}):m(e)}return b(D);})();\n;return Component;"
+    },
+    "_id": "journey/rag-systems.mdx",
+    "_raw": {
+      "sourceFilePath": "journey/rag-systems.mdx",
+      "sourceFileName": "rag-systems.mdx",
+      "sourceFileDir": "journey",
+      "contentType": "mdx",
+      "flattenedPath": "journey/rag-systems"
+    },
+    "type": "JourneyMilestone",
+    "slug": "rag-systems",
+    "url": "/journey/rag-systems",
+    "readingTime": 1
+  }
+]

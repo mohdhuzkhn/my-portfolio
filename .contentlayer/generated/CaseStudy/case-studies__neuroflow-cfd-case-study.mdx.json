@@ -1,0 +1,35 @@
+{
+  "title": "NeuroFlow CFD — Case Study",
+  "summary": "Why the architecture looks like it does, not just what was built.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-03-20T00:00:00.000Z",
+  "tags": [
+    "healthcare-ai",
+    "case-study"
+  ],
+  "related": [
+    "neuroflow-cfd",
+    "hemodynamic-feature-extraction"
+  ],
+  "problem": "Rupture-risk assessment does not scale as a manual, specialist-only process.",
+  "constraints": "Clinical DICOM data is noisy; the pipeline had to tolerate imaging artifacts without silently producing bad meshes.",
+  "technicalDecisions": "Validating mesh quality before simulation, rather than after a solver crash, was the single highest-leverage decision in the whole pipeline.",
+  "challenges": "Non-manifold geometry from imaging artifacts crashed the CFD solver in ways that were hard to distinguish from genuine simulation failures.",
+  "lessonsLearned": "Catch data-quality problems as early in the pipeline as possible — every stage they slip past multiplies the cost of diagnosing them.",
+  "body": {
+    "raw": "\nThe Project page is the artifact record. This page is the decision log — why the pipeline is shaped the way it is, not just what it does.\n",
+    "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}},w=(e,t)=>{for(var s in t)a(e,s,{get:t[s],enumerable:!0})},r=(e,t,s,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of m(t))!f.call(e,i)&&i!==s&&a(e,i,{get:()=>t[i],enumerable:!(o=p(t,i))||o.enumerable});return e};var x=(e,t,s)=>(s=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?a(s,\"default\",{value:e,enumerable:!0}):s,e)),C=e=>r(a({},\"__esModule\",{value:!0}),e);var h=y((_,l)=>{l.exports=_jsx_runtime});var D={};w(D,{default:()=>u,frontmatter:()=>b});var n=x(h()),b={title:\"NeuroFlow CFD \\u2014 Case Study\",summary:\"Why the architecture looks like it does, not just what was built.\",status:\"PUBLISHED\",publishedAt:\"2026-03-20\",problem:\"Rupture-risk assessment does not scale as a manual, specialist-only process.\",constraints:\"Clinical DICOM data is noisy; the pipeline had to tolerate imaging artifacts without silently producing bad meshes.\",technicalDecisions:\"Validating mesh quality before simulation, rather than after a solver crash, was the single highest-leverage decision in the whole pipeline.\",challenges:\"Non-manifold geometry from imaging artifacts crashed the CFD solver in ways that were hard to distinguish from genuine simulation failures.\",lessonsLearned:\"Catch data-quality problems as early in the pipeline as possible \\u2014 every stage they slip past multiplies the cost of diagnosing them.\",tags:[\"healthcare-ai\",\"case-study\"],related:[\"neuroflow-cfd\",\"hemodynamic-feature-extraction\"]};function c(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"The Project page is the artifact record. This page is the decision log \\u2014 why the pipeline is shaped the way it is, not just what it does.\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(c,{...e})}):c(e)}return C(D);})();\n;return Component;"
+  },
+  "_id": "case-studies/neuroflow-cfd-case-study.mdx",
+  "_raw": {
+    "sourceFilePath": "case-studies/neuroflow-cfd-case-study.mdx",
+    "sourceFileName": "neuroflow-cfd-case-study.mdx",
+    "sourceFileDir": "case-studies",
+    "contentType": "mdx",
+    "flattenedPath": "case-studies/neuroflow-cfd-case-study"
+  },
+  "type": "CaseStudy",
+  "slug": "neuroflow-cfd-case-study",
+  "url": "/case-studies/neuroflow-cfd-case-study",
+  "readingTime": 1
+}

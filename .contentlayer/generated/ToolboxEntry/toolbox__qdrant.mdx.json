@@ -1,0 +1,34 @@
+{
+  "title": "Qdrant",
+  "summary": "Vector database used for retrieval in production RAG systems.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-01-15T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "toolbox"
+  ],
+  "related": [
+    "enterprise-rag-architecture"
+  ],
+  "whyIUseIt": "Metadata filtering alongside vector search matters more in practice than raw ANN benchmark numbers do, and Qdrant filtering is straightforward to reason about.",
+  "alternatives": "Pinecone (managed, less filtering flexibility), pgvector (simpler ops if already running Postgres, less mature at scale).",
+  "strengths": "Strong metadata filtering, reasonable self-hosting story.",
+  "weaknesses": "Smaller ecosystem than Pinecone; fewer managed-hosting options.",
+  "bestUseCases": "RAG systems where retrieval needs to be filtered by document metadata such as source, date, or permission scope, not just similarity.",
+  "body": {
+    "raw": "\nChosen and kept for the metadata-filtering tradeoff above; revisited if that stops being true.\n",
+    "code": "var Component=(()=>{var u=Object.create;var a=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},y=(e,t)=>{for(var r in t)a(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of g(t))!p.call(e,s)&&s!==r&&a(e,s,{get:()=>t[s],enumerable:!(o=f(t,s))||o.enumerable});return e};var x=(e,t,r)=>(r=e!=null?u(h(e)):{},i(t||!e||!e.__esModule?a(r,\"default\",{value:e,enumerable:!0}):r,e)),v=e=>i(a({},\"__esModule\",{value:!0}),e);var d=b((A,c)=>{c.exports=_jsx_runtime});var _={};y(_,{default:()=>m,frontmatter:()=>w});var n=x(d()),w={title:\"Qdrant\",summary:\"Vector database used for retrieval in production RAG systems.\",status:\"PUBLISHED\",publishedAt:\"2026-01-15\",whyIUseIt:\"Metadata filtering alongside vector search matters more in practice than raw ANN benchmark numbers do, and Qdrant filtering is straightforward to reason about.\",alternatives:\"Pinecone (managed, less filtering flexibility), pgvector (simpler ops if already running Postgres, less mature at scale).\",strengths:\"Strong metadata filtering, reasonable self-hosting story.\",weaknesses:\"Smaller ecosystem than Pinecone; fewer managed-hosting options.\",bestUseCases:\"RAG systems where retrieval needs to be filtered by document metadata such as source, date, or permission scope, not just similarity.\",tags:[\"rag\",\"toolbox\"],related:[\"enterprise-rag-architecture\"]};function l(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Chosen and kept for the metadata-filtering tradeoff above; revisited if that stops being true.\"})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return v(_);})();\n;return Component;"
+  },
+  "_id": "toolbox/qdrant.mdx",
+  "_raw": {
+    "sourceFilePath": "toolbox/qdrant.mdx",
+    "sourceFileName": "qdrant.mdx",
+    "sourceFileDir": "toolbox",
+    "contentType": "mdx",
+    "flattenedPath": "toolbox/qdrant"
+  },
+  "type": "ToolboxEntry",
+  "slug": "qdrant",
+  "url": "/toolbox/qdrant",
+  "readingTime": 1
+}

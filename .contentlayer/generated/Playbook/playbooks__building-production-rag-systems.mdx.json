@@ -1,0 +1,65 @@
+{
+  "title": "Building Production RAG Systems",
+  "summary": "The execution path from a working retrieval demo to something that survives real traffic and real documents.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-04-10T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "playbook",
+    "production-ai"
+  ],
+  "related": [
+    "rag-chunking-strategies",
+    "enterprise-rag-architecture",
+    "evaluating-retrieval-quality-in-production-rag"
+  ],
+  "overview": "Most RAG tutorials stop at 'retrieve and generate.' Production RAG is mostly the parts that come after that: evaluation, guardrails, and handling the documents that don't fit your assumptions.",
+  "problem": "A RAG demo that works on ten clean PDFs usually breaks on a real document corpus — inconsistent formatting, duplicate content, and documents that contradict each other.",
+  "prerequisites": "A working embeddings + vector store setup; familiarity with the tradeoffs in the Chunking Strategies knowledge article.",
+  "recommendedStack": "A vector store with metadata filtering (Qdrant or pgvector), a reranker, and a generation model with a context window large enough to hold reranked results comfortably.",
+  "commonMistakes": "Treating retrieval and generation quality as one metric — a system can generate fluent, well-cited answers from the wrong retrieved chunk, and that failure is invisible unless retrieval is evaluated separately.",
+  "tradeoffs": "Reranking adds latency for a precision gain; skipping it only makes sense once you've measured that your base retrieval precision is already high enough for your domain.",
+  "steps": [
+    {
+      "order": 1,
+      "title": "Establish a retrieval-only evaluation set",
+      "detail": "Before touching generation quality, build a set of queries with known-correct source chunks, so retrieval precision can be measured independently of how fluent the final answer sounds."
+    },
+    {
+      "order": 2,
+      "title": "Pick a chunking strategy deliberately",
+      "detail": "Match the strategy to your corpus's actual structure — see the Chunking Strategies knowledge article for the concrete tradeoff."
+    },
+    {
+      "order": 3,
+      "title": "Add reranking once retrieval precision plateaus",
+      "detail": "Rerankers help most when the vector store's raw top-k is noisy; measure before adding the latency cost."
+    },
+    {
+      "order": 4,
+      "title": "Add a citation check before shipping",
+      "detail": "Verify generated citations actually correspond to retrieved chunks — this is what catches silent retrieval failure, per the Enterprise RAG Architecture page."
+    },
+    {
+      "order": 5,
+      "title": "Re-run the retrieval eval after every corpus change",
+      "detail": "Document corpus changes are the most common cause of retrieval regressions that generation-level evals won't catch."
+    }
+  ],
+  "body": {
+    "raw": "\nBuilding a RAG demo and building a RAG system that survives production traffic are different jobs. This playbook is the second one — the execution path, not the concept explanation (that's what the Knowledge base entries are for).\n",
+    "code": "var Component=(()=>{var h=Object.create;var n=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},y=(e,t)=>{for(var r in t)n(e,r,{get:t[r],enumerable:!0})},s=(e,t,r,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of m(t))!f.call(e,a)&&a!==r&&n(e,a,{get:()=>t[a],enumerable:!(i=g(t,a))||i.enumerable});return e};var k=(e,t,r)=>(r=e!=null?h(p(e)):{},s(t||!e||!e.__esModule?n(r,\"default\",{value:e,enumerable:!0}):r,e)),w=e=>s(n({},\"__esModule\",{value:!0}),e);var l=v((R,c)=>{c.exports=_jsx_runtime});var A={};y(A,{default:()=>u,frontmatter:()=>b});var o=k(l()),b={title:\"Building Production RAG Systems\",summary:\"The execution path from a working retrieval demo to something that survives real traffic and real documents.\",status:\"PUBLISHED\",publishedAt:\"2026-04-10\",overview:\"Most RAG tutorials stop at 'retrieve and generate.' Production RAG is mostly the parts that come after that: evaluation, guardrails, and handling the documents that don't fit your assumptions.\",problem:\"A RAG demo that works on ten clean PDFs usually breaks on a real document corpus \\u2014 inconsistent formatting, duplicate content, and documents that contradict each other.\",prerequisites:\"A working embeddings + vector store setup; familiarity with the tradeoffs in the Chunking Strategies knowledge article.\",recommendedStack:\"A vector store with metadata filtering (Qdrant or pgvector), a reranker, and a generation model with a context window large enough to hold reranked results comfortably.\",commonMistakes:\"Treating retrieval and generation quality as one metric \\u2014 a system can generate fluent, well-cited answers from the wrong retrieved chunk, and that failure is invisible unless retrieval is evaluated separately.\",tradeoffs:\"Reranking adds latency for a precision gain; skipping it only makes sense once you've measured that your base retrieval precision is already high enough for your domain.\",steps:[{order:1,title:\"Establish a retrieval-only evaluation set\",detail:\"Before touching generation quality, build a set of queries with known-correct source chunks, so retrieval precision can be measured independently of how fluent the final answer sounds.\"},{order:2,title:\"Pick a chunking strategy deliberately\",detail:\"Match the strategy to your corpus's actual structure \\u2014 see the Chunking Strategies knowledge article for the concrete tradeoff.\"},{order:3,title:\"Add reranking once retrieval precision plateaus\",detail:\"Rerankers help most when the vector store's raw top-k is noisy; measure before adding the latency cost.\"},{order:4,title:\"Add a citation check before shipping\",detail:\"Verify generated citations actually correspond to retrieved chunks \\u2014 this is what catches silent retrieval failure, per the Enterprise RAG Architecture page.\"},{order:5,title:\"Re-run the retrieval eval after every corpus change\",detail:\"Document corpus changes are the most common cause of retrieval regressions that generation-level evals won't catch.\"}],tags:[\"rag\",\"playbook\",\"production-ai\"],related:[\"rag-chunking-strategies\",\"enterprise-rag-architecture\",\"evaluating-retrieval-quality-in-production-rag\"]};function d(e){let t={p:\"p\",...e.components};return(0,o.jsx)(t.p,{children:\"Building a RAG demo and building a RAG system that survives production traffic are different jobs. This playbook is the second one \\u2014 the execution path, not the concept explanation (that's what the Knowledge base entries are for).\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}return w(A);})();\n;return Component;"
+  },
+  "_id": "playbooks/building-production-rag-systems.mdx",
+  "_raw": {
+    "sourceFilePath": "playbooks/building-production-rag-systems.mdx",
+    "sourceFileName": "building-production-rag-systems.mdx",
+    "sourceFileDir": "playbooks",
+    "contentType": "mdx",
+    "flattenedPath": "playbooks/building-production-rag-systems"
+  },
+  "type": "Playbook",
+  "slug": "building-production-rag-systems",
+  "url": "/playbooks/building-production-rag-systems",
+  "readingTime": 1
+}

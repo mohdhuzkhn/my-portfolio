@@ -1,0 +1,27 @@
+---
+title: "Hemodynamic Feature Extraction for Cerebral Aneurysm Rupture Risk"
+summary: "A CFD-derived feature pipeline for aneurysm rupture risk scoring, and what its limitations say about deploying it clinically."
+status: PUBLISHED
+publishedAt: 2026-03-14
+layer: PAPER
+category: "Healthcare AI"
+abstract: "Manual CFD interpretation for cerebral aneurysm rupture-risk assessment does not scale and varies between readers. This paper describes a pipeline that extracts hemodynamic features from simulated blood flow and feeds them into a learned risk-scoring model, and reports where that pipeline currently falls short of clinical readiness."
+methodology: "Patient-specific vessel geometries were reconstructed from DICOM scans, meshed, and simulated under pulsatile inflow boundary conditions. Wall shear stress, oscillatory shear index, and flow impingement metrics were extracted at the aneurysm surface and used as model inputs."
+results: "The resulting model separated ruptured from unruptured cases with a level of accuracy comparable to specialist manual review on the held-out set, while running in a fraction of the wall-clock time."
+limitations: "The training set skews toward middle cerebral artery aneurysms, so performance on other vessel locations is unverified. Mesh quality sensitivity was not fully characterized, and the model has not been validated on a prospective, multi-center cohort."
+futureWork: "Prospective validation across multiple imaging centers, and mesh-quality robustness testing, are the two gating items before any clinical pilot."
+tags: ["healthcare-ai", "cfd", "risk-modeling"]
+related: ["neuroflow-cfd", "rag-chunking-strategies"]
+---
+
+## Problem
+
+Rupture-risk assessment for cerebral aneurysms traditionally depends on a specialist manually interpreting a computational fluid dynamics (CFD) simulation. That doesn't scale, and it isn't fully reproducible between readers.
+
+## What this pipeline does
+
+Blood flow through the aneurysm geometry is simulated, and a fixed set of hemodynamic features — wall shear stress, oscillatory shear index, and flow impingement — is extracted at the aneurysm surface. Those features feed a risk-scoring model rather than requiring a specialist to read the simulation directly.
+
+## Where it stands today
+
+The model performs comparably to specialist manual review on the held-out evaluation set. That is a meaningfully different claim than "ready for clinical use" — see Limitations above for exactly why, and Future Work for what needs to happen before that gap closes.

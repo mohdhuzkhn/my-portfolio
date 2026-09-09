@@ -1,0 +1,35 @@
+[
+  {
+    "title": "RAG — Chunking Strategies",
+    "summary": "Fixed, semantic, and recursive chunking compared, with the tradeoff each one is actually making.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-02-02T00:00:00.000Z",
+    "tags": [
+      "rag",
+      "retrieval",
+      "embeddings"
+    ],
+    "related": [
+      "evaluating-retrieval-quality-in-production-rag",
+      "building-production-rag-systems"
+    ],
+    "category": "RAG",
+    "examples": "A 2,000-word support article chunked at 512 tokens fixed-size will frequently split a numbered troubleshooting list mid-step; semantic chunking keyed on heading boundaries keeps the list intact but produces wildly uneven chunk sizes across a corpus with inconsistent authoring style.",
+    "body": {
+      "raw": "\n## The three approaches\n\n**Fixed-size chunking** splits text every N tokens, usually with overlap. Cheap, predictable, and the default in most RAG tutorials — the tradeoff is that it has no idea where a sentence, list, or section actually ends, so it frequently cuts through the middle of a coherent idea.\n\n**Semantic chunking** splits at detected topic or heading boundaries instead of a fixed token count. This keeps ideas intact, at the cost of unpredictable chunk sizes — a corpus with inconsistent heading structure produces wildly uneven chunks, which then complicates embedding-model context limits and retrieval scoring.\n\n**Recursive chunking** tries both: it attempts to split at natural boundaries (paragraph, then sentence) and only falls back to a hard token cut when a natural boundary can't be found within the target size. This is the most commonly recommended default in production because it fails gracefully rather than failing silently.\n\n## The actual tradeoff\n\nNone of these is \"correct\" — the real question is what your corpus's structure looks like. Densely-headed technical documentation tolerates semantic chunking well. Unstructured chat logs or transcripts usually don't have reliable boundaries to key off, so recursive or fixed-size chunking is the more honest choice there.\n",
+      "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var k=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(i){throw e=0,i}},y=(t,e)=>{for(var i in e)a(t,i,{get:e[i],enumerable:!0})},o=(t,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of g(e))!f.call(t,s)&&s!==i&&a(t,s,{get:()=>e[s],enumerable:!(r=p(e,s))||r.enumerable});return t};var b=(t,e,i)=>(i=t!=null?d(m(t)):{},o(e||!t||!t.__esModule?a(i,\"default\",{value:t,enumerable:!0}):i,t)),x=t=>o(a({},\"__esModule\",{value:!0}),t);var l=k((z,c)=>{c.exports=_jsx_runtime});var v={};y(v,{default:()=>u,frontmatter:()=>w});var n=b(l()),w={title:\"RAG \\u2014 Chunking Strategies\",summary:\"Fixed, semantic, and recursive chunking compared, with the tradeoff each one is actually making.\",status:\"PUBLISHED\",publishedAt:\"2026-02-02\",category:\"RAG\",examples:\"A 2,000-word support article chunked at 512 tokens fixed-size will frequently split a numbered troubleshooting list mid-step; semantic chunking keyed on heading boundaries keeps the list intact but produces wildly uneven chunk sizes across a corpus with inconsistent authoring style.\",tags:[\"rag\",\"retrieval\",\"embeddings\"],related:[\"evaluating-retrieval-quality-in-production-rag\",\"building-production-rag-systems\"]};function h(t){let e={h2:\"h2\",p:\"p\",strong:\"strong\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"The three approaches\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Fixed-size chunking\"}),\" splits text every N tokens, usually with overlap. Cheap, predictable, and the default in most RAG tutorials \\u2014 the tradeoff is that it has no idea where a sentence, list, or section actually ends, so it frequently cuts through the middle of a coherent idea.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Semantic chunking\"}),\" splits at detected topic or heading boundaries instead of a fixed token count. This keeps ideas intact, at the cost of unpredictable chunk sizes \\u2014 a corpus with inconsistent heading structure produces wildly uneven chunks, which then complicates embedding-model context limits and retrieval scoring.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Recursive chunking\"}),\" tries both: it attempts to split at natural boundaries (paragraph, then sentence) and only falls back to a hard token cut when a natural boundary can't be found within the target size. This is the most commonly recommended default in production because it fails gracefully rather than failing silently.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"The actual tradeoff\"}),`\n`,(0,n.jsx)(e.p,{children:`None of these is \"correct\" \\u2014 the real question is what your corpus's structure looks like. Densely-headed technical documentation tolerates semantic chunking well. Unstructured chat logs or transcripts usually don't have reliable boundaries to key off, so recursive or fixed-size chunking is the more honest choice there.`})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return x(v);})();\n;return Component;"
+    },
+    "_id": "knowledge/rag-chunking-strategies.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/rag-chunking-strategies.mdx",
+      "sourceFileName": "rag-chunking-strategies.mdx",
+      "sourceFileDir": "knowledge",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/rag-chunking-strategies"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "rag-chunking-strategies",
+    "url": "/knowledge/rag-chunking-strategies",
+    "readingTime": 1
+  }
+]

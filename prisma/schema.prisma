@@ -1,0 +1,437 @@
+// ============================================================================
+// AI Engineering Institute — Phase 2: Content System
+// Single Content + ContentLink backbone, 14 content types, one detail table
+// each. This is the schema approved across Rev.1 (5 types), Rev.2 (+4:
+// Lab, Journey, Roadmap, Venture), and Rev.3 (+5: Playbook, Case Study,
+// Talk, Dataset, Toolbox) — consolidated here as the single source of truth.
+// ============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── Identity ────────────────────────────────────────────────────────────
+model User {
+  id            String                @id @default(cuid())
+  email         String                @unique
+  name          String?
+  role          Role                  @default(READER)
+  createdAt     DateTime              @default(now())
+  bookmarks     Bookmark[]
+  newsletter    NewsletterSubscriber?
+}
+
+enum Role {
+  ADMIN
+  READER
+}
+
+// ── Shared content backbone ────────────────────────────────────────────
+// Every one of the 14 content types is a Content row plus exactly one
+// type-specific detail row. This is what makes the knowledge graph,
+// unified search, and shared SEO metadata generation possible without a
+// bespoke subsystem per content type.
+model Content {
+  id          String      @id @default(cuid())
+  type        ContentType
+  slug        String      @unique
+  title       String
+  summary     String
+  status      Status      @default(DRAFT)
+  publishedAt DateTime?
+  updatedAt   DateTime    @updatedAt
+  createdAt   DateTime    @default(now())
+  readingTime Int? // minutes, computed at ingest from MDX body
+  body        String // MDX source, mirrored from /content on ingest
+  ogImage     String?
+
+  tags          TagOnContent[]
+  outboundLinks ContentLink[]  @relation("source")
+  inboundLinks  ContentLink[]  @relation("target")
+  bookmarks     Bookmark[]
+
+  // One-to-one detail relations — exactly one populated per Content row,
+  // matching `type` above.
+  research     ResearchDetail?
+  brain        BrainDetail?
+  architecture ArchitectureDetail?
+  writing      WritingDetail?
+  project      ProjectDetail?
+  lab          LabDetail?
+  journey      JourneyDetail?
+  roadmap      RoadmapDetail?
+  venture      VentureDetail?
+  playbook     PlaybookDetail?
+  caseStudy    CaseStudyDetail?
+  talk         TalkDetail?
+  dataset      DatasetDetail?
+  toolboxEntry ToolboxDetail?
+
+  nowBuild      NowSnapshot[] @relation("nowBuild")
+  nowResearch   NowSnapshot[] @relation("nowResearch")
+  nowExperiment NowSnapshot[] @relation("nowExperiment")
+
+  @@index([type, status, publishedAt])
+}
+
+enum ContentType {
+  RESEARCH
+  BRAIN // public label: "Knowledge" (Rev.3) — internal name unchanged
+  ARCHITECTURE
+  WRITING
+  PROJECT
+  LAB_EXPERIMENT
+  JOURNEY_MILESTONE
+  ROADMAP
+  VENTURE
+  PLAYBOOK
+  CASE_STUDY
+  TALK
+  DATASET
+  TOOLBOX_ENTRY
+}
+
+enum Status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+// ── Explicit graph edges — the knowledge graph backbone ────────────────
+// Drives "Related Content", "Backlinks", and every cross-type relation
+// called for across all three architecture revisions (evolvedInto,
+// appliesTo, explains, usedIn, usesTool, teaches, milestoneEvidence, etc).
+model ContentLink {
+  id       String  @id @default(cuid())
+  sourceId String
+  targetId String
+  source   Content @relation("source", fields: [sourceId], references: [id], onDelete: Cascade)
+  target   Content @relation("target", fields: [targetId], references: [id], onDelete: Cascade)
+  relation String  @default("") // e.g. "cites", "evolvedInto", "appliesTo", "explains", "usedIn", "usesTool", "teaches"
+
+  @@unique([sourceId, targetId, relation])
+  @@index([targetId])
+}
+
+// ── Tags (cross-cutting, independent of category) ─────────────────────
+model Tag {
+  id       String         @id @default(cuid())
+  name     String         @unique
+  contents TagOnContent[]
+}
+
+model TagOnContent {
+  tagId     String
+  contentId String
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@id([tagId, contentId])
+}
+
+// ── Research: three layers (Idea → Note → Paper), per Rev.2 ────────────
+enum ResearchLayer {
+  IDEA
+  NOTE
+  PAPER
+}
+
+model ResearchDetail {
+  id          String        @id @default(cuid())
+  contentId   String        @unique
+  content     Content       @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  layer       ResearchLayer @default(PAPER)
+  category    String // AI Engineering / RAG / Agents / Healthcare AI / System Design / MLOps / Future of AI
+  abstract    String? // optional: Ideas/Notes may not have one yet
+  methodology String?
+  results     String?
+  limitations String?
+  futureWork  String?
+  pdfUrl      String?
+  references  Reference[]
+}
+
+// ── Knowledge (public label) / Brain (internal name) ───────────────────
+model BrainDetail {
+  id           String  @id @default(cuid())
+  contentId    String  @unique
+  content      Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  category     String // Machine Learning / Deep Learning / ... / Cloud
+  examples     String?
+  codeSnippets String?
+}
+
+// ── Architecture Gallery ────────────────────────────────────────────────
+model ArchitectureDetail {
+  id            String  @id @default(cuid())
+  contentId     String  @unique
+  content       Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  diagramSvg    String
+  components    String
+  dataFlow      String
+  tradeoffs     String?
+  scalability   String?
+  failurePoints String?
+  costAnalysis  String?
+}
+
+// ── Writing (long-form blog) ────────────────────────────────────────────
+model WritingDetail {
+  id        String  @id @default(cuid())
+  contentId String  @unique
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  category  String // Engineering / Research / Lessons Learned / System Design / AI Industry / Startups / Career
+}
+
+// ── Projects (proof of work, mini-sites) ────────────────────────────────
+model ProjectDetail {
+  id         String       @id @default(cuid())
+  contentId  String       @unique
+  content    Content      @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  repoUrl    String?
+  demoUrl    String?
+  challenges String?
+  lessons    String?
+  futureWork String?
+  screenshots Screenshot[]
+}
+
+model Screenshot {
+  id        String        @id @default(cuid())
+  projectId String
+  project   ProjectDetail @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  url       String
+  caption   String?
+}
+
+// ── Lab (experimentation notebook) ──────────────────────────────────────
+enum ExperimentStatus {
+  IDEA
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+model LabDetail {
+  id               String           @id @default(cuid())
+  contentId        String           @unique
+  content          Content          @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  category         String // Fine-Tuning / RAG / Agent / Eval / Prompt / Healthcare / System Design
+  status           ExperimentStatus @default(IDEA)
+  hypothesis       String
+  goal             String
+  setup            String
+  architectureNote String?
+  results          String?
+  lessonsLearned   String?
+  futureIterations String?
+}
+
+// ── Journey (evolution timeline) ────────────────────────────────────────
+model JourneyDetail {
+  id            String   @id @default(cuid())
+  contentId     String   @unique
+  content       Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  milestoneDate DateTime
+  sequenceIndex Int // explicit rail ordering, independent of milestoneDate
+  stageName     String // e.g. "Software Development", "RAG Systems"
+}
+
+// ── Roadmaps (public learning maps, DAG-shaped) ─────────────────────────
+model RoadmapDetail {
+  id        String         @id @default(cuid())
+  contentId String         @unique
+  content   Content        @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  stages    RoadmapStage[]
+}
+
+model RoadmapStage {
+  id           String         @id @default(cuid())
+  roadmapId    String
+  roadmap      RoadmapDetail  @relation(fields: [roadmapId], references: [id], onDelete: Cascade)
+  title        String
+  order        Int
+  dependsOnId  String?
+  dependsOn    RoadmapStage?  @relation("StageDeps", fields: [dependsOnId], references: [id])
+  dependents   RoadmapStage[] @relation("StageDeps")
+  resourceNote String?
+}
+
+// ── Ventures (builder/startup layer) ────────────────────────────────────
+enum VentureStatus {
+  IDEA
+  RESEARCHING
+  BUILDING
+  LAUNCHING
+  ACTIVE
+}
+
+model VentureDetail {
+  id            String        @id @default(cuid())
+  contentId     String        @unique
+  content       Content       @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  status        VentureStatus @default(IDEA)
+  problem       String
+  vision        String
+  market        String?
+  technicalNote String?
+  currentStatus String?
+  futurePlans   String?
+}
+
+// ── Playbooks (actionable execution frameworks) ─────────────────────────
+model PlaybookDetail {
+  id               String         @id @default(cuid())
+  contentId        String         @unique
+  content          Content        @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  overview         String
+  problem          String
+  prerequisites    String?
+  architectureNote String?
+  recommendedStack String?
+  commonMistakes   String?
+  tradeoffs        String?
+  references       Reference[]
+  steps            PlaybookStep[]
+}
+
+model PlaybookStep {
+  id         String         @id @default(cuid())
+  playbookId String
+  playbook   PlaybookDetail @relation(fields: [playbookId], references: [id], onDelete: Cascade)
+  order      Int
+  title      String
+  detail     String
+}
+
+// ── Case Studies (engineering storytelling) ─────────────────────────────
+model CaseStudyDetail {
+  id                 String  @id @default(cuid())
+  contentId          String  @unique
+  content            Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  problem            String
+  constraints        String?
+  researchNote       String?
+  architectureNote   String?
+  technicalDecisions String?
+  challenges         String?
+  results            String?
+  lessonsLearned     String?
+  futureImprovements String?
+}
+
+// ── Talks (conference/podcast/workshop appearances) ─────────────────────
+enum TalkType {
+  CONFERENCE
+  MEETUP
+  PODCAST
+  GUEST_LECTURE
+  WORKSHOP
+  WEBINAR
+}
+
+model TalkDetail {
+  id            String   @id @default(cuid())
+  contentId     String   @unique
+  content       Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  talkType      TalkType
+  event         String
+  eventDate     DateTime
+  slidesUrl     String?
+  recordingUrl  String?
+  resourcesNote String?
+}
+
+// ── Datasets (curated dataset library) ──────────────────────────────────
+model DatasetDetail {
+  id        String  @id @default(cuid())
+  contentId String  @unique
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  source    String
+  license   String
+  domain    String // e.g. "Healthcare", "NLP", "Agents"
+  useCases  String?
+  notes     String?
+}
+
+// ── Toolbox (tools actually used, with reasoning) ───────────────────────
+model ToolboxDetail {
+  id           String  @id @default(cuid())
+  contentId    String  @unique
+  content      Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  whyIUseIt    String
+  alternatives String?
+  strengths    String?
+  weaknesses   String?
+  bestUseCases String?
+}
+
+// ── Shared references (Research + Playbooks) ────────────────────────────
+model Reference {
+  id               String          @id @default(cuid())
+  citation         String
+  url              String?
+  researchDetailId String?
+  researchDetail   ResearchDetail? @relation(fields: [researchDetailId], references: [id], onDelete: Cascade)
+  playbookDetailId String?
+  playbookDetail   PlaybookDetail? @relation(fields: [playbookDetailId], references: [id], onDelete: Cascade)
+}
+
+// ── Reading Room ─────────────────────────────────────────────────────────
+model ReadingItem {
+  id        String   @id @default(cuid())
+  section   String // Books / Papers / Courses / Articles / Videos / Tools / Roadmaps
+  title     String
+  author    String?
+  url       String?
+  note      String?
+  status    String? // reading / finished / queued
+  createdAt DateTime @default(now())
+}
+
+// ── Now page (structured, per Rev.2's NowSnapshot upgrade) ──────────────
+model NowSnapshot {
+  id                  String    @id @default(cuid())
+  currentFocus        String // freeform mission-statement text
+  currentBuildId      String?
+  currentResearchId   String?
+  currentExperimentId String?
+  currentLearning     String // freeform (a Reading Room pointer, not always a Content row)
+  currentBuild        Content?  @relation("nowBuild", fields: [currentBuildId], references: [id])
+  currentResearch     Content?  @relation("nowResearch", fields: [currentResearchId], references: [id])
+  currentExperiment   Content?  @relation("nowExperiment", fields: [currentExperimentId], references: [id])
+  updatedAt           DateTime  @updatedAt
+}
+
+// ── Bookmarks, newsletter, contact (Phases 8-9 depend on these) ─────────
+model Bookmark {
+  id        String  @id @default(cuid())
+  userId    String
+  contentId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, contentId])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  userId    String?  @unique
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  category  String // Freelance / Research collab / Startup / Consulting / Speaking / Mentorship
+  message   String
+  createdAt DateTime @default(now())
+  handled   Boolean  @default(false)
+}

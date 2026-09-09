@@ -1,0 +1,15 @@
+---
+title: "NeuroFlow CFD — Case Study"
+summary: "Why the architecture looks like it does, not just what was built."
+status: PUBLISHED
+publishedAt: 2026-03-20
+problem: "Rupture-risk assessment does not scale as a manual, specialist-only process."
+constraints: "Clinical DICOM data is noisy; the pipeline had to tolerate imaging artifacts without silently producing bad meshes."
+technicalDecisions: "Validating mesh quality before simulation, rather than after a solver crash, was the single highest-leverage decision in the whole pipeline."
+challenges: "Non-manifold geometry from imaging artifacts crashed the CFD solver in ways that were hard to distinguish from genuine simulation failures."
+lessonsLearned: "Catch data-quality problems as early in the pipeline as possible — every stage they slip past multiplies the cost of diagnosing them."
+tags: ["healthcare-ai", "case-study"]
+related: ["neuroflow-cfd", "hemodynamic-feature-extraction"]
+---
+
+The Project page is the artifact record. This page is the decision log — why the pipeline is shaped the way it is, not just what it does.

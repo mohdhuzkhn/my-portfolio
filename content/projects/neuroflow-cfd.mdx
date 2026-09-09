@@ -1,0 +1,22 @@
+---
+title: "NeuroFlow CFD"
+summary: "A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model."
+status: PUBLISHED
+publishedAt: 2026-03-14
+repoUrl: "https://github.com/example/neuroflow-cfd"
+demoUrl: ""
+challenges: "Mesh generation from noisy clinical DICOM data was the single largest source of pipeline failures early on — imaging artifacts produced non-manifold geometry that crashed the CFD solver silently."
+lessons: "Validating mesh quality before simulation, not after, cut failed runs by most of what was previously lost to downstream solver crashes."
+futureWork: "Prospective multi-center validation, and extending beyond middle cerebral artery aneurysms."
+screenshots: []
+tags: ["healthcare-ai", "cfd"]
+related: ["hemodynamic-feature-extraction", "neuroflow-cfd-case-study", "neuroflow-architecture"]
+---
+
+## What it is
+
+NeuroFlow CFD turns a manual, specialist-only rupture-risk read into a structured, reproducible pipeline: simulate blood flow through the patient's aneurysm geometry, extract hemodynamic features, and score risk.
+
+## Where the depth is
+
+The research paper covers the modeling methodology and its limitations in full; this page is the artifact record — what was built, what broke, and what's next.

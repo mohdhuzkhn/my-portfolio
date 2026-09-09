@@ -1,0 +1,13 @@
+---
+title: "Guardrails in Production AI"
+summary: "What breaks first when an agent gets real tool access, and how to contain it before it reaches a user."
+status: PUBLISHED
+publishedAt: 2026-04-02
+category: "Engineering"
+tags: ["agents", "guardrails", "production-ai"]
+related: ["ai-agent-architecture", "designing-llm-evaluation-systems"]
+---
+
+The first time an agent had real tool access in one of my systems, the failure wasn't dramatic. It quietly called a search tool with a malformed query, got back an empty result, and then — instead of saying so — generated a plausible-sounding answer as if the search had succeeded.
+
+That's the failure mode guardrails exist for: not the agent doing something obviously wrong, but the agent papering over its own uncertainty. A guardrail layer's job is narrower than people expect — it isn't "make the agent safe," it's "make failure visible instead of silent."

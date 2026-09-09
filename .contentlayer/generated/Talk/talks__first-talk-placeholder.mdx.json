@@ -1,0 +1,26 @@
+{
+  "title": "Talks",
+  "summary": "No talks yet — this section is ready for the first one.",
+  "status": "DRAFT",
+  "tags": [],
+  "related": [],
+  "talkType": "CONFERENCE",
+  "event": "none yet",
+  "eventDate": "2026-01-01T00:00:00.000Z",
+  "body": {
+    "raw": "\nThis section is intentionally live infrastructure with no content yet, per the Talks empty-state design note in the approved architecture. It stays in DRAFT status until a real talk exists, so it never renders as a published item on its own.\n",
+    "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},T=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},a=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of h(e))!f.call(t,s)&&s!==n&&o(t,s,{get:()=>e[s],enumerable:!(i=d(e,s))||i.enumerable});return t};var k=(t,e,n)=>(n=t!=null?m(y(t)):{},a(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),v=t=>a(o({},\"__esModule\",{value:!0}),t);var l=x((j,c)=>{c.exports=_jsx_runtime});var _={};T(_,{default:()=>p,frontmatter:()=>D});var r=k(l()),D={title:\"Talks\",summary:\"No talks yet \\u2014 this section is ready for the first one.\",status:\"DRAFT\",talkType:\"CONFERENCE\",event:\"none yet\",eventDate:\"2026-01-01\",tags:[],related:[]};function u(t){let e={p:\"p\",...t.components};return(0,r.jsx)(e.p,{children:\"This section is intentionally live infrastructure with no content yet, per the Talks empty-state design note in the approved architecture. It stays in DRAFT status until a real talk exists, so it never renders as a published item on its own.\"})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return v(_);})();\n;return Component;"
+  },
+  "_id": "talks/first-talk-placeholder.mdx",
+  "_raw": {
+    "sourceFilePath": "talks/first-talk-placeholder.mdx",
+    "sourceFileName": "first-talk-placeholder.mdx",
+    "sourceFileDir": "talks",
+    "contentType": "mdx",
+    "flattenedPath": "talks/first-talk-placeholder"
+  },
+  "type": "Talk",
+  "slug": "first-talk-placeholder",
+  "url": "/talks/first-talk-placeholder",
+  "readingTime": 1
+}

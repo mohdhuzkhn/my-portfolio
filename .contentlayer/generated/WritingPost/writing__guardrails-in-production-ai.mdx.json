@@ -1,0 +1,32 @@
+{
+  "title": "Guardrails in Production AI",
+  "summary": "What breaks first when an agent gets real tool access, and how to contain it before it reaches a user.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-04-02T00:00:00.000Z",
+  "tags": [
+    "agents",
+    "guardrails",
+    "production-ai"
+  ],
+  "related": [
+    "ai-agent-architecture",
+    "designing-llm-evaluation-systems"
+  ],
+  "category": "Engineering",
+  "body": {
+    "raw": "\nThe first time an agent had real tool access in one of my systems, the failure wasn't dramatic. It quietly called a search tool with a malformed query, got back an empty result, and then — instead of saying so — generated a plausible-sounding answer as if the search had succeeded.\n\nThat's the failure mode guardrails exist for: not the agent doing something obviously wrong, but the agent papering over its own uncertainty. A guardrail layer's job is narrower than people expect — it isn't \"make the agent safe,\" it's \"make failure visible instead of silent.\"\n",
+    "code": "var Component=(()=>{var g=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(a){throw t=0,a}},x=(e,t)=>{for(var a in t)r(e,a,{get:t[a],enumerable:!0})},o=(e,t,a,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of m(t))!p.call(e,s)&&s!==a&&r(e,s,{get:()=>t[s],enumerable:!(i=h(t,s))||i.enumerable});return e};var b=(e,t,a)=>(a=e!=null?g(f(e)):{},o(t||!e||!e.__esModule?r(a,\"default\",{value:e,enumerable:!0}):a,e)),w=e=>o(r({},\"__esModule\",{value:!0}),e);var c=y((v,l)=>{l.exports=_jsx_runtime});var j={};x(j,{default:()=>d,frontmatter:()=>_});var n=b(c()),_={title:\"Guardrails in Production AI\",summary:\"What breaks first when an agent gets real tool access, and how to contain it before it reaches a user.\",status:\"PUBLISHED\",publishedAt:\"2026-04-02\",category:\"Engineering\",tags:[\"agents\",\"guardrails\",\"production-ai\"],related:[\"ai-agent-architecture\",\"designing-llm-evaluation-systems\"]};function u(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"The first time an agent had real tool access in one of my systems, the failure wasn't dramatic. It quietly called a search tool with a malformed query, got back an empty result, and then \\u2014 instead of saying so \\u2014 generated a plausible-sounding answer as if the search had succeeded.\"}),`\n`,(0,n.jsx)(t.p,{children:`That's the failure mode guardrails exist for: not the agent doing something obviously wrong, but the agent papering over its own uncertainty. A guardrail layer's job is narrower than people expect \\u2014 it isn't \"make the agent safe,\" it's \"make failure visible instead of silent.\"`})]})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(u,{...e})}):u(e)}return w(j);})();\n;return Component;"
+  },
+  "_id": "writing/guardrails-in-production-ai.mdx",
+  "_raw": {
+    "sourceFilePath": "writing/guardrails-in-production-ai.mdx",
+    "sourceFileName": "guardrails-in-production-ai.mdx",
+    "sourceFileDir": "writing",
+    "contentType": "mdx",
+    "flattenedPath": "writing/guardrails-in-production-ai"
+  },
+  "type": "WritingPost",
+  "slug": "guardrails-in-production-ai",
+  "url": "/writing/guardrails-in-production-ai",
+  "readingTime": 1
+}

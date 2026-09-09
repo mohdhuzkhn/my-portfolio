@@ -1,0 +1,37 @@
+{
+  "title": "Measuring Reranker Latency vs. Precision Gain",
+  "summary": "Does a cross-encoder reranker precision gain justify its latency cost for a mid-size support-doc corpus?",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-05-01T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "evals",
+    "experiment"
+  ],
+  "related": [
+    "enterprise-rag-architecture",
+    "building-production-rag-systems"
+  ],
+  "category": "RAG",
+  "experimentStatus": "ACTIVE",
+  "hypothesis": "A cross-encoder reranker improves top-3 retrieval precision enough to justify 100-300ms of added query latency for a ~5,000-document support corpus.",
+  "goal": "Quantify the precision/latency tradeoff on a realistic corpus size, not a toy benchmark.",
+  "setup": "Baseline vector search (top-20) vs. baseline plus cross-encoder reranking to top-5, measured against the retrieval-only evaluation set from the Production RAG playbook.",
+  "results": "Early runs show a measurable precision improvement, still being validated against a larger held-out query set before drawing a firm conclusion.",
+  "body": {
+    "raw": "\nStill active — this entry updates in place as the experiment progresses, per the Lab section design (status moves IDEA to ACTIVE to COMPLETED as the work happens, not published once at the end).\n",
+    "code": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}},v=(e,t)=>{for(var r in t)o(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of h(t))!g.call(e,s)&&s!==r&&o(e,s,{get:()=>t[s],enumerable:!(a=m(t,s))||a.enumerable});return e};var b=(e,t,r)=>(r=e!=null?d(y(e)):{},i(t||!e||!e.__esModule?o(r,\"default\",{value:e,enumerable:!0}):r,e)),x=e=>i(o({},\"__esModule\",{value:!0}),e);var u=f((D,c)=>{c.exports=_jsx_runtime});var A={};v(A,{default:()=>l,frontmatter:()=>k});var n=b(u()),k={title:\"Measuring Reranker Latency vs. Precision Gain\",summary:\"Does a cross-encoder reranker precision gain justify its latency cost for a mid-size support-doc corpus?\",status:\"PUBLISHED\",publishedAt:\"2026-05-01\",category:\"RAG\",experimentStatus:\"ACTIVE\",hypothesis:\"A cross-encoder reranker improves top-3 retrieval precision enough to justify 100-300ms of added query latency for a ~5,000-document support corpus.\",goal:\"Quantify the precision/latency tradeoff on a realistic corpus size, not a toy benchmark.\",setup:\"Baseline vector search (top-20) vs. baseline plus cross-encoder reranking to top-5, measured against the retrieval-only evaluation set from the Production RAG playbook.\",results:\"Early runs show a measurable precision improvement, still being validated against a larger held-out query set before drawing a firm conclusion.\",tags:[\"rag\",\"evals\",\"experiment\"],related:[\"enterprise-rag-architecture\",\"building-production-rag-systems\"]};function p(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Still active \\u2014 this entry updates in place as the experiment progresses, per the Lab section design (status moves IDEA to ACTIVE to COMPLETED as the work happens, not published once at the end).\"})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(p,{...e})}):p(e)}return x(A);})();\n;return Component;"
+  },
+  "_id": "lab/rag-reranker-latency-experiment.mdx",
+  "_raw": {
+    "sourceFilePath": "lab/rag-reranker-latency-experiment.mdx",
+    "sourceFileName": "rag-reranker-latency-experiment.mdx",
+    "sourceFileDir": "lab",
+    "contentType": "mdx",
+    "flattenedPath": "lab/rag-reranker-latency-experiment"
+  },
+  "type": "LabExperiment",
+  "slug": "rag-reranker-latency-experiment",
+  "url": "/lab/rag-reranker-latency-experiment",
+  "readingTime": 1
+}

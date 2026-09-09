@@ -1,0 +1,33 @@
+[
+  {
+    "title": "This Platform",
+    "summary": "The institute itself, treated as a long-term product, not just a website.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-01-05T00:00:00.000Z",
+    "tags": [
+      "meta"
+    ],
+    "related": [],
+    "ventureStatus": "BUILDING",
+    "problem": "Most engineers public work is scattered across a resume, a GitHub profile, and a handful of unlinked blog posts, none of which show how the work connects.",
+    "vision": "A single knowledge system where research, projects, and writing all reference each other, so the body of work compounds instead of accumulating as disconnected artifacts.",
+    "currentStatus": "Foundation and content system built; content types and the knowledge graph are being populated as real work happens.",
+    "futurePlans": "Semantic search, a public knowledge graph visualization, and eventually a RAG-based assistant over the whole corpus.",
+    "body": {
+      "raw": "\nBuilt the way it recommends building things: incrementally, with the architecture decided before the code.\n",
+      "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},b=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of m(t))!w.call(e,o)&&o!==n&&a(e,o,{get:()=>t[o],enumerable:!(r=p(t,o))||r.enumerable});return e};var y=(e,t,n)=>(n=e!=null?h(f(e)):{},i(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),k=e=>i(a({},\"__esModule\",{value:!0}),e);var u=g((_,c)=>{c.exports=_jsx_runtime});var j={};b(j,{default:()=>d,frontmatter:()=>x});var s=y(u()),x={title:\"This Platform\",summary:\"The institute itself, treated as a long-term product, not just a website.\",status:\"PUBLISHED\",publishedAt:\"2026-01-05\",ventureStatus:\"BUILDING\",problem:\"Most engineers public work is scattered across a resume, a GitHub profile, and a handful of unlinked blog posts, none of which show how the work connects.\",vision:\"A single knowledge system where research, projects, and writing all reference each other, so the body of work compounds instead of accumulating as disconnected artifacts.\",currentStatus:\"Foundation and content system built; content types and the knowledge graph are being populated as real work happens.\",futurePlans:\"Semantic search, a public knowledge graph visualization, and eventually a RAG-based assistant over the whole corpus.\",tags:[\"meta\"],related:[]};function l(e){let t={p:\"p\",...e.components};return(0,s.jsx)(t.p,{children:\"Built the way it recommends building things: incrementally, with the architecture decided before the code.\"})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(l,{...e})}):l(e)}return k(j);})();\n;return Component;"
+    },
+    "_id": "ventures/ai-engineering-institute.mdx",
+    "_raw": {
+      "sourceFilePath": "ventures/ai-engineering-institute.mdx",
+      "sourceFileName": "ai-engineering-institute.mdx",
+      "sourceFileDir": "ventures",
+      "contentType": "mdx",
+      "flattenedPath": "ventures/ai-engineering-institute"
+    },
+    "type": "Venture",
+    "slug": "ai-engineering-institute",
+    "url": "/ventures/ai-engineering-institute",
+    "readingTime": 1
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "title": "NeuroFlow CFD",
+    "summary": "A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-03-14T00:00:00.000Z",
+    "tags": [
+      "healthcare-ai",
+      "cfd"
+    ],
+    "related": [
+      "hemodynamic-feature-extraction",
+      "neuroflow-cfd-case-study",
+      "neuroflow-architecture"
+    ],
+    "repoUrl": "https://github.com/example/neuroflow-cfd",
+    "demoUrl": "",
+    "challenges": "Mesh generation from noisy clinical DICOM data was the single largest source of pipeline failures early on — imaging artifacts produced non-manifold geometry that crashed the CFD solver silently.",
+    "lessons": "Validating mesh quality before simulation, not after, cut failed runs by most of what was previously lost to downstream solver crashes.",
+    "futureWork": "Prospective multi-center validation, and extending beyond middle cerebral artery aneurysms.",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## What it is\n\nNeuroFlow CFD turns a manual, specialist-only rupture-risk read into a structured, reproducible pipeline: simulate blood flow through the patient's aneurysm geometry, extract hemodynamic features, and score risk.\n\n## Where the depth is\n\nThe research paper covers the modeling methodology and its limitations in full; this page is the artifact record — what was built, what broke, and what's next.\n",
+      "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}},w=(t,e)=>{for(var a in e)s(t,a,{get:e[a],enumerable:!0})},i=(t,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of p(e))!y.call(t,n)&&n!==a&&s(t,n,{get:()=>e[n],enumerable:!(o=m(e,n))||o.enumerable});return t};var x=(t,e,a)=>(a=t!=null?d(f(t)):{},i(e||!t||!t.__esModule?s(a,\"default\",{value:t,enumerable:!0}):a,t)),b=t=>i(s({},\"__esModule\",{value:!0}),t);var c=g((_,l)=>{l.exports=_jsx_runtime});var F={};w(F,{default:()=>h,frontmatter:()=>D});var r=x(c()),D={title:\"NeuroFlow CFD\",summary:\"A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model.\",status:\"PUBLISHED\",publishedAt:\"2026-03-14\",repoUrl:\"https://github.com/example/neuroflow-cfd\",demoUrl:\"\",challenges:\"Mesh generation from noisy clinical DICOM data was the single largest source of pipeline failures early on \\u2014 imaging artifacts produced non-manifold geometry that crashed the CFD solver silently.\",lessons:\"Validating mesh quality before simulation, not after, cut failed runs by most of what was previously lost to downstream solver crashes.\",futureWork:\"Prospective multi-center validation, and extending beyond middle cerebral artery aneurysms.\",screenshots:[],tags:[\"healthcare-ai\",\"cfd\"],related:[\"hemodynamic-feature-extraction\",\"neuroflow-cfd-case-study\",\"neuroflow-architecture\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"What it is\"}),`\n`,(0,r.jsx)(e.p,{children:\"NeuroFlow CFD turns a manual, specialist-only rupture-risk read into a structured, reproducible pipeline: simulate blood flow through the patient's aneurysm geometry, extract hemodynamic features, and score risk.\"}),`\n`,(0,r.jsx)(e.h2,{children:\"Where the depth is\"}),`\n`,(0,r.jsx)(e.p,{children:\"The research paper covers the modeling methodology and its limitations in full; this page is the artifact record \\u2014 what was built, what broke, and what's next.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return b(F);})();\n;return Component;"
+    },
+    "_id": "projects/neuroflow-cfd.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/neuroflow-cfd.mdx",
+      "sourceFileName": "neuroflow-cfd.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/neuroflow-cfd"
+    },
+    "type": "Project",
+    "slug": "neuroflow-cfd",
+    "url": "/projects/neuroflow-cfd",
+    "readingTime": 1
+  }
+]
