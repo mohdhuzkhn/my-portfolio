@@ -1,0 +1,64 @@
+---
+title: Supabase Pooling and PgBouncer
+summary: Why connection pooling matters in modern applications and how PgBouncer improves scalability, reliability, and database performance.
+category: Infrastructure
+status: PUBLISHED
+tags:
+  - PostgreSQL
+  - Supabase
+  - PgBouncer
+  - Database
+  - Infrastructure
+  - Connection Pooling
+---
+
+# Supabase Pooling and PgBouncer
+
+One of the most common issues in cloud-native applications is database connection exhaustion.
+
+Every request that creates a new database connection consumes memory.
+
+At scale, this becomes expensive.
+
+## What Is PgBouncer?
+
+PgBouncer is a lightweight PostgreSQL connection pooler.
+
+Instead of opening new connections repeatedly:
+
+```text
+Application
+ ↓
+PgBouncer
+ ↓
+Connection Pool
+ ↓
+Database
+
+```text
+
+PgBouncer reuses existing connections.
+
+Why It Matters
+
+Benefits:
+
+Lower memory usage
+Faster response times
+Better scalability
+Improved reliability
+The Problem We Encountered
+
+Database synchronization failed because the local environment struggled with direct IPv6 database routing.
+
+The solution was switching to Supabase's pooled connection endpoint.
+
+Key Takeaway
+
+When building production systems:
+
+Use pooled connections whenever possible.
+
+Connection pooling is not an optimization.
+
+It is infrastructure hygiene.

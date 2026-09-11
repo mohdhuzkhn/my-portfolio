@@ -1,0 +1,31 @@
+{
+  "title": "Understanding Contentlayer Internals",
+  "summary": "A practical look at how Contentlayer transforms MDX files into structured data and serves as the content operating system behind a modern AI Engineering knowledge platform.",
+  "status": "PUBLISHED",
+  "tags": [
+    "Contentlayer",
+    "MDX",
+    "Next.js",
+    "Content Systems",
+    "Static Content",
+    "Type Safety\r"
+  ],
+  "related": [],
+  "category": "AI Engineering",
+  "body": {
+    "raw": "\r\n# Understanding Contentlayer Internals\r\n\r\nContentlayer acts as the bridge between content and application code.\r\n\r\nInstead of manually reading files and parsing frontmatter, Contentlayer automatically creates typed content objects.\r\n\r\n## The Problem It Solves\r\n\r\nWithout Contentlayer:\r\n\r\n```text\r\nRead File\r\nParse Markdown\r\nParse Frontmatter\r\nValidate Schema\r\nGenerate Types\r\nHandle Errors\r\n```text\r\n\r\nEvery project requires custom implementation.\r\n\r\nHow Contentlayer Works\r\nStep 1\r\n\r\nScan Content Directories\r\n\r\ncontent/\r\n  knowledge/\r\n  projects/\r\n  research/\r\nStep 2\r\n\r\nValidate Schemas\r\n\r\nEach document type defines required fields.\r\n\r\nExample:\r\n\r\ntitle:\r\ndescription:\r\ntags:\r\npublishedAt:\r\nStep 3\r\n\r\nGenerate Typed Objects\r\n\r\nThe result becomes:\r\n\r\nallKnowledge\r\nallProjects\r\nallResearch\r\n\r\nwhich can be consumed directly in React components.\r\n\r\nBenefits\r\nType Safety\r\n\r\nMissing fields are caught during build time.\r\n\r\nConsistency\r\n\r\nEvery document follows the same structure.\r\n\r\nPerformance\r\n\r\nContent is preprocessed before runtime.\r\n\r\nDeveloper Experience\r\n\r\nDevelopers work with structured objects instead of raw files.\r\n\r\nLessons Learned\r\n\r\nContentlayer is not just a parser.\r\n\r\nIt acts as the content operating system of the platform.\r\n\r\nThe better the schemas are designed, the more scalable the knowledge platform becomes.",
+    "code": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>{try{return e||n((e={exports:{}}).exports,e),e.exports}catch(t){throw e=0,t}},C=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!g.call(n,a)&&a!==t&&s(n,a,{get:()=>e[a],enumerable:!(o=h(e,a))||o.enumerable});return n};var b=(n,e,t)=>(t=n!=null?p(y(n)):{},c(e||!n||!n.__esModule?s(t,\"default\",{value:n,enumerable:!0}):t,n)),w=n=>c(s({},\"__esModule\",{value:!0}),n);var l=f((E,i)=>{i.exports=_jsx_runtime});var j={};C(j,{default:()=>m,frontmatter:()=>x});var r=b(l()),x={title:\"Understanding Contentlayer Internals\",summary:\"A practical look at how Contentlayer transforms MDX files into structured data and serves as the content operating system behind a modern AI Engineering knowledge platform.\",category:\"AI Engineering\",status:\"PUBLISHED\",tags:[\"Contentlayer\",\"MDX\",\"Next.js\",\"Content Systems\",\"Static Content\",\"Type Safety\"]};function d(n){let e={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"Understanding Contentlayer Internals\"}),`\n`,(0,r.jsx)(e.p,{children:\"Contentlayer acts as the bridge between content and application code.\"}),`\n`,(0,r.jsx)(e.p,{children:\"Instead of manually reading files and parsing frontmatter, Contentlayer automatically creates typed content objects.\"}),`\n`,(0,r.jsx)(e.h2,{children:\"The Problem It Solves\"}),`\n`,(0,r.jsx)(e.p,{children:\"Without Contentlayer:\"}),`\n`,(0,r.jsx)(e.pre,{children:(0,r.jsx)(e.code,{className:\"language-text\",children:`Read File\\r\nParse Markdown\\r\nParse Frontmatter\\r\nValidate Schema\\r\nGenerate Types\\r\nHandle Errors\\r\n\\`\\`\\`text\\r\n\\r\nEvery project requires custom implementation.\\r\n\\r\nHow Contentlayer Works\\r\nStep 1\\r\n\\r\nScan Content Directories\\r\n\\r\ncontent/\\r\n  knowledge/\\r\n  projects/\\r\n  research/\\r\nStep 2\\r\n\\r\nValidate Schemas\\r\n\\r\nEach document type defines required fields.\\r\n\\r\nExample:\\r\n\\r\ntitle:\\r\ndescription:\\r\ntags:\\r\npublishedAt:\\r\nStep 3\\r\n\\r\nGenerate Typed Objects\\r\n\\r\nThe result becomes:\\r\n\\r\nallKnowledge\\r\nallProjects\\r\nallResearch\\r\n\\r\nwhich can be consumed directly in React components.\\r\n\\r\nBenefits\\r\nType Safety\\r\n\\r\nMissing fields are caught during build time.\\r\n\\r\nConsistency\\r\n\\r\nEvery document follows the same structure.\\r\n\\r\nPerformance\\r\n\\r\nContent is preprocessed before runtime.\\r\n\\r\nDeveloper Experience\\r\n\\r\nDevelopers work with structured objects instead of raw files.\\r\n\\r\nLessons Learned\\r\n\\r\nContentlayer is not just a parser.\\r\n\\r\nIt acts as the content operating system of the platform.\\r\n\\r\nThe better the schemas are designed, the more scalable the knowledge platform becomes.\n`})})]})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(d,{...n})}):d(n)}return w(j);})();\n;return Component;"
+  },
+  "_id": "knowledge/engineering-logs/understanding-contentlayer-internals.mdx",
+  "_raw": {
+    "sourceFilePath": "knowledge/engineering-logs/understanding-contentlayer-internals.mdx",
+    "sourceFileName": "understanding-contentlayer-internals.mdx",
+    "sourceFileDir": "knowledge/engineering-logs",
+    "contentType": "mdx",
+    "flattenedPath": "knowledge/engineering-logs/understanding-contentlayer-internals"
+  },
+  "type": "KnowledgeArticle",
+  "slug": "understanding-contentlayer-internals",
+  "url": "/knowledge/understanding-contentlayer-internals",
+  "readingTime": 1
+}

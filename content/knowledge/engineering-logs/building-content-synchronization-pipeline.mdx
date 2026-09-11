@@ -1,0 +1,97 @@
+---
+title: Building a Content Synchronization Pipeline
+summary: An architectural guide on synchronizing static MDX content into PostgreSQL while maintaining knowledge graph relationships, tags, and searchability.
+category: AI Engineering
+status: PUBLISHED
+tags:
+  - Content Systems
+  - Contentlayer
+  - MDX
+  - PostgreSQL
+  - Prisma
+---
+
+# Building a Content Synchronization Pipeline
+
+As an AI Engineer, one of the challenges of building a personal knowledge platform is deciding where content should live.
+
+Static content systems are excellent for writing and version control, while databases excel at relationships, querying, analytics, and search.
+
+The challenge is combining both worlds.
+
+## The Architecture
+
+The platform uses two storage layers:
+
+### Layer 1 — MDX Content
+
+All articles, projects, research papers, and notes are stored as MDX files.
+
+Benefits:
+
+- Git version control
+- Easy content authoring
+- Portable content
+- Fast rendering
+- Developer-friendly workflow
+
+### Layer 2 — PostgreSQL Database
+
+Structured metadata is synchronized into PostgreSQL.
+
+Benefits:
+
+- Relationships
+- Tag systems
+- Search indexing
+- Analytics
+- Cross-linking
+
+The database becomes the platform's knowledge graph.
+
+## Synchronization Workflow
+
+The content synchronization engine follows four steps:
+
+1. Read MDX files
+2. Validate frontmatter
+3. Sync metadata into PostgreSQL
+4. Create relationships between content
+
+```text
+MDX
+ ↓
+Content Collection
+ ↓
+Validation
+ ↓
+Database Sync
+ ↓
+Knowledge Graph
+```text
+
+
+Why Not Store Everything in the Database?
+
+Databases are great for structured data.
+
+Content is different.
+
+Articles are easier to:
+
+Version
+Review
+Edit
+Track
+
+inside Git.
+
+The hybrid model provides the best of both worlds.
+
+Lessons Learned
+
+The most important realization was:
+
+Content is the source of truth. The database is an index.
+
+This principle simplified the architecture and made the platform significantly easier to maintain.

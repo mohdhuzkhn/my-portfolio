@@ -31,5 +31,159 @@
     "slug": "rag-chunking-strategies",
     "url": "/knowledge/rag-chunking-strategies",
     "readingTime": 1
+  },
+  {
+    "title": "Building a Content Synchronization Pipeline",
+    "summary": "An architectural guide on synchronizing static MDX content into PostgreSQL while maintaining knowledge graph relationships, tags, and searchability.",
+    "status": "PUBLISHED",
+    "tags": [
+      "Content Systems",
+      "Contentlayer",
+      "MDX",
+      "PostgreSQL",
+      "Prisma\r"
+    ],
+    "related": [],
+    "category": "AI Engineering",
+    "body": {
+      "raw": "\r\n# Building a Content Synchronization Pipeline\r\n\r\nAs an AI Engineer, one of the challenges of building a personal knowledge platform is deciding where content should live.\r\n\r\nStatic content systems are excellent for writing and version control, while databases excel at relationships, querying, analytics, and search.\r\n\r\nThe challenge is combining both worlds.\r\n\r\n## The Architecture\r\n\r\nThe platform uses two storage layers:\r\n\r\n### Layer 1 — MDX Content\r\n\r\nAll articles, projects, research papers, and notes are stored as MDX files.\r\n\r\nBenefits:\r\n\r\n- Git version control\r\n- Easy content authoring\r\n- Portable content\r\n- Fast rendering\r\n- Developer-friendly workflow\r\n\r\n### Layer 2 — PostgreSQL Database\r\n\r\nStructured metadata is synchronized into PostgreSQL.\r\n\r\nBenefits:\r\n\r\n- Relationships\r\n- Tag systems\r\n- Search indexing\r\n- Analytics\r\n- Cross-linking\r\n\r\nThe database becomes the platform's knowledge graph.\r\n\r\n## Synchronization Workflow\r\n\r\nThe content synchronization engine follows four steps:\r\n\r\n1. Read MDX files\r\n2. Validate frontmatter\r\n3. Sync metadata into PostgreSQL\r\n4. Create relationships between content\r\n\r\n```text\r\nMDX\r\n ↓\r\nContent Collection\r\n ↓\r\nValidation\r\n ↓\r\nDatabase Sync\r\n ↓\r\nKnowledge Graph\r\n```text\r\n\r\n\r\nWhy Not Store Everything in the Database?\r\n\r\nDatabases are great for structured data.\r\n\r\nContent is different.\r\n\r\nArticles are easier to:\r\n\r\nVersion\r\nReview\r\nEdit\r\nTrack\r\n\r\ninside Git.\r\n\r\nThe hybrid model provides the best of both worlds.\r\n\r\nLessons Learned\r\n\r\nThe most important realization was:\r\n\r\nContent is the source of truth. The database is an index.\r\n\r\nThis principle simplified the architecture and made the platform significantly easier to maintain.",
+      "code": "var Component=(()=>{var g=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(r,n)=>()=>{try{return n||r((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},w=(r,n)=>{for(var t in n)a(r,t,{get:n[t],enumerable:!0})},o=(r,n,t,l)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let i of m(n))!f.call(r,i)&&i!==t&&a(r,i,{get:()=>n[i],enumerable:!(l=p(n,i))||l.enumerable});return r};var b=(r,n,t)=>(t=r!=null?g(u(r)):{},o(n||!r||!r.__esModule?a(t,\"default\",{value:r,enumerable:!0}):t,r)),S=r=>o(a({},\"__esModule\",{value:!0}),r);var c=y((L,s)=>{s.exports=_jsx_runtime});var D={};w(D,{default:()=>d,frontmatter:()=>x});var e=b(c()),x={title:\"Building a Content Synchronization Pipeline\",summary:\"An architectural guide on synchronizing static MDX content into PostgreSQL while maintaining knowledge graph relationships, tags, and searchability.\",category:\"AI Engineering\",status:\"PUBLISHED\",tags:[\"Content Systems\",\"Contentlayer\",\"MDX\",\"PostgreSQL\",\"Prisma\"]};function h(r){let n={code:\"code\",h1:\"h1\",h2:\"h2\",h3:\"h3\",li:\"li\",ol:\"ol\",p:\"p\",pre:\"pre\",ul:\"ul\",...r.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h1,{children:\"Building a Content Synchronization Pipeline\"}),`\n`,(0,e.jsx)(n.p,{children:\"As an AI Engineer, one of the challenges of building a personal knowledge platform is deciding where content should live.\"}),`\n`,(0,e.jsx)(n.p,{children:\"Static content systems are excellent for writing and version control, while databases excel at relationships, querying, analytics, and search.\"}),`\n`,(0,e.jsx)(n.p,{children:\"The challenge is combining both worlds.\"}),`\n`,(0,e.jsx)(n.h2,{children:\"The Architecture\"}),`\n`,(0,e.jsx)(n.p,{children:\"The platform uses two storage layers:\"}),`\n`,(0,e.jsx)(n.h3,{children:\"Layer 1 \\u2014 MDX Content\"}),`\n`,(0,e.jsx)(n.p,{children:\"All articles, projects, research papers, and notes are stored as MDX files.\"}),`\n`,(0,e.jsx)(n.p,{children:\"Benefits:\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"Git version control\"}),`\n`,(0,e.jsx)(n.li,{children:\"Easy content authoring\"}),`\n`,(0,e.jsx)(n.li,{children:\"Portable content\"}),`\n`,(0,e.jsx)(n.li,{children:\"Fast rendering\"}),`\n`,(0,e.jsx)(n.li,{children:\"Developer-friendly workflow\"}),`\n`]}),`\n`,(0,e.jsx)(n.h3,{children:\"Layer 2 \\u2014 PostgreSQL Database\"}),`\n`,(0,e.jsx)(n.p,{children:\"Structured metadata is synchronized into PostgreSQL.\"}),`\n`,(0,e.jsx)(n.p,{children:\"Benefits:\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"Relationships\"}),`\n`,(0,e.jsx)(n.li,{children:\"Tag systems\"}),`\n`,(0,e.jsx)(n.li,{children:\"Search indexing\"}),`\n`,(0,e.jsx)(n.li,{children:\"Analytics\"}),`\n`,(0,e.jsx)(n.li,{children:\"Cross-linking\"}),`\n`]}),`\n`,(0,e.jsx)(n.p,{children:\"The database becomes the platform's knowledge graph.\"}),`\n`,(0,e.jsx)(n.h2,{children:\"Synchronization Workflow\"}),`\n`,(0,e.jsx)(n.p,{children:\"The content synchronization engine follows four steps:\"}),`\n`,(0,e.jsxs)(n.ol,{children:[`\n`,(0,e.jsx)(n.li,{children:\"Read MDX files\"}),`\n`,(0,e.jsx)(n.li,{children:\"Validate frontmatter\"}),`\n`,(0,e.jsx)(n.li,{children:\"Sync metadata into PostgreSQL\"}),`\n`,(0,e.jsx)(n.li,{children:\"Create relationships between content\"}),`\n`]}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-text\",children:`MDX\\r\n \\u2193\\r\nContent Collection\\r\n \\u2193\\r\nValidation\\r\n \\u2193\\r\nDatabase Sync\\r\n \\u2193\\r\nKnowledge Graph\\r\n\\`\\`\\`text\\r\n\\r\n\\r\nWhy Not Store Everything in the Database?\\r\n\\r\nDatabases are great for structured data.\\r\n\\r\nContent is different.\\r\n\\r\nArticles are easier to:\\r\n\\r\nVersion\\r\nReview\\r\nEdit\\r\nTrack\\r\n\\r\ninside Git.\\r\n\\r\nThe hybrid model provides the best of both worlds.\\r\n\\r\nLessons Learned\\r\n\\r\nThe most important realization was:\\r\n\\r\nContent is the source of truth. The database is an index.\\r\n\\r\nThis principle simplified the architecture and made the platform significantly easier to maintain.\n`})})]})}function d(r={}){let{wrapper:n}=r.components||{};return n?(0,e.jsx)(n,{...r,children:(0,e.jsx)(h,{...r})}):h(r)}return S(D);})();\n;return Component;"
+    },
+    "_id": "knowledge/engineering-logs/building-content-synchronization-pipeline.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/engineering-logs/building-content-synchronization-pipeline.mdx",
+      "sourceFileName": "building-content-synchronization-pipeline.mdx",
+      "sourceFileDir": "knowledge/engineering-logs",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/engineering-logs/building-content-synchronization-pipeline"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "building-content-synchronization-pipeline",
+    "url": "/knowledge/building-content-synchronization-pipeline",
+    "readingTime": 2
+  },
+  {
+    "title": "How TSX Executes TypeScript Scripts",
+    "summary": "Understanding how TSX leverages esbuild to execute TypeScript directly and why it has become a popular tool in modern development workflows.",
+    "status": "PUBLISHED",
+    "tags": [
+      "TypeScript",
+      "TSX",
+      "esbuild",
+      "Tooling",
+      "Developer Experience",
+      "Build Systems\r"
+    ],
+    "related": [],
+    "category": "Developer Tools",
+    "body": {
+      "raw": "\r\n# How TSX Executes TypeScript Scripts\r\n\r\nModern TypeScript projects often rely on TSX for script execution.\r\n\r\nTSX allows developers to run TypeScript directly.\r\n\r\n## Traditional Workflow\r\n\r\n```text\r\nTypeScript\r\n ↓\r\nCompile\r\n ↓\r\nJavaScript\r\n ↓\r\nExecute\r\n\r\nTSX Workflow\r\nTypeScript\r\n ↓\r\nesbuild\r\n ↓\r\nMemory\r\n ↓\r\nExecute\r\n```text\r\n\r\nNo intermediate JavaScript files are generated.\r\n\r\nWhy Developers Use TSX\r\n\r\nBenefits:\r\n\r\nFast startup\r\nSimple configuration\r\nExcellent developer experience\r\nNative TypeScript execution\r\nDebugging a Syntax Failure\r\n\r\nA synchronization script failed with:\r\n\r\nUnexpected end of file\r\n\r\nThe root cause was a dangling switch statement.\r\n\r\nBecause TSX relies on esbuild parsing, even a single unclosed block can stop execution before runtime begins.\r\n\r\nLessons Learned\r\n\r\nAlways validate scripts before execution.",
+      "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>{try{return e||n((e={exports:{}}).exports,e),e.exports}catch(t){throw e=0,t}},T=(n,e)=>{for(var t in e)i(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of x(e))!m.call(n,o)&&o!==t&&i(n,o,{get:()=>e[o],enumerable:!(s=S(e,o))||s.enumerable});return n};var g=(n,e,t)=>(t=n!=null?u(h(n)):{},c(e||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),f=n=>c(i({},\"__esModule\",{value:!0}),n);var l=y((b,a)=>{a.exports=_jsx_runtime});var v={};T(v,{default:()=>d,frontmatter:()=>w});var r=g(l()),w={title:\"How TSX Executes TypeScript Scripts\",summary:\"Understanding how TSX leverages esbuild to execute TypeScript directly and why it has become a popular tool in modern development workflows.\",category:\"Developer Tools\",status:\"PUBLISHED\",tags:[\"TypeScript\",\"TSX\",\"esbuild\",\"Tooling\",\"Developer Experience\",\"Build Systems\"]};function p(n){let e={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"How TSX Executes TypeScript Scripts\"}),`\n`,(0,r.jsx)(e.p,{children:\"Modern TypeScript projects often rely on TSX for script execution.\"}),`\n`,(0,r.jsx)(e.p,{children:\"TSX allows developers to run TypeScript directly.\"}),`\n`,(0,r.jsx)(e.h2,{children:\"Traditional Workflow\"}),`\n`,(0,r.jsx)(e.pre,{children:(0,r.jsx)(e.code,{className:\"language-text\",children:`TypeScript\\r\n \\u2193\\r\nCompile\\r\n \\u2193\\r\nJavaScript\\r\n \\u2193\\r\nExecute\\r\n\\r\nTSX Workflow\\r\nTypeScript\\r\n \\u2193\\r\nesbuild\\r\n \\u2193\\r\nMemory\\r\n \\u2193\\r\nExecute\\r\n\\`\\`\\`text\\r\n\\r\nNo intermediate JavaScript files are generated.\\r\n\\r\nWhy Developers Use TSX\\r\n\\r\nBenefits:\\r\n\\r\nFast startup\\r\nSimple configuration\\r\nExcellent developer experience\\r\nNative TypeScript execution\\r\nDebugging a Syntax Failure\\r\n\\r\nA synchronization script failed with:\\r\n\\r\nUnexpected end of file\\r\n\\r\nThe root cause was a dangling switch statement.\\r\n\\r\nBecause TSX relies on esbuild parsing, even a single unclosed block can stop execution before runtime begins.\\r\n\\r\nLessons Learned\\r\n\\r\nAlways validate scripts before execution.\n`})})]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(p,{...n})}):p(n)}return f(v);})();\n;return Component;"
+    },
+    "_id": "knowledge/engineering-logs/how-tsx-executes-typescript-scripts.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/engineering-logs/how-tsx-executes-typescript-scripts.mdx",
+      "sourceFileName": "how-tsx-executes-typescript-scripts.mdx",
+      "sourceFileDir": "knowledge/engineering-logs",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/engineering-logs/how-tsx-executes-typescript-scripts"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "how-tsx-executes-typescript-scripts",
+    "url": "/knowledge/how-tsx-executes-typescript-scripts",
+    "readingTime": 1
+  },
+  {
+    "title": "Prisma Driver Adapters Explained",
+    "summary": "Understanding how Prisma Driver Adapters enable direct integration with PostgreSQL drivers and why they matter for modern database architectures.",
+    "status": "PUBLISHED",
+    "tags": [
+      "Prisma",
+      "PostgreSQL",
+      "Database",
+      "ORM",
+      "Backend",
+      "Driver Adapters\r"
+    ],
+    "related": [],
+    "category": "Infrastructure",
+    "body": {
+      "raw": "\r\n\r\n# Prisma Driver Adapters Explained\r\n\r\nPrisma traditionally communicates with databases through its Query Engine.\r\n\r\nRecent versions introduced Driver Adapters.\r\n\r\nThese adapters allow Prisma to use native database drivers directly.\r\n\r\n## Traditional Architecture\r\n\r\n```text\r\nApplication\r\n ↓\r\nPrisma Client\r\n ↓\r\nQuery Engine\r\n ↓\r\nDatabase\r\n```text\r\n\r\nAdapter Architecture\r\n\r\n```text\r\nApplication\r\n ↓\r\nPrisma Client\r\n ↓\r\nDriver Adapter\r\n ↓\r\npg Driver\r\n ↓\r\nPostgreSQL\r\n\r\n```text\r\nWhy Use Adapters?\r\nBetter Compatibility\r\n\r\nWorks well with pooled connections.\r\n\r\nMore Control\r\n\r\nDirect access to driver behavior.\r\n\r\nImproved Deployments\r\n\r\nParticularly useful in serverless environments.\r\n\r\nExample\r\nconst pool = new Pool({\r\n connectionString\r\n})\r\n\r\nconst adapter = new PrismaPg(pool)\r\n\r\nconst prisma = new PrismaClient({\r\n adapter\r\n})\r\nLessons Learned\r\n\r\nThe adapter architecture provides a cleaner integration between Prisma and PostgreSQL while improving flexibility for modern deployment environments.\r\n\r\n\r\n---\r\n\r\n# File 4\r\n\r\n**Filename**\r\n\r\n```text\r\nsupabase-pooling-and-pgbouncer.mdx",
+      "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var x=(n,r)=>()=>{try{return r||n((r={exports:{}}).exports,r),r.exports}catch(t){throw r=0,t}},P=(n,r)=>{for(var t in r)i(n,t,{get:r[t],enumerable:!0})},o=(n,r,t,s)=>{if(r&&typeof r==\"object\"||typeof r==\"function\")for(let a of u(r))!v.call(n,a)&&a!==t&&i(n,a,{get:()=>r[a],enumerable:!(s=h(r,a))||s.enumerable});return n};var y=(n,r,t)=>(t=n!=null?m(g(n)):{},o(r||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),D=n=>o(i({},\"__esModule\",{value:!0}),n);var d=x((f,c)=>{c.exports=_jsx_runtime});var b={};P(b,{default:()=>p,frontmatter:()=>w});var e=y(d()),w={title:\"Prisma Driver Adapters Explained\",summary:\"Understanding how Prisma Driver Adapters enable direct integration with PostgreSQL drivers and why they matter for modern database architectures.\",category:\"Infrastructure\",status:\"PUBLISHED\",tags:[\"Prisma\",\"PostgreSQL\",\"Database\",\"ORM\",\"Backend\",\"Driver Adapters\"]};function l(n){let r={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(r.h1,{children:\"Prisma Driver Adapters Explained\"}),`\n`,(0,e.jsx)(r.p,{children:\"Prisma traditionally communicates with databases through its Query Engine.\"}),`\n`,(0,e.jsx)(r.p,{children:\"Recent versions introduced Driver Adapters.\"}),`\n`,(0,e.jsx)(r.p,{children:\"These adapters allow Prisma to use native database drivers directly.\"}),`\n`,(0,e.jsx)(r.h2,{children:\"Traditional Architecture\"}),`\n`,(0,e.jsx)(r.pre,{children:(0,e.jsx)(r.code,{className:\"language-text\",children:`Application\\r\n \\u2193\\r\nPrisma Client\\r\n \\u2193\\r\nQuery Engine\\r\n \\u2193\\r\nDatabase\\r\n\\`\\`\\`text\\r\n\\r\nAdapter Architecture\\r\n\\r\n\\`\\`\\`text\\r\nApplication\\r\n \\u2193\\r\nPrisma Client\\r\n \\u2193\\r\nDriver Adapter\\r\n \\u2193\\r\npg Driver\\r\n \\u2193\\r\nPostgreSQL\\r\n\\r\n\\`\\`\\`text\\r\nWhy Use Adapters?\\r\nBetter Compatibility\\r\n\\r\nWorks well with pooled connections.\\r\n\\r\nMore Control\\r\n\\r\nDirect access to driver behavior.\\r\n\\r\nImproved Deployments\\r\n\\r\nParticularly useful in serverless environments.\\r\n\\r\nExample\\r\nconst pool = new Pool({\\r\n connectionString\\r\n})\\r\n\\r\nconst adapter = new PrismaPg(pool)\\r\n\\r\nconst prisma = new PrismaClient({\\r\n adapter\\r\n})\\r\nLessons Learned\\r\n\\r\nThe adapter architecture provides a cleaner integration between Prisma and PostgreSQL while improving flexibility for modern deployment environments.\\r\n\\r\n\\r\n---\\r\n\\r\n# File 4\\r\n\\r\n**Filename**\\r\n\\r\n\\`\\`\\`text\\r\nsupabase-pooling-and-pgbouncer.mdx\n`})})]})}function p(n={}){let{wrapper:r}=n.components||{};return r?(0,e.jsx)(r,{...n,children:(0,e.jsx)(l,{...n})}):l(n)}return D(b);})();\n;return Component;"
+    },
+    "_id": "knowledge/engineering-logs/prisma-driver-adapters-explained.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/engineering-logs/prisma-driver-adapters-explained.mdx",
+      "sourceFileName": "prisma-driver-adapters-explained.mdx",
+      "sourceFileDir": "knowledge/engineering-logs",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/engineering-logs/prisma-driver-adapters-explained"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "prisma-driver-adapters-explained",
+    "url": "/knowledge/prisma-driver-adapters-explained",
+    "readingTime": 1
+  },
+  {
+    "title": "Supabase Pooling and PgBouncer",
+    "summary": "Why connection pooling matters in modern applications and how PgBouncer improves scalability, reliability, and database performance.",
+    "status": "PUBLISHED",
+    "tags": [
+      "PostgreSQL",
+      "Supabase",
+      "PgBouncer",
+      "Database",
+      "Infrastructure",
+      "Connection Pooling\r"
+    ],
+    "related": [],
+    "category": "Infrastructure",
+    "body": {
+      "raw": "\r\n# Supabase Pooling and PgBouncer\r\n\r\nOne of the most common issues in cloud-native applications is database connection exhaustion.\r\n\r\nEvery request that creates a new database connection consumes memory.\r\n\r\nAt scale, this becomes expensive.\r\n\r\n## What Is PgBouncer?\r\n\r\nPgBouncer is a lightweight PostgreSQL connection pooler.\r\n\r\nInstead of opening new connections repeatedly:\r\n\r\n```text\r\nApplication\r\n ↓\r\nPgBouncer\r\n ↓\r\nConnection Pool\r\n ↓\r\nDatabase\r\n\r\n```text\r\n\r\nPgBouncer reuses existing connections.\r\n\r\nWhy It Matters\r\n\r\nBenefits:\r\n\r\nLower memory usage\r\nFaster response times\r\nBetter scalability\r\nImproved reliability\r\nThe Problem We Encountered\r\n\r\nDatabase synchronization failed because the local environment struggled with direct IPv6 database routing.\r\n\r\nThe solution was switching to Supabase's pooled connection endpoint.\r\n\r\nKey Takeaway\r\n\r\nWhen building production systems:\r\n\r\nUse pooled connections whenever possible.\r\n\r\nConnection pooling is not an optimization.\r\n\r\nIt is infrastructure hygiene.",
+      "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var y=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(r){throw n=0,r}},P=(e,n)=>{for(var r in n)a(e,r,{get:n[r],enumerable:!0})},s=(e,n,r,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of g(n))!b.call(e,o)&&o!==r&&a(e,o,{get:()=>n[o],enumerable:!(i=h(n,o))||i.enumerable});return e};var x=(e,n,r)=>(r=e!=null?d(m(e)):{},s(n||!e||!e.__esModule?a(r,\"default\",{value:e,enumerable:!0}):r,e)),f=e=>s(a({},\"__esModule\",{value:!0}),e);var l=y((v,c)=>{c.exports=_jsx_runtime});var B={};P(B,{default:()=>p,frontmatter:()=>w});var t=x(l()),w={title:\"Supabase Pooling and PgBouncer\",summary:\"Why connection pooling matters in modern applications and how PgBouncer improves scalability, reliability, and database performance.\",category:\"Infrastructure\",status:\"PUBLISHED\",tags:[\"PostgreSQL\",\"Supabase\",\"PgBouncer\",\"Database\",\"Infrastructure\",\"Connection Pooling\"]};function u(e){let n={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...e.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h1,{children:\"Supabase Pooling and PgBouncer\"}),`\n`,(0,t.jsx)(n.p,{children:\"One of the most common issues in cloud-native applications is database connection exhaustion.\"}),`\n`,(0,t.jsx)(n.p,{children:\"Every request that creates a new database connection consumes memory.\"}),`\n`,(0,t.jsx)(n.p,{children:\"At scale, this becomes expensive.\"}),`\n`,(0,t.jsx)(n.h2,{children:\"What Is PgBouncer?\"}),`\n`,(0,t.jsx)(n.p,{children:\"PgBouncer is a lightweight PostgreSQL connection pooler.\"}),`\n`,(0,t.jsx)(n.p,{children:\"Instead of opening new connections repeatedly:\"}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-text\",children:`Application\\r\n \\u2193\\r\nPgBouncer\\r\n \\u2193\\r\nConnection Pool\\r\n \\u2193\\r\nDatabase\\r\n\\r\n\\`\\`\\`text\\r\n\\r\nPgBouncer reuses existing connections.\\r\n\\r\nWhy It Matters\\r\n\\r\nBenefits:\\r\n\\r\nLower memory usage\\r\nFaster response times\\r\nBetter scalability\\r\nImproved reliability\\r\nThe Problem We Encountered\\r\n\\r\nDatabase synchronization failed because the local environment struggled with direct IPv6 database routing.\\r\n\\r\nThe solution was switching to Supabase's pooled connection endpoint.\\r\n\\r\nKey Takeaway\\r\n\\r\nWhen building production systems:\\r\n\\r\nUse pooled connections whenever possible.\\r\n\\r\nConnection pooling is not an optimization.\\r\n\\r\nIt is infrastructure hygiene.\n`})})]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,{...e,children:(0,t.jsx)(u,{...e})}):u(e)}return f(B);})();\n;return Component;"
+    },
+    "_id": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer.mdx",
+      "sourceFileName": "supabase-pooling-and-pgbouncer.mdx",
+      "sourceFileDir": "knowledge/engineering-logs",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "supabase-pooling-and-pgbouncer",
+    "url": "/knowledge/supabase-pooling-and-pgbouncer",
+    "readingTime": 1
+  },
+  {
+    "title": "Understanding Contentlayer Internals",
+    "summary": "A practical look at how Contentlayer transforms MDX files into structured data and serves as the content operating system behind a modern AI Engineering knowledge platform.",
+    "status": "PUBLISHED",
+    "tags": [
+      "Contentlayer",
+      "MDX",
+      "Next.js",
+      "Content Systems",
+      "Static Content",
+      "Type Safety\r"
+    ],
+    "related": [],
+    "category": "AI Engineering",
+    "body": {
+      "raw": "\r\n# Understanding Contentlayer Internals\r\n\r\nContentlayer acts as the bridge between content and application code.\r\n\r\nInstead of manually reading files and parsing frontmatter, Contentlayer automatically creates typed content objects.\r\n\r\n## The Problem It Solves\r\n\r\nWithout Contentlayer:\r\n\r\n```text\r\nRead File\r\nParse Markdown\r\nParse Frontmatter\r\nValidate Schema\r\nGenerate Types\r\nHandle Errors\r\n```text\r\n\r\nEvery project requires custom implementation.\r\n\r\nHow Contentlayer Works\r\nStep 1\r\n\r\nScan Content Directories\r\n\r\ncontent/\r\n  knowledge/\r\n  projects/\r\n  research/\r\nStep 2\r\n\r\nValidate Schemas\r\n\r\nEach document type defines required fields.\r\n\r\nExample:\r\n\r\ntitle:\r\ndescription:\r\ntags:\r\npublishedAt:\r\nStep 3\r\n\r\nGenerate Typed Objects\r\n\r\nThe result becomes:\r\n\r\nallKnowledge\r\nallProjects\r\nallResearch\r\n\r\nwhich can be consumed directly in React components.\r\n\r\nBenefits\r\nType Safety\r\n\r\nMissing fields are caught during build time.\r\n\r\nConsistency\r\n\r\nEvery document follows the same structure.\r\n\r\nPerformance\r\n\r\nContent is preprocessed before runtime.\r\n\r\nDeveloper Experience\r\n\r\nDevelopers work with structured objects instead of raw files.\r\n\r\nLessons Learned\r\n\r\nContentlayer is not just a parser.\r\n\r\nIt acts as the content operating system of the platform.\r\n\r\nThe better the schemas are designed, the more scalable the knowledge platform becomes.",
+      "code": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>{try{return e||n((e={exports:{}}).exports,e),e.exports}catch(t){throw e=0,t}},C=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!g.call(n,a)&&a!==t&&s(n,a,{get:()=>e[a],enumerable:!(o=h(e,a))||o.enumerable});return n};var b=(n,e,t)=>(t=n!=null?p(y(n)):{},c(e||!n||!n.__esModule?s(t,\"default\",{value:n,enumerable:!0}):t,n)),w=n=>c(s({},\"__esModule\",{value:!0}),n);var l=f((E,i)=>{i.exports=_jsx_runtime});var j={};C(j,{default:()=>m,frontmatter:()=>x});var r=b(l()),x={title:\"Understanding Contentlayer Internals\",summary:\"A practical look at how Contentlayer transforms MDX files into structured data and serves as the content operating system behind a modern AI Engineering knowledge platform.\",category:\"AI Engineering\",status:\"PUBLISHED\",tags:[\"Contentlayer\",\"MDX\",\"Next.js\",\"Content Systems\",\"Static Content\",\"Type Safety\"]};function d(n){let e={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"Understanding Contentlayer Internals\"}),`\n`,(0,r.jsx)(e.p,{children:\"Contentlayer acts as the bridge between content and application code.\"}),`\n`,(0,r.jsx)(e.p,{children:\"Instead of manually reading files and parsing frontmatter, Contentlayer automatically creates typed content objects.\"}),`\n`,(0,r.jsx)(e.h2,{children:\"The Problem It Solves\"}),`\n`,(0,r.jsx)(e.p,{children:\"Without Contentlayer:\"}),`\n`,(0,r.jsx)(e.pre,{children:(0,r.jsx)(e.code,{className:\"language-text\",children:`Read File\\r\nParse Markdown\\r\nParse Frontmatter\\r\nValidate Schema\\r\nGenerate Types\\r\nHandle Errors\\r\n\\`\\`\\`text\\r\n\\r\nEvery project requires custom implementation.\\r\n\\r\nHow Contentlayer Works\\r\nStep 1\\r\n\\r\nScan Content Directories\\r\n\\r\ncontent/\\r\n  knowledge/\\r\n  projects/\\r\n  research/\\r\nStep 2\\r\n\\r\nValidate Schemas\\r\n\\r\nEach document type defines required fields.\\r\n\\r\nExample:\\r\n\\r\ntitle:\\r\ndescription:\\r\ntags:\\r\npublishedAt:\\r\nStep 3\\r\n\\r\nGenerate Typed Objects\\r\n\\r\nThe result becomes:\\r\n\\r\nallKnowledge\\r\nallProjects\\r\nallResearch\\r\n\\r\nwhich can be consumed directly in React components.\\r\n\\r\nBenefits\\r\nType Safety\\r\n\\r\nMissing fields are caught during build time.\\r\n\\r\nConsistency\\r\n\\r\nEvery document follows the same structure.\\r\n\\r\nPerformance\\r\n\\r\nContent is preprocessed before runtime.\\r\n\\r\nDeveloper Experience\\r\n\\r\nDevelopers work with structured objects instead of raw files.\\r\n\\r\nLessons Learned\\r\n\\r\nContentlayer is not just a parser.\\r\n\\r\nIt acts as the content operating system of the platform.\\r\n\\r\nThe better the schemas are designed, the more scalable the knowledge platform becomes.\n`})})]})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(d,{...n})}):d(n)}return w(j);})();\n;return Component;"
+    },
+    "_id": "knowledge/engineering-logs/understanding-contentlayer-internals.mdx",
+    "_raw": {
+      "sourceFilePath": "knowledge/engineering-logs/understanding-contentlayer-internals.mdx",
+      "sourceFileName": "understanding-contentlayer-internals.mdx",
+      "sourceFileDir": "knowledge/engineering-logs",
+      "contentType": "mdx",
+      "flattenedPath": "knowledge/engineering-logs/understanding-contentlayer-internals"
+    },
+    "type": "KnowledgeArticle",
+    "slug": "understanding-contentlayer-internals",
+    "url": "/knowledge/understanding-contentlayer-internals",
+    "readingTime": 1
   }
 ]

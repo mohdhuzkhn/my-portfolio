@@ -1,0 +1,31 @@
+{
+  "title": "Supabase Pooling and PgBouncer",
+  "summary": "Why connection pooling matters in modern applications and how PgBouncer improves scalability, reliability, and database performance.",
+  "status": "PUBLISHED",
+  "tags": [
+    "PostgreSQL",
+    "Supabase",
+    "PgBouncer",
+    "Database",
+    "Infrastructure",
+    "Connection Pooling\r"
+  ],
+  "related": [],
+  "category": "Infrastructure",
+  "body": {
+    "raw": "\r\n# Supabase Pooling and PgBouncer\r\n\r\nOne of the most common issues in cloud-native applications is database connection exhaustion.\r\n\r\nEvery request that creates a new database connection consumes memory.\r\n\r\nAt scale, this becomes expensive.\r\n\r\n## What Is PgBouncer?\r\n\r\nPgBouncer is a lightweight PostgreSQL connection pooler.\r\n\r\nInstead of opening new connections repeatedly:\r\n\r\n```text\r\nApplication\r\n ↓\r\nPgBouncer\r\n ↓\r\nConnection Pool\r\n ↓\r\nDatabase\r\n\r\n```text\r\n\r\nPgBouncer reuses existing connections.\r\n\r\nWhy It Matters\r\n\r\nBenefits:\r\n\r\nLower memory usage\r\nFaster response times\r\nBetter scalability\r\nImproved reliability\r\nThe Problem We Encountered\r\n\r\nDatabase synchronization failed because the local environment struggled with direct IPv6 database routing.\r\n\r\nThe solution was switching to Supabase's pooled connection endpoint.\r\n\r\nKey Takeaway\r\n\r\nWhen building production systems:\r\n\r\nUse pooled connections whenever possible.\r\n\r\nConnection pooling is not an optimization.\r\n\r\nIt is infrastructure hygiene.",
+    "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var y=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(r){throw n=0,r}},P=(e,n)=>{for(var r in n)a(e,r,{get:n[r],enumerable:!0})},s=(e,n,r,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of g(n))!b.call(e,o)&&o!==r&&a(e,o,{get:()=>n[o],enumerable:!(i=h(n,o))||i.enumerable});return e};var x=(e,n,r)=>(r=e!=null?d(m(e)):{},s(n||!e||!e.__esModule?a(r,\"default\",{value:e,enumerable:!0}):r,e)),f=e=>s(a({},\"__esModule\",{value:!0}),e);var l=y((v,c)=>{c.exports=_jsx_runtime});var B={};P(B,{default:()=>p,frontmatter:()=>w});var t=x(l()),w={title:\"Supabase Pooling and PgBouncer\",summary:\"Why connection pooling matters in modern applications and how PgBouncer improves scalability, reliability, and database performance.\",category:\"Infrastructure\",status:\"PUBLISHED\",tags:[\"PostgreSQL\",\"Supabase\",\"PgBouncer\",\"Database\",\"Infrastructure\",\"Connection Pooling\"]};function u(e){let n={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...e.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h1,{children:\"Supabase Pooling and PgBouncer\"}),`\n`,(0,t.jsx)(n.p,{children:\"One of the most common issues in cloud-native applications is database connection exhaustion.\"}),`\n`,(0,t.jsx)(n.p,{children:\"Every request that creates a new database connection consumes memory.\"}),`\n`,(0,t.jsx)(n.p,{children:\"At scale, this becomes expensive.\"}),`\n`,(0,t.jsx)(n.h2,{children:\"What Is PgBouncer?\"}),`\n`,(0,t.jsx)(n.p,{children:\"PgBouncer is a lightweight PostgreSQL connection pooler.\"}),`\n`,(0,t.jsx)(n.p,{children:\"Instead of opening new connections repeatedly:\"}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-text\",children:`Application\\r\n \\u2193\\r\nPgBouncer\\r\n \\u2193\\r\nConnection Pool\\r\n \\u2193\\r\nDatabase\\r\n\\r\n\\`\\`\\`text\\r\n\\r\nPgBouncer reuses existing connections.\\r\n\\r\nWhy It Matters\\r\n\\r\nBenefits:\\r\n\\r\nLower memory usage\\r\nFaster response times\\r\nBetter scalability\\r\nImproved reliability\\r\nThe Problem We Encountered\\r\n\\r\nDatabase synchronization failed because the local environment struggled with direct IPv6 database routing.\\r\n\\r\nThe solution was switching to Supabase's pooled connection endpoint.\\r\n\\r\nKey Takeaway\\r\n\\r\nWhen building production systems:\\r\n\\r\nUse pooled connections whenever possible.\\r\n\\r\nConnection pooling is not an optimization.\\r\n\\r\nIt is infrastructure hygiene.\n`})})]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,{...e,children:(0,t.jsx)(u,{...e})}):u(e)}return f(B);})();\n;return Component;"
+  },
+  "_id": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer.mdx",
+  "_raw": {
+    "sourceFilePath": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer.mdx",
+    "sourceFileName": "supabase-pooling-and-pgbouncer.mdx",
+    "sourceFileDir": "knowledge/engineering-logs",
+    "contentType": "mdx",
+    "flattenedPath": "knowledge/engineering-logs/supabase-pooling-and-pgbouncer"
+  },
+  "type": "KnowledgeArticle",
+  "slug": "supabase-pooling-and-pgbouncer",
+  "url": "/knowledge/supabase-pooling-and-pgbouncer",
+  "readingTime": 1
+}

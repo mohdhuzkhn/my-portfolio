@@ -1,0 +1,31 @@
+{
+  "title": "Prisma Driver Adapters Explained",
+  "summary": "Understanding how Prisma Driver Adapters enable direct integration with PostgreSQL drivers and why they matter for modern database architectures.",
+  "status": "PUBLISHED",
+  "tags": [
+    "Prisma",
+    "PostgreSQL",
+    "Database",
+    "ORM",
+    "Backend",
+    "Driver Adapters\r"
+  ],
+  "related": [],
+  "category": "Infrastructure",
+  "body": {
+    "raw": "\r\n\r\n# Prisma Driver Adapters Explained\r\n\r\nPrisma traditionally communicates with databases through its Query Engine.\r\n\r\nRecent versions introduced Driver Adapters.\r\n\r\nThese adapters allow Prisma to use native database drivers directly.\r\n\r\n## Traditional Architecture\r\n\r\n```text\r\nApplication\r\n ↓\r\nPrisma Client\r\n ↓\r\nQuery Engine\r\n ↓\r\nDatabase\r\n```text\r\n\r\nAdapter Architecture\r\n\r\n```text\r\nApplication\r\n ↓\r\nPrisma Client\r\n ↓\r\nDriver Adapter\r\n ↓\r\npg Driver\r\n ↓\r\nPostgreSQL\r\n\r\n```text\r\nWhy Use Adapters?\r\nBetter Compatibility\r\n\r\nWorks well with pooled connections.\r\n\r\nMore Control\r\n\r\nDirect access to driver behavior.\r\n\r\nImproved Deployments\r\n\r\nParticularly useful in serverless environments.\r\n\r\nExample\r\nconst pool = new Pool({\r\n connectionString\r\n})\r\n\r\nconst adapter = new PrismaPg(pool)\r\n\r\nconst prisma = new PrismaClient({\r\n adapter\r\n})\r\nLessons Learned\r\n\r\nThe adapter architecture provides a cleaner integration between Prisma and PostgreSQL while improving flexibility for modern deployment environments.\r\n\r\n\r\n---\r\n\r\n# File 4\r\n\r\n**Filename**\r\n\r\n```text\r\nsupabase-pooling-and-pgbouncer.mdx",
+    "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var x=(n,r)=>()=>{try{return r||n((r={exports:{}}).exports,r),r.exports}catch(t){throw r=0,t}},P=(n,r)=>{for(var t in r)i(n,t,{get:r[t],enumerable:!0})},o=(n,r,t,s)=>{if(r&&typeof r==\"object\"||typeof r==\"function\")for(let a of u(r))!v.call(n,a)&&a!==t&&i(n,a,{get:()=>r[a],enumerable:!(s=h(r,a))||s.enumerable});return n};var y=(n,r,t)=>(t=n!=null?m(g(n)):{},o(r||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),D=n=>o(i({},\"__esModule\",{value:!0}),n);var d=x((f,c)=>{c.exports=_jsx_runtime});var b={};P(b,{default:()=>p,frontmatter:()=>w});var e=y(d()),w={title:\"Prisma Driver Adapters Explained\",summary:\"Understanding how Prisma Driver Adapters enable direct integration with PostgreSQL drivers and why they matter for modern database architectures.\",category:\"Infrastructure\",status:\"PUBLISHED\",tags:[\"Prisma\",\"PostgreSQL\",\"Database\",\"ORM\",\"Backend\",\"Driver Adapters\"]};function l(n){let r={code:\"code\",h1:\"h1\",h2:\"h2\",p:\"p\",pre:\"pre\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(r.h1,{children:\"Prisma Driver Adapters Explained\"}),`\n`,(0,e.jsx)(r.p,{children:\"Prisma traditionally communicates with databases through its Query Engine.\"}),`\n`,(0,e.jsx)(r.p,{children:\"Recent versions introduced Driver Adapters.\"}),`\n`,(0,e.jsx)(r.p,{children:\"These adapters allow Prisma to use native database drivers directly.\"}),`\n`,(0,e.jsx)(r.h2,{children:\"Traditional Architecture\"}),`\n`,(0,e.jsx)(r.pre,{children:(0,e.jsx)(r.code,{className:\"language-text\",children:`Application\\r\n \\u2193\\r\nPrisma Client\\r\n \\u2193\\r\nQuery Engine\\r\n \\u2193\\r\nDatabase\\r\n\\`\\`\\`text\\r\n\\r\nAdapter Architecture\\r\n\\r\n\\`\\`\\`text\\r\nApplication\\r\n \\u2193\\r\nPrisma Client\\r\n \\u2193\\r\nDriver Adapter\\r\n \\u2193\\r\npg Driver\\r\n \\u2193\\r\nPostgreSQL\\r\n\\r\n\\`\\`\\`text\\r\nWhy Use Adapters?\\r\nBetter Compatibility\\r\n\\r\nWorks well with pooled connections.\\r\n\\r\nMore Control\\r\n\\r\nDirect access to driver behavior.\\r\n\\r\nImproved Deployments\\r\n\\r\nParticularly useful in serverless environments.\\r\n\\r\nExample\\r\nconst pool = new Pool({\\r\n connectionString\\r\n})\\r\n\\r\nconst adapter = new PrismaPg(pool)\\r\n\\r\nconst prisma = new PrismaClient({\\r\n adapter\\r\n})\\r\nLessons Learned\\r\n\\r\nThe adapter architecture provides a cleaner integration between Prisma and PostgreSQL while improving flexibility for modern deployment environments.\\r\n\\r\n\\r\n---\\r\n\\r\n# File 4\\r\n\\r\n**Filename**\\r\n\\r\n\\`\\`\\`text\\r\nsupabase-pooling-and-pgbouncer.mdx\n`})})]})}function p(n={}){let{wrapper:r}=n.components||{};return r?(0,e.jsx)(r,{...n,children:(0,e.jsx)(l,{...n})}):l(n)}return D(b);})();\n;return Component;"
+  },
+  "_id": "knowledge/engineering-logs/prisma-driver-adapters-explained.mdx",
+  "_raw": {
+    "sourceFilePath": "knowledge/engineering-logs/prisma-driver-adapters-explained.mdx",
+    "sourceFileName": "prisma-driver-adapters-explained.mdx",
+    "sourceFileDir": "knowledge/engineering-logs",
+    "contentType": "mdx",
+    "flattenedPath": "knowledge/engineering-logs/prisma-driver-adapters-explained"
+  },
+  "type": "KnowledgeArticle",
+  "slug": "prisma-driver-adapters-explained",
+  "url": "/knowledge/prisma-driver-adapters-explained",
+  "readingTime": 1
+}

@@ -1,0 +1,64 @@
+---
+title: How TSX Executes TypeScript Scripts
+summary: Understanding how TSX leverages esbuild to execute TypeScript directly and why it has become a popular tool in modern development workflows.
+category: Developer Tools
+status: PUBLISHED
+tags:
+  - TypeScript
+  - TSX
+  - esbuild
+  - Tooling
+  - Developer Experience
+  - Build Systems
+---
+
+# How TSX Executes TypeScript Scripts
+
+Modern TypeScript projects often rely on TSX for script execution.
+
+TSX allows developers to run TypeScript directly.
+
+## Traditional Workflow
+
+```text
+TypeScript
+ ↓
+Compile
+ ↓
+JavaScript
+ ↓
+Execute
+
+TSX Workflow
+TypeScript
+ ↓
+esbuild
+ ↓
+Memory
+ ↓
+Execute
+```text
+
+No intermediate JavaScript files are generated.
+
+Why Developers Use TSX
+
+Benefits:
+
+Fast startup
+Simple configuration
+Excellent developer experience
+Native TypeScript execution
+Debugging a Syntax Failure
+
+A synchronization script failed with:
+
+Unexpected end of file
+
+The root cause was a dangling switch statement.
+
+Because TSX relies on esbuild parsing, even a single unclosed block can stop execution before runtime begins.
+
+Lessons Learned
+
+Always validate scripts before execution.

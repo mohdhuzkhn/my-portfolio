@@ -1,0 +1,85 @@
+---
+title: Prisma Driver Adapters Explained
+summary: Understanding how Prisma Driver Adapters enable direct integration with PostgreSQL drivers and why they matter for modern database architectures.
+category: Infrastructure
+status: PUBLISHED
+tags:
+  - Prisma
+  - PostgreSQL
+  - Database
+  - ORM
+  - Backend
+  - Driver Adapters
+---
+
+
+# Prisma Driver Adapters Explained
+
+Prisma traditionally communicates with databases through its Query Engine.
+
+Recent versions introduced Driver Adapters.
+
+These adapters allow Prisma to use native database drivers directly.
+
+## Traditional Architecture
+
+```text
+Application
+ ↓
+Prisma Client
+ ↓
+Query Engine
+ ↓
+Database
+```text
+
+Adapter Architecture
+
+```text
+Application
+ ↓
+Prisma Client
+ ↓
+Driver Adapter
+ ↓
+pg Driver
+ ↓
+PostgreSQL
+
+```text
+Why Use Adapters?
+Better Compatibility
+
+Works well with pooled connections.
+
+More Control
+
+Direct access to driver behavior.
+
+Improved Deployments
+
+Particularly useful in serverless environments.
+
+Example
+const pool = new Pool({
+ connectionString
+})
+
+const adapter = new PrismaPg(pool)
+
+const prisma = new PrismaClient({
+ adapter
+})
+Lessons Learned
+
+The adapter architecture provides a cleaner integration between Prisma and PostgreSQL while improving flexibility for modern deployment environments.
+
+
+---
+
+# File 4
+
+**Filename**
+
+```text
+supabase-pooling-and-pgbouncer.mdx
