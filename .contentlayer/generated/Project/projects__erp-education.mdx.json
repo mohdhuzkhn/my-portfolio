@@ -1,0 +1,35 @@
+{
+  "title": "Education ERP",
+  "summary": "A lightweight serverless ERP for educational coaching centers, with student and teacher workflows, fee tracking, ledgers, and test scheduling.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-01T00:00:00.000Z",
+  "tags": [
+    "edtech",
+    "erp",
+    "serverless",
+    "javascript",
+    "tailwind-css"
+  ],
+  "related": [
+    "learning-management-system",
+    "ai-powered-learning-os"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/ERP-Education",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn administrative platform for managing the core workflows of a coaching center, designed around modular JavaScript and a Tailwind CSS interface.\n",
+    "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of g(t))!f.call(e,a)&&a!==n&&s(e,a,{get:()=>t[a],enumerable:!(o=u(t,a))||o.enumerable});return e};var v=(e,t,n)=>(n=e!=null?m(p(e)):{},i(t||!e||!e.__esModule?s(n,\"default\",{value:e,enumerable:!0}):n,e)),_=e=>i(s({},\"__esModule\",{value:!0}),e);var d=w((P,c)=>{c.exports=_jsx_runtime});var E={};x(E,{default:()=>h,frontmatter:()=>j});var r=v(d()),j={title:\"Education ERP\",summary:\"A lightweight serverless ERP for educational coaching centers, with student and teacher workflows, fee tracking, ledgers, and test scheduling.\",status:\"PUBLISHED\",publishedAt:\"2026-08-01\",repoUrl:\"https://github.com/mohdhuzkhn/ERP-Education\",tags:[\"edtech\",\"erp\",\"serverless\",\"javascript\",\"tailwind-css\"],related:[\"learning-management-system\",\"ai-powered-learning-os\"]};function l(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(t.p,{children:\"An administrative platform for managing the core workflows of a coaching center, designed around modular JavaScript and a Tailwind CSS interface.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(l,{...e})}):l(e)}return _(E);})();\n;return Component;"
+  },
+  "_id": "projects/erp-education.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/erp-education.mdx",
+    "sourceFileName": "erp-education.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/erp-education"
+  },
+  "type": "Project",
+  "slug": "erp-education",
+  "url": "/projects/erp-education",
+  "readingTime": 1
+}

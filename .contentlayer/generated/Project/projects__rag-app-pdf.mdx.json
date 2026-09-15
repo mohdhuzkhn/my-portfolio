@@ -1,0 +1,34 @@
+{
+  "title": "Insight Stream PDF",
+  "summary": "A cloud-powered RAG pipeline for intelligent PDF analysis, with semantic search, document summarization, and multi-user isolation using Llama 3.3, Pinecone, and Groq.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-01-22T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "llama",
+    "pinecone",
+    "groq",
+    "streamlit",
+    "semantic-search"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Pdf",
+  "demoUrl": "https://mohdhuzkhn-insight-stream-pdf.streamlit.app/",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn intelligent PDF analysis application that combines retrieval, global summarization, and user-aware document experiences in a cloud-hosted RAG pipeline.\n",
+    "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},A=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},o=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of d(t))!x.call(e,i)&&i!==n&&r(e,i,{get:()=>t[i],enumerable:!(s=u(t,i))||s.enumerable});return e};var _=(e,t,n)=>(n=e!=null?p(g(e)):{},o(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),D=e=>o(r({},\"__esModule\",{value:!0}),e);var m=f((F,l)=>{l.exports=_jsx_runtime});var j={};A(j,{default:()=>h,frontmatter:()=>P});var a=_(m()),P={title:\"Insight Stream PDF\",summary:\"A cloud-powered RAG pipeline for intelligent PDF analysis, with semantic search, document summarization, and multi-user isolation using Llama 3.3, Pinecone, and Groq.\",status:\"PUBLISHED\",publishedAt:\"2026-01-22\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Pdf\",demoUrl:\"https://mohdhuzkhn-insight-stream-pdf.streamlit.app/\",tags:[\"rag\",\"llama\",\"pinecone\",\"groq\",\"streamlit\",\"semantic-search\"],related:[]};function c(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"An intelligent PDF analysis application that combines retrieval, global summarization, and user-aware document experiences in a cloud-hosted RAG pipeline.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(c,{...e})}):c(e)}return D(j);})();\n;return Component;"
+  },
+  "_id": "projects/rag-app-pdf.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/rag-app-pdf.mdx",
+    "sourceFileName": "rag-app-pdf.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/rag-app-pdf"
+  },
+  "type": "Project",
+  "slug": "rag-app-pdf",
+  "url": "/projects/rag-app-pdf",
+  "readingTime": 1
+}

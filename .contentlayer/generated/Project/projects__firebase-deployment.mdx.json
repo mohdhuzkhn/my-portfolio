@@ -1,0 +1,36 @@
+{
+  "title": "Firebase Deployment",
+  "summary": "A hands-on production pipeline covering CI/CD, linting, testing, Docker, PostgreSQL, Redis, Firebase, and GitHub Actions deployment.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-18T00:00:00.000Z",
+  "tags": [
+    "firebase",
+    "github-actions",
+    "ci-cd",
+    "docker",
+    "deployment"
+  ],
+  "related": [
+    "github-actions-projects",
+    "ai-backend-ci-cd"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/Firebase-Deployment",
+  "demoUrl": "https://github-actions-ci-cd-dem-92906.web.app/",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA practical deployment journey from CI/CD fundamentals to an automated backend delivery workflow with containerized infrastructure and Firebase hosting.\n",
+    "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of h(t))!g.call(e,i)&&i!==n&&r(e,i,{get:()=>t[i],enumerable:!(a=l(t,i))||a.enumerable});return e};var y=(e,t,n)=>(n=e!=null?u(b(e)):{},s(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),D=e=>s(r({},\"__esModule\",{value:!0}),e);var d=f((w,c)=>{c.exports=_jsx_runtime});var _={};x(_,{default:()=>p,frontmatter:()=>j});var o=y(d()),j={title:\"Firebase Deployment\",summary:\"A hands-on production pipeline covering CI/CD, linting, testing, Docker, PostgreSQL, Redis, Firebase, and GitHub Actions deployment.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/Firebase-Deployment\",demoUrl:\"https://github-actions-ci-cd-dem-92906.web.app/\",tags:[\"firebase\",\"github-actions\",\"ci-cd\",\"docker\",\"deployment\"],related:[\"github-actions-projects\",\"ai-backend-ci-cd\"]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(t.p,{children:\"A practical deployment journey from CI/CD fundamentals to an automated backend delivery workflow with containerized infrastructure and Firebase hosting.\"})]})}function p(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}return D(_);})();\n;return Component;"
+  },
+  "_id": "projects/firebase-deployment.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/firebase-deployment.mdx",
+    "sourceFileName": "firebase-deployment.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/firebase-deployment"
+  },
+  "type": "Project",
+  "slug": "firebase-deployment",
+  "url": "/projects/firebase-deployment",
+  "readingTime": 1
+}

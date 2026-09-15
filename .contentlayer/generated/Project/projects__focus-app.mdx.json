@@ -1,0 +1,32 @@
+{
+  "title": "Focus.app",
+  "summary": "A daily work tracker for logging effort and reviewing the last seven days of activity, backed by Supabase authentication and data isolation.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-20T00:00:00.000Z",
+  "tags": [
+    "productivity",
+    "supabase",
+    "postgres",
+    "full-stack"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/Focus-App",
+  "demoUrl": "https://focus-app-nine-eosin.vercel.app",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nFocus.app keeps time tracking lightweight: select a date, log work, and review a rolling seven-day view. Each account has a private history protected by Supabase Auth, Postgres, and Row Level Security.\n",
+    "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}},y=(t,e)=>{for(var a in e)s(t,a,{get:e[a],enumerable:!0})},i=(t,e,a,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!v.call(t,o)&&o!==a&&s(t,o,{get:()=>e[o],enumerable:!(r=h(e,o))||r.enumerable});return t};var w=(t,e,a)=>(a=t!=null?d(m(t)):{},i(e||!t||!t.__esModule?s(a,\"default\",{value:t,enumerable:!0}):a,t)),x=t=>i(s({},\"__esModule\",{value:!0}),t);var p=f((j,c)=>{c.exports=_jsx_runtime});var k={};y(k,{default:()=>l,frontmatter:()=>b});var n=w(p()),b={title:\"Focus.app\",summary:\"A daily work tracker for logging effort and reviewing the last seven days of activity, backed by Supabase authentication and data isolation.\",status:\"PUBLISHED\",publishedAt:\"2026-08-20\",repoUrl:\"https://github.com/mohdhuzkhn/Focus-App\",demoUrl:\"https://focus-app-nine-eosin.vercel.app\",tags:[\"productivity\",\"supabase\",\"postgres\",\"full-stack\"],related:[]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,n.jsx)(e.p,{children:\"Focus.app keeps time tracking lightweight: select a date, log work, and review a rolling seven-day view. Each account has a private history protected by Supabase Auth, Postgres, and Row Level Security.\"})]})}function l(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(u,{...t})}):u(t)}return x(k);})();\n;return Component;"
+  },
+  "_id": "projects/focus-app.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/focus-app.mdx",
+    "sourceFileName": "focus-app.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/focus-app"
+  },
+  "type": "Project",
+  "slug": "focus-app",
+  "url": "/projects/focus-app",
+  "readingTime": 1
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Passport Office Simulation",
+  "summary": "A Python simulation of passport-office operations created for a modelling and simulation university assignment.",
+  "status": "PUBLISHED",
+  "publishedAt": "2025-11-03T00:00:00.000Z",
+  "tags": [
+    "python",
+    "simulation",
+    "modelling",
+    "university"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/Simulation-Software",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA simulation-software project exploring the behavior of a passport-office workflow as part of university coursework in modelling and simulation.\n",
+    "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(t,o)=>()=>{try{return o||t((o={exports:{}}).exports,o),o.exports}catch(n){throw o=0,n}},w=(t,o)=>{for(var n in o)r(t,n,{get:o[n],enumerable:!0})},a=(t,o,n,s)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let i of h(o))!x.call(t,i)&&i!==n&&r(t,i,{get:()=>o[i],enumerable:!(s=f(o,i))||s.enumerable});return t};var y=(t,o,n)=>(n=t!=null?p(d(t)):{},a(o||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),_=t=>a(r({},\"__esModule\",{value:!0}),t);var m=g((b,l)=>{l.exports=_jsx_runtime});var v={};w(v,{default:()=>c,frontmatter:()=>j});var e=y(m()),j={title:\"Passport Office Simulation\",summary:\"A Python simulation of passport-office operations created for a modelling and simulation university assignment.\",status:\"PUBLISHED\",publishedAt:\"2025-11-03\",repoUrl:\"https://github.com/mohdhuzkhn/Simulation-Software\",tags:[\"python\",\"simulation\",\"modelling\",\"university\"],related:[]};function u(t){let o={h2:\"h2\",p:\"p\",...t.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(o.h2,{children:\"Overview\"}),`\n`,(0,e.jsx)(o.p,{children:\"A simulation-software project exploring the behavior of a passport-office workflow as part of university coursework in modelling and simulation.\"})]})}function c(t={}){let{wrapper:o}=t.components||{};return o?(0,e.jsx)(o,{...t,children:(0,e.jsx)(u,{...t})}):u(t)}return _(v);})();\n;return Component;"
+  },
+  "_id": "projects/simulation-software.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/simulation-software.mdx",
+    "sourceFileName": "simulation-software.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/simulation-software"
+  },
+  "type": "Project",
+  "slug": "simulation-software",
+  "url": "/projects/simulation-software",
+  "readingTime": 1
+}

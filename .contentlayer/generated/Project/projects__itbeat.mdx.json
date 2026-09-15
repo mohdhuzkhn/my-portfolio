@@ -1,0 +1,32 @@
+{
+  "title": "ITBeat",
+  "summary": "A community platform where developers share IT updates, discover news, and surface popular posts through engagement.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-04-03T00:00:00.000Z",
+  "tags": [
+    "community",
+    "web-app",
+    "javascript",
+    "developer-tools"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/ITBeat",
+  "demoUrl": "https://it-beat.vercel.app",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nITBeat is a developer-facing news and discussion space: users can sign in, share updates, and engage with the stories the community finds most valuable.\n",
+    "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of l(t))!f.call(e,a)&&a!==n&&r(e,a,{get:()=>t[a],enumerable:!(o=d(t,a))||o.enumerable});return e};var w=(e,t,n)=>(n=e!=null?h(g(e)):{},i(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),_=e=>i(r({},\"__esModule\",{value:!0}),e);var p=v((I,c)=>{c.exports=_jsx_runtime});var b={};x(b,{default:()=>u,frontmatter:()=>j});var s=w(p()),j={title:\"ITBeat\",summary:\"A community platform where developers share IT updates, discover news, and surface popular posts through engagement.\",status:\"PUBLISHED\",publishedAt:\"2026-04-03\",repoUrl:\"https://github.com/mohdhuzkhn/ITBeat\",demoUrl:\"https://it-beat.vercel.app\",tags:[\"community\",\"web-app\",\"javascript\",\"developer-tools\"],related:[]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,s.jsx)(t.p,{children:\"ITBeat is a developer-facing news and discussion space: users can sign in, share updates, and engage with the stories the community finds most valuable.\"})]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(m,{...e})}):m(e)}return _(b);})();\n;return Component;"
+  },
+  "_id": "projects/itbeat.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/itbeat.mdx",
+    "sourceFileName": "itbeat.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/itbeat"
+  },
+  "type": "Project",
+  "slug": "itbeat",
+  "url": "/projects/itbeat",
+  "readingTime": 1
+}

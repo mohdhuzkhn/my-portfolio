@@ -1,0 +1,35 @@
+{
+  "title": "AI Backend CI/CD",
+  "summary": "A production-ready FastAPI AI backend demonstrating static analysis, parallel matrix testing, database service containers, Docker builds, and CI/CD.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-18T00:00:00.000Z",
+  "tags": [
+    "fastapi",
+    "python",
+    "ci-cd",
+    "docker",
+    "mlops"
+  ],
+  "related": [
+    "github-actions-projects",
+    "firebase-deployment"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/ai-backend-ci-cd",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn end-to-end backend delivery pipeline that packages AI services with automated quality checks, matrix testing, database containers, and Docker builds.\n",
+    "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var k=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},g=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of u(e))!x.call(t,s)&&s!==n&&r(t,s,{get:()=>e[s],enumerable:!(i=h(e,s))||i.enumerable});return t};var y=(t,e,n)=>(n=t!=null?p(b(t)):{},c(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),f=t=>c(r({},\"__esModule\",{value:!0}),t);var d=k((_,o)=>{o.exports=_jsx_runtime});var D={};g(D,{default:()=>m,frontmatter:()=>A});var a=y(d()),A={title:\"AI Backend CI/CD\",summary:\"A production-ready FastAPI AI backend demonstrating static analysis, parallel matrix testing, database service containers, Docker builds, and CI/CD.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/ai-backend-ci-cd\",tags:[\"fastapi\",\"python\",\"ci-cd\",\"docker\",\"mlops\"],related:[\"github-actions-projects\",\"firebase-deployment\"]};function l(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"An end-to-end backend delivery pipeline that packages AI services with automated quality checks, matrix testing, database containers, and Docker builds.\"})]})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(l,{...t})}):l(t)}return f(D);})();\n;return Component;"
+  },
+  "_id": "projects/ai-backend-ci-cd.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/ai-backend-ci-cd.mdx",
+    "sourceFileName": "ai-backend-ci-cd.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/ai-backend-ci-cd"
+  },
+  "type": "Project",
+  "slug": "ai-backend-ci-cd",
+  "url": "/projects/ai-backend-ci-cd",
+  "readingTime": 1
+}

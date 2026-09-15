@@ -1,0 +1,32 @@
+{
+  "title": "RAG Financial Evaluation",
+  "summary": "An evaluation project for retrieval-augmented generation workflows in the financial domain.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-30T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "evaluation",
+    "financial-ai"
+  ],
+  "related": [
+    "rag-app-financial"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/RAG-Financial-Eval",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn evaluation companion for financial RAG work, centered on measuring retrieval and answer quality in a high-stakes information domain.\n",
+    "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var v=(n,a)=>()=>{try{return a||n((a={exports:{}}).exports,a),a.exports}catch(t){throw a=0,t}},x=(n,a)=>{for(var t in a)r(n,t,{get:a[t],enumerable:!0})},s=(n,a,t,o)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let i of f(a))!g.call(n,i)&&i!==t&&r(n,i,{get:()=>a[i],enumerable:!(o=d(a,i))||o.enumerable});return n};var _=(n,a,t)=>(t=n!=null?h(p(n)):{},s(a||!n||!n.__esModule?r(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>s(r({},\"__esModule\",{value:!0}),n);var c=v((F,l)=>{l.exports=_jsx_runtime});var A={};x(A,{default:()=>u,frontmatter:()=>w});var e=_(c()),w={title:\"RAG Financial Evaluation\",summary:\"An evaluation project for retrieval-augmented generation workflows in the financial domain.\",status:\"PUBLISHED\",publishedAt:\"2026-08-30\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-Financial-Eval\",tags:[\"rag\",\"evaluation\",\"financial-ai\"],related:[\"rag-app-financial\"]};function m(n){let a={h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(a.h2,{children:\"Overview\"}),`\n`,(0,e.jsx)(a.p,{children:\"An evaluation companion for financial RAG work, centered on measuring retrieval and answer quality in a high-stakes information domain.\"})]})}function u(n={}){let{wrapper:a}=n.components||{};return a?(0,e.jsx)(a,{...n,children:(0,e.jsx)(m,{...n})}):m(n)}return j(A);})();\n;return Component;"
+  },
+  "_id": "projects/rag-financial-eval.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/rag-financial-eval.mdx",
+    "sourceFileName": "rag-financial-eval.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/rag-financial-eval"
+  },
+  "type": "Project",
+  "slug": "rag-financial-eval",
+  "url": "/projects/rag-financial-eval",
+  "readingTime": 1
+}

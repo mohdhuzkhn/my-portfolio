@@ -1,0 +1,35 @@
+{
+  "title": "GitHub Actions Projects",
+  "summary": "A project-based exploration of GitHub Actions for linting, testing, Docker builds, PostgreSQL and Redis services, and production backend delivery.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-17T00:00:00.000Z",
+  "tags": [
+    "github-actions",
+    "ci-cd",
+    "python",
+    "docker",
+    "devops"
+  ],
+  "related": [
+    "ai-backend-ci-cd",
+    "firebase-deployment"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/Github-Actions-Projects",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn implementation repository for progressively building reliable automated workflows around backend services and supporting infrastructure.\n",
+    "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},x=(t,e)=>{for(var n in e)i(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!f.call(t,r)&&r!==n&&i(t,r,{get:()=>e[r],enumerable:!(s=m(e,r))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?p(b(t)):{},c(e||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),k=t=>c(i({},\"__esModule\",{value:!0}),t);var d=g((A,a)=>{a.exports=_jsx_runtime});var y={};x(y,{default:()=>l,frontmatter:()=>v});var o=j(d()),v={title:\"GitHub Actions Projects\",summary:\"A project-based exploration of GitHub Actions for linting, testing, Docker builds, PostgreSQL and Redis services, and production backend delivery.\",status:\"PUBLISHED\",publishedAt:\"2026-08-17\",repoUrl:\"https://github.com/mohdhuzkhn/Github-Actions-Projects\",tags:[\"github-actions\",\"ci-cd\",\"python\",\"docker\",\"devops\"],related:[\"ai-backend-ci-cd\",\"firebase-deployment\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(e.p,{children:\"An implementation repository for progressively building reliable automated workflows around backend services and supporting infrastructure.\"})]})}function l(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return k(y);})();\n;return Component;"
+  },
+  "_id": "projects/github-actions-projects.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/github-actions-projects.mdx",
+    "sourceFileName": "github-actions-projects.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/github-actions-projects"
+  },
+  "type": "Project",
+  "slug": "github-actions-projects",
+  "url": "/projects/github-actions-projects",
+  "readingTime": 1
+}

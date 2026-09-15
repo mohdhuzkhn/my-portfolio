@@ -1,0 +1,34 @@
+{
+  "title": "AI Leads Generation",
+  "summary": "An AI-powered lead-generation platform that discovers target companies, enriches decision-maker contacts, and scores leads using a CrewAI multi-agent pipeline.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-06-12T00:00:00.000Z",
+  "tags": [
+    "ai-agents",
+    "crewai",
+    "nextjs",
+    "fastapi",
+    "lead-generation"
+  ],
+  "related": [
+    "software-house"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/AI-Leads-Generation",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA full-stack lead intelligence workflow combining a Next.js interface, FastAPI services, and multi-agent research and scoring capabilities.\n",
+    "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},w=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},o=(e,t,n,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of p(t))!f.call(e,s)&&s!==n&&r(e,s,{get:()=>t[s],enumerable:!(i=u(t,s))||i.enumerable});return e};var A=(e,t,n)=>(n=e!=null?h(g(e)):{},o(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),j=e=>o(r({},\"__esModule\",{value:!0}),e);var l=x((k,c)=>{c.exports=_jsx_runtime});var I={};w(I,{default:()=>m,frontmatter:()=>_});var a=A(l()),_={title:\"AI Leads Generation\",summary:\"An AI-powered lead-generation platform that discovers target companies, enriches decision-maker contacts, and scores leads using a CrewAI multi-agent pipeline.\",status:\"PUBLISHED\",publishedAt:\"2026-06-12\",repoUrl:\"https://github.com/mohdhuzkhn/AI-Leads-Generation\",tags:[\"ai-agents\",\"crewai\",\"nextjs\",\"fastapi\",\"lead-generation\"],related:[\"software-house\"]};function d(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A full-stack lead intelligence workflow combining a Next.js interface, FastAPI services, and multi-agent research and scoring capabilities.\"})]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(d,{...e})}):d(e)}return j(I);})();\n;return Component;"
+  },
+  "_id": "projects/ai-leads-generation.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/ai-leads-generation.mdx",
+    "sourceFileName": "ai-leads-generation.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/ai-leads-generation"
+  },
+  "type": "Project",
+  "slug": "ai-leads-generation",
+  "url": "/projects/ai-leads-generation",
+  "readingTime": 1
+}

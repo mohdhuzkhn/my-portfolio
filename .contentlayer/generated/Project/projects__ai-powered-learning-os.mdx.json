@@ -1,0 +1,35 @@
+{
+  "title": "AI-Powered Learning OS",
+  "summary": "A mission-driven learning operating system for bootcamps, academies, and technical teams, built with React, TypeScript, and Firebase.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-18T00:00:00.000Z",
+  "tags": [
+    "edtech",
+    "ai",
+    "react",
+    "typescript",
+    "firebase"
+  ],
+  "related": [
+    "learning-management-system",
+    "rag-app-education"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/AI-Powered-Learning-OS",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nLearning OS moves beyond passive course delivery with missions, project-based work, submissions, and progress tracking. The planned AI layer supports mentoring, feedback, roadmaps, and learning analytics.\n",
+    "code": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var y=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},x=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},o=(e,n,t,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of u(n))!b.call(e,a)&&a!==t&&s(e,a,{get:()=>n[a],enumerable:!(i=l(n,a))||i.enumerable});return e};var f=(e,n,t)=>(t=e!=null?h(g(e)):{},o(n||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),w=e=>o(s({},\"__esModule\",{value:!0}),e);var m=y((A,c)=>{c.exports=_jsx_runtime});var j={};x(j,{default:()=>p,frontmatter:()=>_});var r=f(m()),_={title:\"AI-Powered Learning OS\",summary:\"A mission-driven learning operating system for bootcamps, academies, and technical teams, built with React, TypeScript, and Firebase.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/AI-Powered-Learning-OS\",tags:[\"edtech\",\"ai\",\"react\",\"typescript\",\"firebase\"],related:[\"learning-management-system\",\"rag-app-education\"]};function d(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(n.p,{children:\"Learning OS moves beyond passive course delivery with missions, project-based work, submissions, and progress tracking. The planned AI layer supports mentoring, feedback, roadmaps, and learning analytics.\"})]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return w(j);})();\n;return Component;"
+  },
+  "_id": "projects/ai-powered-learning-os.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/ai-powered-learning-os.mdx",
+    "sourceFileName": "ai-powered-learning-os.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/ai-powered-learning-os"
+  },
+  "type": "Project",
+  "slug": "ai-powered-learning-os",
+  "url": "/projects/ai-powered-learning-os",
+  "readingTime": 1
+}

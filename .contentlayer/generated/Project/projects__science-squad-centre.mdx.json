@@ -1,0 +1,33 @@
+{
+  "title": "The Science Squad Centre",
+  "summary": "A website for The Science Squad coaching centre, serving students from grades 9 through 12.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-07-27T00:00:00.000Z",
+  "tags": [
+    "education",
+    "web-development",
+    "html"
+  ],
+  "related": [
+    "erp-education",
+    "learning-management-system"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/The-Science-Squad-Centre",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA public web presence for a coaching centre offering academic classes for secondary and higher-secondary students.\n",
+    "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},S=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of g(n))!f.call(e,c)&&c!==t&&s(e,c,{get:()=>n[c],enumerable:!(o=l(n,c))||o.enumerable});return e};var _=(e,n,t)=>(t=e!=null?m(p(e)):{},a(n||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),b=e=>a(s({},\"__esModule\",{value:!0}),e);var h=x((v,i)=>{i.exports=_jsx_runtime});var w={};S(w,{default:()=>u,frontmatter:()=>j});var r=_(h()),j={title:\"The Science Squad Centre\",summary:\"A website for The Science Squad coaching centre, serving students from grades 9 through 12.\",status:\"PUBLISHED\",publishedAt:\"2026-07-27\",repoUrl:\"https://github.com/mohdhuzkhn/The-Science-Squad-Centre\",tags:[\"education\",\"web-development\",\"html\"],related:[\"erp-education\",\"learning-management-system\"]};function d(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(n.p,{children:\"A public web presence for a coaching centre offering academic classes for secondary and higher-secondary students.\"})]})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return b(w);})();\n;return Component;"
+  },
+  "_id": "projects/science-squad-centre.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/science-squad-centre.mdx",
+    "sourceFileName": "science-squad-centre.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/science-squad-centre"
+  },
+  "type": "Project",
+  "slug": "science-squad-centre",
+  "url": "/projects/science-squad-centre",
+  "readingTime": 1
+}

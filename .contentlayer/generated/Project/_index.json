@@ -1,5 +1,406 @@
 [
   {
+    "title": "AI Backend CI/CD",
+    "summary": "A production-ready FastAPI AI backend demonstrating static analysis, parallel matrix testing, database service containers, Docker builds, and CI/CD.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-18T00:00:00.000Z",
+    "tags": [
+      "fastapi",
+      "python",
+      "ci-cd",
+      "docker",
+      "mlops"
+    ],
+    "related": [
+      "github-actions-projects",
+      "firebase-deployment"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/ai-backend-ci-cd",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn end-to-end backend delivery pipeline that packages AI services with automated quality checks, matrix testing, database containers, and Docker builds.\n",
+      "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var k=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},g=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of u(e))!x.call(t,s)&&s!==n&&r(t,s,{get:()=>e[s],enumerable:!(i=h(e,s))||i.enumerable});return t};var y=(t,e,n)=>(n=t!=null?p(b(t)):{},c(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),f=t=>c(r({},\"__esModule\",{value:!0}),t);var d=k((_,o)=>{o.exports=_jsx_runtime});var D={};g(D,{default:()=>m,frontmatter:()=>A});var a=y(d()),A={title:\"AI Backend CI/CD\",summary:\"A production-ready FastAPI AI backend demonstrating static analysis, parallel matrix testing, database service containers, Docker builds, and CI/CD.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/ai-backend-ci-cd\",tags:[\"fastapi\",\"python\",\"ci-cd\",\"docker\",\"mlops\"],related:[\"github-actions-projects\",\"firebase-deployment\"]};function l(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"An end-to-end backend delivery pipeline that packages AI services with automated quality checks, matrix testing, database containers, and Docker builds.\"})]})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(l,{...t})}):l(t)}return f(D);})();\n;return Component;"
+    },
+    "_id": "projects/ai-backend-ci-cd.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/ai-backend-ci-cd.mdx",
+      "sourceFileName": "ai-backend-ci-cd.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/ai-backend-ci-cd"
+    },
+    "type": "Project",
+    "slug": "ai-backend-ci-cd",
+    "url": "/projects/ai-backend-ci-cd",
+    "readingTime": 1
+  },
+  {
+    "title": "AI Leads Generation",
+    "summary": "An AI-powered lead-generation platform that discovers target companies, enriches decision-maker contacts, and scores leads using a CrewAI multi-agent pipeline.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-06-12T00:00:00.000Z",
+    "tags": [
+      "ai-agents",
+      "crewai",
+      "nextjs",
+      "fastapi",
+      "lead-generation"
+    ],
+    "related": [
+      "software-house"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/AI-Leads-Generation",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA full-stack lead intelligence workflow combining a Next.js interface, FastAPI services, and multi-agent research and scoring capabilities.\n",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},w=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},o=(e,t,n,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of p(t))!f.call(e,s)&&s!==n&&r(e,s,{get:()=>t[s],enumerable:!(i=u(t,s))||i.enumerable});return e};var A=(e,t,n)=>(n=e!=null?h(g(e)):{},o(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),j=e=>o(r({},\"__esModule\",{value:!0}),e);var l=x((k,c)=>{c.exports=_jsx_runtime});var I={};w(I,{default:()=>m,frontmatter:()=>_});var a=A(l()),_={title:\"AI Leads Generation\",summary:\"An AI-powered lead-generation platform that discovers target companies, enriches decision-maker contacts, and scores leads using a CrewAI multi-agent pipeline.\",status:\"PUBLISHED\",publishedAt:\"2026-06-12\",repoUrl:\"https://github.com/mohdhuzkhn/AI-Leads-Generation\",tags:[\"ai-agents\",\"crewai\",\"nextjs\",\"fastapi\",\"lead-generation\"],related:[\"software-house\"]};function d(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A full-stack lead intelligence workflow combining a Next.js interface, FastAPI services, and multi-agent research and scoring capabilities.\"})]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(d,{...e})}):d(e)}return j(I);})();\n;return Component;"
+    },
+    "_id": "projects/ai-leads-generation.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/ai-leads-generation.mdx",
+      "sourceFileName": "ai-leads-generation.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/ai-leads-generation"
+    },
+    "type": "Project",
+    "slug": "ai-leads-generation",
+    "url": "/projects/ai-leads-generation",
+    "readingTime": 1
+  },
+  {
+    "title": "AI-Powered Learning OS",
+    "summary": "A mission-driven learning operating system for bootcamps, academies, and technical teams, built with React, TypeScript, and Firebase.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-18T00:00:00.000Z",
+    "tags": [
+      "edtech",
+      "ai",
+      "react",
+      "typescript",
+      "firebase"
+    ],
+    "related": [
+      "learning-management-system",
+      "rag-app-education"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/AI-Powered-Learning-OS",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nLearning OS moves beyond passive course delivery with missions, project-based work, submissions, and progress tracking. The planned AI layer supports mentoring, feedback, roadmaps, and learning analytics.\n",
+      "code": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var y=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},x=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},o=(e,n,t,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of u(n))!b.call(e,a)&&a!==t&&s(e,a,{get:()=>n[a],enumerable:!(i=l(n,a))||i.enumerable});return e};var f=(e,n,t)=>(t=e!=null?h(g(e)):{},o(n||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),w=e=>o(s({},\"__esModule\",{value:!0}),e);var m=y((A,c)=>{c.exports=_jsx_runtime});var j={};x(j,{default:()=>p,frontmatter:()=>_});var r=f(m()),_={title:\"AI-Powered Learning OS\",summary:\"A mission-driven learning operating system for bootcamps, academies, and technical teams, built with React, TypeScript, and Firebase.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/AI-Powered-Learning-OS\",tags:[\"edtech\",\"ai\",\"react\",\"typescript\",\"firebase\"],related:[\"learning-management-system\",\"rag-app-education\"]};function d(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(n.p,{children:\"Learning OS moves beyond passive course delivery with missions, project-based work, submissions, and progress tracking. The planned AI layer supports mentoring, feedback, roadmaps, and learning analytics.\"})]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return w(j);})();\n;return Component;"
+    },
+    "_id": "projects/ai-powered-learning-os.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/ai-powered-learning-os.mdx",
+      "sourceFileName": "ai-powered-learning-os.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/ai-powered-learning-os"
+    },
+    "type": "Project",
+    "slug": "ai-powered-learning-os",
+    "url": "/projects/ai-powered-learning-os",
+    "readingTime": 1
+  },
+  {
+    "title": "Basic Calculator",
+    "summary": "A foundational calculator application built as an early web-development project.",
+    "status": "PUBLISHED",
+    "publishedAt": "2024-08-21T00:00:00.000Z",
+    "tags": [
+      "javascript",
+      "web-development",
+      "foundations"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/Calculator_Basic",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn early implementation of a basic calculator, retained as part of the engineering progression from simple interfaces to production AI systems.\n",
+      "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},g=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of h(e))!x.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?u(f(t)):{},i(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),b=t=>i(r({},\"__esModule\",{value:!0}),t);var l=_((A,c)=>{c.exports=_jsx_runtime});var y={};g(y,{default:()=>p,frontmatter:()=>v});var a=j(l()),v={title:\"Basic Calculator\",summary:\"A foundational calculator application built as an early web-development project.\",status:\"PUBLISHED\",publishedAt:\"2024-08-21\",repoUrl:\"https://github.com/mohdhuzkhn/Calculator_Basic\",tags:[\"javascript\",\"web-development\",\"foundations\"],related:[]};function m(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"An early implementation of a basic calculator, retained as part of the engineering progression from simple interfaces to production AI systems.\"})]})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(m,{...t})}):m(t)}return b(y);})();\n;return Component;"
+    },
+    "_id": "projects/calculator-basic.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/calculator-basic.mdx",
+      "sourceFileName": "calculator-basic.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/calculator-basic"
+    },
+    "type": "Project",
+    "slug": "calculator-basic",
+    "url": "/projects/calculator-basic",
+    "readingTime": 1
+  },
+  {
+    "title": "Education ERP",
+    "summary": "A lightweight serverless ERP for educational coaching centers, with student and teacher workflows, fee tracking, ledgers, and test scheduling.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-01T00:00:00.000Z",
+    "tags": [
+      "edtech",
+      "erp",
+      "serverless",
+      "javascript",
+      "tailwind-css"
+    ],
+    "related": [
+      "learning-management-system",
+      "ai-powered-learning-os"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/ERP-Education",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn administrative platform for managing the core workflows of a coaching center, designed around modular JavaScript and a Tailwind CSS interface.\n",
+      "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of g(t))!f.call(e,a)&&a!==n&&s(e,a,{get:()=>t[a],enumerable:!(o=u(t,a))||o.enumerable});return e};var v=(e,t,n)=>(n=e!=null?m(p(e)):{},i(t||!e||!e.__esModule?s(n,\"default\",{value:e,enumerable:!0}):n,e)),_=e=>i(s({},\"__esModule\",{value:!0}),e);var d=w((P,c)=>{c.exports=_jsx_runtime});var E={};x(E,{default:()=>h,frontmatter:()=>j});var r=v(d()),j={title:\"Education ERP\",summary:\"A lightweight serverless ERP for educational coaching centers, with student and teacher workflows, fee tracking, ledgers, and test scheduling.\",status:\"PUBLISHED\",publishedAt:\"2026-08-01\",repoUrl:\"https://github.com/mohdhuzkhn/ERP-Education\",tags:[\"edtech\",\"erp\",\"serverless\",\"javascript\",\"tailwind-css\"],related:[\"learning-management-system\",\"ai-powered-learning-os\"]};function l(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(t.p,{children:\"An administrative platform for managing the core workflows of a coaching center, designed around modular JavaScript and a Tailwind CSS interface.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(l,{...e})}):l(e)}return _(E);})();\n;return Component;"
+    },
+    "_id": "projects/erp-education.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/erp-education.mdx",
+      "sourceFileName": "erp-education.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/erp-education"
+    },
+    "type": "Project",
+    "slug": "erp-education",
+    "url": "/projects/erp-education",
+    "readingTime": 1
+  },
+  {
+    "title": "Firebase Deployment",
+    "summary": "A hands-on production pipeline covering CI/CD, linting, testing, Docker, PostgreSQL, Redis, Firebase, and GitHub Actions deployment.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-18T00:00:00.000Z",
+    "tags": [
+      "firebase",
+      "github-actions",
+      "ci-cd",
+      "docker",
+      "deployment"
+    ],
+    "related": [
+      "github-actions-projects",
+      "ai-backend-ci-cd"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/Firebase-Deployment",
+    "demoUrl": "https://github-actions-ci-cd-dem-92906.web.app/",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA practical deployment journey from CI/CD fundamentals to an automated backend delivery workflow with containerized infrastructure and Firebase hosting.\n",
+      "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of h(t))!g.call(e,i)&&i!==n&&r(e,i,{get:()=>t[i],enumerable:!(a=l(t,i))||a.enumerable});return e};var y=(e,t,n)=>(n=e!=null?u(b(e)):{},s(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),D=e=>s(r({},\"__esModule\",{value:!0}),e);var d=f((w,c)=>{c.exports=_jsx_runtime});var _={};x(_,{default:()=>p,frontmatter:()=>j});var o=y(d()),j={title:\"Firebase Deployment\",summary:\"A hands-on production pipeline covering CI/CD, linting, testing, Docker, PostgreSQL, Redis, Firebase, and GitHub Actions deployment.\",status:\"PUBLISHED\",publishedAt:\"2026-08-18\",repoUrl:\"https://github.com/mohdhuzkhn/Firebase-Deployment\",demoUrl:\"https://github-actions-ci-cd-dem-92906.web.app/\",tags:[\"firebase\",\"github-actions\",\"ci-cd\",\"docker\",\"deployment\"],related:[\"github-actions-projects\",\"ai-backend-ci-cd\"]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(t.p,{children:\"A practical deployment journey from CI/CD fundamentals to an automated backend delivery workflow with containerized infrastructure and Firebase hosting.\"})]})}function p(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}return D(_);})();\n;return Component;"
+    },
+    "_id": "projects/firebase-deployment.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/firebase-deployment.mdx",
+      "sourceFileName": "firebase-deployment.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/firebase-deployment"
+    },
+    "type": "Project",
+    "slug": "firebase-deployment",
+    "url": "/projects/firebase-deployment",
+    "readingTime": 1
+  },
+  {
+    "title": "Focus.app",
+    "summary": "A daily work tracker for logging effort and reviewing the last seven days of activity, backed by Supabase authentication and data isolation.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-20T00:00:00.000Z",
+    "tags": [
+      "productivity",
+      "supabase",
+      "postgres",
+      "full-stack"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/Focus-App",
+    "demoUrl": "https://focus-app-nine-eosin.vercel.app",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nFocus.app keeps time tracking lightweight: select a date, log work, and review a rolling seven-day view. Each account has a private history protected by Supabase Auth, Postgres, and Row Level Security.\n",
+      "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}},y=(t,e)=>{for(var a in e)s(t,a,{get:e[a],enumerable:!0})},i=(t,e,a,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!v.call(t,o)&&o!==a&&s(t,o,{get:()=>e[o],enumerable:!(r=h(e,o))||r.enumerable});return t};var w=(t,e,a)=>(a=t!=null?d(m(t)):{},i(e||!t||!t.__esModule?s(a,\"default\",{value:t,enumerable:!0}):a,t)),x=t=>i(s({},\"__esModule\",{value:!0}),t);var p=f((j,c)=>{c.exports=_jsx_runtime});var k={};y(k,{default:()=>l,frontmatter:()=>b});var n=w(p()),b={title:\"Focus.app\",summary:\"A daily work tracker for logging effort and reviewing the last seven days of activity, backed by Supabase authentication and data isolation.\",status:\"PUBLISHED\",publishedAt:\"2026-08-20\",repoUrl:\"https://github.com/mohdhuzkhn/Focus-App\",demoUrl:\"https://focus-app-nine-eosin.vercel.app\",tags:[\"productivity\",\"supabase\",\"postgres\",\"full-stack\"],related:[]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,n.jsx)(e.p,{children:\"Focus.app keeps time tracking lightweight: select a date, log work, and review a rolling seven-day view. Each account has a private history protected by Supabase Auth, Postgres, and Row Level Security.\"})]})}function l(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(u,{...t})}):u(t)}return x(k);})();\n;return Component;"
+    },
+    "_id": "projects/focus-app.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/focus-app.mdx",
+      "sourceFileName": "focus-app.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/focus-app"
+    },
+    "type": "Project",
+    "slug": "focus-app",
+    "url": "/projects/focus-app",
+    "readingTime": 1
+  },
+  {
+    "title": "GitHub Actions Projects",
+    "summary": "A project-based exploration of GitHub Actions for linting, testing, Docker builds, PostgreSQL and Redis services, and production backend delivery.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-17T00:00:00.000Z",
+    "tags": [
+      "github-actions",
+      "ci-cd",
+      "python",
+      "docker",
+      "devops"
+    ],
+    "related": [
+      "ai-backend-ci-cd",
+      "firebase-deployment"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/Github-Actions-Projects",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn implementation repository for progressively building reliable automated workflows around backend services and supporting infrastructure.\n",
+      "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},x=(t,e)=>{for(var n in e)i(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!f.call(t,r)&&r!==n&&i(t,r,{get:()=>e[r],enumerable:!(s=m(e,r))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?p(b(t)):{},c(e||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),k=t=>c(i({},\"__esModule\",{value:!0}),t);var d=g((A,a)=>{a.exports=_jsx_runtime});var y={};x(y,{default:()=>l,frontmatter:()=>v});var o=j(d()),v={title:\"GitHub Actions Projects\",summary:\"A project-based exploration of GitHub Actions for linting, testing, Docker builds, PostgreSQL and Redis services, and production backend delivery.\",status:\"PUBLISHED\",publishedAt:\"2026-08-17\",repoUrl:\"https://github.com/mohdhuzkhn/Github-Actions-Projects\",tags:[\"github-actions\",\"ci-cd\",\"python\",\"docker\",\"devops\"],related:[\"ai-backend-ci-cd\",\"firebase-deployment\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(e.p,{children:\"An implementation repository for progressively building reliable automated workflows around backend services and supporting infrastructure.\"})]})}function l(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return k(y);})();\n;return Component;"
+    },
+    "_id": "projects/github-actions-projects.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/github-actions-projects.mdx",
+      "sourceFileName": "github-actions-projects.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/github-actions-projects"
+    },
+    "type": "Project",
+    "slug": "github-actions-projects",
+    "url": "/projects/github-actions-projects",
+    "readingTime": 1
+  },
+  {
+    "title": "Guess the Number",
+    "summary": "A foundational Java number-guessing game.",
+    "status": "PUBLISHED",
+    "publishedAt": "2024-09-06T00:00:00.000Z",
+    "tags": [
+      "java",
+      "programming-fundamentals",
+      "foundations"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/GuessTheNumber_Basic",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA compact number-guessing game that represents early practice with program flow, input handling, and basic logic.\n",
+      "code": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},_=(t,e)=>{for(var n in e)s(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(t,r)&&r!==n&&s(t,r,{get:()=>e[r],enumerable:!(o=l(e,r))||o.enumerable});return t};var b=(t,e,n)=>(n=t!=null?g(d(t)):{},i(e||!t||!t.__esModule?s(n,\"default\",{value:t,enumerable:!0}):n,t)),j=t=>i(s({},\"__esModule\",{value:!0}),t);var u=x((A,m)=>{m.exports=_jsx_runtime});var w={};_(w,{default:()=>h,frontmatter:()=>v});var a=b(u()),v={title:\"Guess the Number\",summary:\"A foundational Java number-guessing game.\",status:\"PUBLISHED\",publishedAt:\"2024-09-06\",repoUrl:\"https://github.com/mohdhuzkhn/GuessTheNumber_Basic\",tags:[\"java\",\"programming-fundamentals\",\"foundations\"],related:[]};function c(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"A compact number-guessing game that represents early practice with program flow, input handling, and basic logic.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(c,{...t})}):c(t)}return j(w);})();\n;return Component;"
+    },
+    "_id": "projects/guess-the-number-basic.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/guess-the-number-basic.mdx",
+      "sourceFileName": "guess-the-number-basic.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/guess-the-number-basic"
+    },
+    "type": "Project",
+    "slug": "guess-the-number-basic",
+    "url": "/projects/guess-the-number-basic",
+    "readingTime": 1
+  },
+  {
+    "title": "ITBeat",
+    "summary": "A community platform where developers share IT updates, discover news, and surface popular posts through engagement.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-04-03T00:00:00.000Z",
+    "tags": [
+      "community",
+      "web-app",
+      "javascript",
+      "developer-tools"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/ITBeat",
+    "demoUrl": "https://it-beat.vercel.app",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nITBeat is a developer-facing news and discussion space: users can sign in, share updates, and engage with the stories the community finds most valuable.\n",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},x=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of l(t))!f.call(e,a)&&a!==n&&r(e,a,{get:()=>t[a],enumerable:!(o=d(t,a))||o.enumerable});return e};var w=(e,t,n)=>(n=e!=null?h(g(e)):{},i(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),_=e=>i(r({},\"__esModule\",{value:!0}),e);var p=v((I,c)=>{c.exports=_jsx_runtime});var b={};x(b,{default:()=>u,frontmatter:()=>j});var s=w(p()),j={title:\"ITBeat\",summary:\"A community platform where developers share IT updates, discover news, and surface popular posts through engagement.\",status:\"PUBLISHED\",publishedAt:\"2026-04-03\",repoUrl:\"https://github.com/mohdhuzkhn/ITBeat\",demoUrl:\"https://it-beat.vercel.app\",tags:[\"community\",\"web-app\",\"javascript\",\"developer-tools\"],related:[]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,s.jsx)(t.p,{children:\"ITBeat is a developer-facing news and discussion space: users can sign in, share updates, and engage with the stories the community finds most valuable.\"})]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(m,{...e})}):m(e)}return _(b);})();\n;return Component;"
+    },
+    "_id": "projects/itbeat.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/itbeat.mdx",
+      "sourceFileName": "itbeat.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/itbeat"
+    },
+    "type": "Project",
+    "slug": "itbeat",
+    "url": "/projects/itbeat",
+    "readingTime": 1
+  },
+  {
+    "title": "Kissan AI",
+    "summary": "An AI-powered farming advisory platform with crop chat, field analytics, field-data analysis, and activity logs, built with React, TypeScript, and Google Gemini.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-15T00:00:00.000Z",
+    "tags": [
+      "generative-ai",
+      "google-gemini",
+      "agritech",
+      "react",
+      "typescript"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/Kissan-AI",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nKissan AI applies generative AI and field data to support farmers with practical crop guidance and clearer, data-informed decisions.\n",
+      "code": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}},y=(t,e)=>{for(var a in e)r(t,a,{get:e[a],enumerable:!0})},o=(t,e,a,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!f.call(t,i)&&i!==a&&r(t,i,{get:()=>e[i],enumerable:!(s=h(e,i))||s.enumerable});return t};var A=(t,e,a)=>(a=t!=null?m(g(t)):{},o(e||!t||!t.__esModule?r(a,\"default\",{value:t,enumerable:!0}):a,t)),_=t=>o(r({},\"__esModule\",{value:!0}),t);var d=x((j,c)=>{c.exports=_jsx_runtime});var w={};y(w,{default:()=>p,frontmatter:()=>v});var n=A(d()),v={title:\"Kissan AI\",summary:\"An AI-powered farming advisory platform with crop chat, field analytics, field-data analysis, and activity logs, built with React, TypeScript, and Google Gemini.\",status:\"PUBLISHED\",publishedAt:\"2026-08-15\",repoUrl:\"https://github.com/mohdhuzkhn/Kissan-AI\",tags:[\"generative-ai\",\"google-gemini\",\"agritech\",\"react\",\"typescript\"],related:[]};function l(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,n.jsx)(e.p,{children:\"Kissan AI applies generative AI and field data to support farmers with practical crop guidance and clearer, data-informed decisions.\"})]})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(l,{...t})}):l(t)}return _(w);})();\n;return Component;"
+    },
+    "_id": "projects/kissan-ai.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/kissan-ai.mdx",
+      "sourceFileName": "kissan-ai.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/kissan-ai"
+    },
+    "type": "Project",
+    "slug": "kissan-ai",
+    "url": "/projects/kissan-ai",
+    "readingTime": 1
+  },
+  {
+    "title": "Learning Management System",
+    "summary": "A modern student dashboard and learning management system for an AI-focused school, built with Django, Python, and Tailwind CSS.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-04-19T00:00:00.000Z",
+    "tags": [
+      "django",
+      "python",
+      "edtech",
+      "lms",
+      "tailwind-css"
+    ],
+    "related": [
+      "ai-powered-learning-os",
+      "rag-app-education"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/Learning_Management_System",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA foundational education platform focused on student workflows and modern dashboard UX, with a longer-term vision for an AI school in Pakistan.\n",
+      "code": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(n,t)=>()=>{try{return t||n((t={exports:{}}).exports,t),t.exports}catch(e){throw t=0,e}},x=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of g(t))!f.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=u(t,o))||s.enumerable});return n};var _=(n,t,e)=>(e=n!=null?l(p(n)):{},i(t||!n||!n.__esModule?r(e,\"default\",{value:n,enumerable:!0}):e,n)),j=n=>i(r({},\"__esModule\",{value:!0}),n);var m=w((M,d)=>{d.exports=_jsx_runtime});var b={};x(b,{default:()=>h,frontmatter:()=>y});var a=_(m()),y={title:\"Learning Management System\",summary:\"A modern student dashboard and learning management system for an AI-focused school, built with Django, Python, and Tailwind CSS.\",status:\"PUBLISHED\",publishedAt:\"2026-04-19\",repoUrl:\"https://github.com/mohdhuzkhn/Learning_Management_System\",tags:[\"django\",\"python\",\"edtech\",\"lms\",\"tailwind-css\"],related:[\"ai-powered-learning-os\",\"rag-app-education\"]};function c(n){let t={h2:\"h2\",p:\"p\",...n.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A foundational education platform focused on student workflows and modern dashboard UX, with a longer-term vision for an AI school in Pakistan.\"})]})}function h(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(c,{...n})}):c(n)}return j(b);})();\n;return Component;"
+    },
+    "_id": "projects/learning-management-system.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/learning-management-system.mdx",
+      "sourceFileName": "learning-management-system.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/learning-management-system"
+    },
+    "type": "Project",
+    "slug": "learning-management-system",
+    "url": "/projects/learning-management-system",
+    "readingTime": 1
+  },
+  {
     "title": "NeuroFlow CFD",
     "summary": "A healthcare AI platform assessing cerebral aneurysm rupture risk by combining CFD simulation with a learned risk model.",
     "status": "PUBLISHED",
@@ -34,6 +435,300 @@
     "type": "Project",
     "slug": "neuroflow-cfd",
     "url": "/projects/neuroflow-cfd",
+    "readingTime": 1
+  },
+  {
+    "title": "NLP Project: AI Text Evaluation",
+    "summary": "An NLP-focused project for evaluating AI-generated text.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-09-02T00:00:00.000Z",
+    "tags": [
+      "nlp",
+      "ai-evaluation",
+      "text-analysis"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/NLP-Project-AI-Text-Eval",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn evaluation-focused NLP project exploring how AI-generated text can be assessed and presented. The repository is the source of record for the implementation and experiment artifacts.\n",
+      "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},g=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of m(t))!f.call(e,o)&&o!==n&&a(e,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return e};var v=(e,t,n)=>(n=e!=null?h(x(e)):{},i(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),A=e=>i(a({},\"__esModule\",{value:!0}),e);var u=j((I,c)=>{c.exports=_jsx_runtime});var _={};g(_,{default:()=>l,frontmatter:()=>P});var r=v(u()),P={title:\"NLP Project: AI Text Evaluation\",summary:\"An NLP-focused project for evaluating AI-generated text.\",status:\"PUBLISHED\",publishedAt:\"2026-09-02\",repoUrl:\"https://github.com/mohdhuzkhn/NLP-Project-AI-Text-Eval\",tags:[\"nlp\",\"ai-evaluation\",\"text-analysis\"],related:[]};function d(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(t.p,{children:\"An evaluation-focused NLP project exploring how AI-generated text can be assessed and presented. The repository is the source of record for the implementation and experiment artifacts.\"})]})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return A(_);})();\n;return Component;"
+    },
+    "_id": "projects/nlp-ai-text-eval.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/nlp-ai-text-eval.mdx",
+      "sourceFileName": "nlp-ai-text-eval.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/nlp-ai-text-eval"
+    },
+    "type": "Project",
+    "slug": "nlp-ai-text-eval",
+    "url": "/projects/nlp-ai-text-eval",
+    "readingTime": 1
+  },
+  {
+    "title": "Online Quiz Game",
+    "summary": "A foundational online quiz-game project.",
+    "status": "PUBLISHED",
+    "publishedAt": "2024-11-05T00:00:00.000Z",
+    "tags": [
+      "javascript",
+      "web-development",
+      "foundations"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/Quiz_Basic",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn early online quiz-game implementation, preserved as part of the portfolio's build history and engineering progression.\n",
+      "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},_=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of h(n))!g.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=d(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?p(f(e)):{},a(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),v=e=>a(i({},\"__esModule\",{value:!0}),e);var u=x((w,m)=>{m.exports=_jsx_runtime});var b={};_(b,{default:()=>c,frontmatter:()=>z});var o=j(u()),z={title:\"Online Quiz Game\",summary:\"A foundational online quiz-game project.\",status:\"PUBLISHED\",publishedAt:\"2024-11-05\",repoUrl:\"https://github.com/mohdhuzkhn/Quiz_Basic\",tags:[\"javascript\",\"web-development\",\"foundations\"],related:[]};function l(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(n.p,{children:\"An early online quiz-game implementation, preserved as part of the portfolio's build history and engineering progression.\"})]})}function c(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(l,{...e})}):l(e)}return v(b);})();\n;return Component;"
+    },
+    "_id": "projects/quiz-basic.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/quiz-basic.mdx",
+      "sourceFileName": "quiz-basic.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/quiz-basic"
+    },
+    "type": "Project",
+    "slug": "quiz-basic",
+    "url": "/projects/quiz-basic",
+    "readingTime": 1
+  },
+  {
+    "title": "Exam Architect Pro",
+    "summary": "An intelligent education SaaS agent that creates professional exam papers from PDFs, images, and spreadsheets with Gemini, structured JSON, and automated Word generation.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-02-18T00:00:00.000Z",
+    "tags": [
+      "rag",
+      "edtech",
+      "google-gemini",
+      "ocr",
+      "automation",
+      "streamlit"
+    ],
+    "related": [
+      "ai-powered-learning-os",
+      "learning-management-system"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Education",
+    "demoUrl": "https://exam-architect-pro.streamlit.app",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nExam Architect Pro turns multimodal source material into structured exam content and Microsoft Word outputs, bringing automation to a repetitive academic workflow.\n",
+      "code": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},_=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!x.call(t,r)&&r!==n&&o(t,r,{get:()=>e[r],enumerable:!(i=p(e,r))||i.enumerable});return t};var w=(t,e,n)=>(n=t!=null?l(g(t)):{},s(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),A=t=>s(o({},\"__esModule\",{value:!0}),t);var c=f((M,m)=>{m.exports=_jsx_runtime});var D={};_(D,{default:()=>d,frontmatter:()=>j});var a=w(c()),j={title:\"Exam Architect Pro\",summary:\"An intelligent education SaaS agent that creates professional exam papers from PDFs, images, and spreadsheets with Gemini, structured JSON, and automated Word generation.\",status:\"PUBLISHED\",publishedAt:\"2026-02-18\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Education\",demoUrl:\"https://exam-architect-pro.streamlit.app\",tags:[\"rag\",\"edtech\",\"google-gemini\",\"ocr\",\"automation\",\"streamlit\"],related:[\"ai-powered-learning-os\",\"learning-management-system\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"Exam Architect Pro turns multimodal source material into structured exam content and Microsoft Word outputs, bringing automation to a repetitive academic workflow.\"})]})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(u,{...t})}):u(t)}return A(D);})();\n;return Component;"
+    },
+    "_id": "projects/rag-app-education.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/rag-app-education.mdx",
+      "sourceFileName": "rag-app-education.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/rag-app-education"
+    },
+    "type": "Project",
+    "slug": "rag-app-education",
+    "url": "/projects/rag-app-education",
+    "readingTime": 1
+  },
+  {
+    "title": "Financial RAG Application",
+    "summary": "A production-oriented, anti-hallucination RAG system for 10-K and 10-Q filings using parent-child multi-vector retrieval, compliance prompting, and RAGAS benchmarking.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-07-23T00:00:00.000Z",
+    "tags": [
+      "rag",
+      "financial-ai",
+      "ragas",
+      "retrieval",
+      "llm-evaluation"
+    ],
+    "related": [
+      "rag-financial-eval"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Financial",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA financial-document RAG system designed to emphasize grounded retrieval, controlled answer generation, and systematic evaluation for regulatory information.\n",
+      "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var A=(n,t)=>()=>{try{return t||n((t={exports:{}}).exports,t),t.exports}catch(e){throw t=0,e}},v=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},l=(n,t,e,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of h(t))!f.call(n,i)&&i!==e&&r(n,i,{get:()=>t[i],enumerable:!(o=p(t,i))||o.enumerable});return n};var x=(n,t,e)=>(e=n!=null?u(g(n)):{},l(t||!n||!n.__esModule?r(e,\"default\",{value:n,enumerable:!0}):e,n)),_=n=>l(r({},\"__esModule\",{value:!0}),n);var c=A((R,s)=>{s.exports=_jsx_runtime});var j={};v(j,{default:()=>d,frontmatter:()=>y});var a=x(c()),y={title:\"Financial RAG Application\",summary:\"A production-oriented, anti-hallucination RAG system for 10-K and 10-Q filings using parent-child multi-vector retrieval, compliance prompting, and RAGAS benchmarking.\",status:\"PUBLISHED\",publishedAt:\"2026-07-23\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Financial\",tags:[\"rag\",\"financial-ai\",\"ragas\",\"retrieval\",\"llm-evaluation\"],related:[\"rag-financial-eval\"]};function m(n){let t={h2:\"h2\",p:\"p\",...n.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A financial-document RAG system designed to emphasize grounded retrieval, controlled answer generation, and systematic evaluation for regulatory information.\"})]})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(m,{...n})}):m(n)}return _(j);})();\n;return Component;"
+    },
+    "_id": "projects/rag-app-financial.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/rag-app-financial.mdx",
+      "sourceFileName": "rag-app-financial.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/rag-app-financial"
+    },
+    "type": "Project",
+    "slug": "rag-app-financial",
+    "url": "/projects/rag-app-financial",
+    "readingTime": 1
+  },
+  {
+    "title": "Insight Stream PDF",
+    "summary": "A cloud-powered RAG pipeline for intelligent PDF analysis, with semantic search, document summarization, and multi-user isolation using Llama 3.3, Pinecone, and Groq.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-01-22T00:00:00.000Z",
+    "tags": [
+      "rag",
+      "llama",
+      "pinecone",
+      "groq",
+      "streamlit",
+      "semantic-search"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Pdf",
+    "demoUrl": "https://mohdhuzkhn-insight-stream-pdf.streamlit.app/",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn intelligent PDF analysis application that combines retrieval, global summarization, and user-aware document experiences in a cloud-hosted RAG pipeline.\n",
+      "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},A=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},o=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of d(t))!x.call(e,i)&&i!==n&&r(e,i,{get:()=>t[i],enumerable:!(s=u(t,i))||s.enumerable});return e};var _=(e,t,n)=>(n=e!=null?p(g(e)):{},o(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),D=e=>o(r({},\"__esModule\",{value:!0}),e);var m=f((F,l)=>{l.exports=_jsx_runtime});var j={};A(j,{default:()=>h,frontmatter:()=>P});var a=_(m()),P={title:\"Insight Stream PDF\",summary:\"A cloud-powered RAG pipeline for intelligent PDF analysis, with semantic search, document summarization, and multi-user isolation using Llama 3.3, Pinecone, and Groq.\",status:\"PUBLISHED\",publishedAt:\"2026-01-22\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Pdf\",demoUrl:\"https://mohdhuzkhn-insight-stream-pdf.streamlit.app/\",tags:[\"rag\",\"llama\",\"pinecone\",\"groq\",\"streamlit\",\"semantic-search\"],related:[]};function c(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"An intelligent PDF analysis application that combines retrieval, global summarization, and user-aware document experiences in a cloud-hosted RAG pipeline.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(c,{...e})}):c(e)}return D(j);})();\n;return Component;"
+    },
+    "_id": "projects/rag-app-pdf.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/rag-app-pdf.mdx",
+      "sourceFileName": "rag-app-pdf.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/rag-app-pdf"
+    },
+    "type": "Project",
+    "slug": "rag-app-pdf",
+    "url": "/projects/rag-app-pdf",
+    "readingTime": 1
+  },
+  {
+    "title": "RAG Financial Evaluation",
+    "summary": "An evaluation project for retrieval-augmented generation workflows in the financial domain.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-30T00:00:00.000Z",
+    "tags": [
+      "rag",
+      "evaluation",
+      "financial-ai"
+    ],
+    "related": [
+      "rag-app-financial"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/RAG-Financial-Eval",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nAn evaluation companion for financial RAG work, centered on measuring retrieval and answer quality in a high-stakes information domain.\n",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var v=(n,a)=>()=>{try{return a||n((a={exports:{}}).exports,a),a.exports}catch(t){throw a=0,t}},x=(n,a)=>{for(var t in a)r(n,t,{get:a[t],enumerable:!0})},s=(n,a,t,o)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let i of f(a))!g.call(n,i)&&i!==t&&r(n,i,{get:()=>a[i],enumerable:!(o=d(a,i))||o.enumerable});return n};var _=(n,a,t)=>(t=n!=null?h(p(n)):{},s(a||!n||!n.__esModule?r(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>s(r({},\"__esModule\",{value:!0}),n);var c=v((F,l)=>{l.exports=_jsx_runtime});var A={};x(A,{default:()=>u,frontmatter:()=>w});var e=_(c()),w={title:\"RAG Financial Evaluation\",summary:\"An evaluation project for retrieval-augmented generation workflows in the financial domain.\",status:\"PUBLISHED\",publishedAt:\"2026-08-30\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-Financial-Eval\",tags:[\"rag\",\"evaluation\",\"financial-ai\"],related:[\"rag-app-financial\"]};function m(n){let a={h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(a.h2,{children:\"Overview\"}),`\n`,(0,e.jsx)(a.p,{children:\"An evaluation companion for financial RAG work, centered on measuring retrieval and answer quality in a high-stakes information domain.\"})]})}function u(n={}){let{wrapper:a}=n.components||{};return a?(0,e.jsx)(a,{...n,children:(0,e.jsx)(m,{...n})}):m(n)}return j(A);})();\n;return Component;"
+    },
+    "_id": "projects/rag-financial-eval.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/rag-financial-eval.mdx",
+      "sourceFileName": "rag-financial-eval.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/rag-financial-eval"
+    },
+    "type": "Project",
+    "slug": "rag-financial-eval",
+    "url": "/projects/rag-financial-eval",
+    "readingTime": 1
+  },
+  {
+    "title": "The Science Squad Centre",
+    "summary": "A website for The Science Squad coaching centre, serving students from grades 9 through 12.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-07-27T00:00:00.000Z",
+    "tags": [
+      "education",
+      "web-development",
+      "html"
+    ],
+    "related": [
+      "erp-education",
+      "learning-management-system"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/The-Science-Squad-Centre",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA public web presence for a coaching centre offering academic classes for secondary and higher-secondary students.\n",
+      "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},S=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of g(n))!f.call(e,c)&&c!==t&&s(e,c,{get:()=>n[c],enumerable:!(o=l(n,c))||o.enumerable});return e};var _=(e,n,t)=>(t=e!=null?m(p(e)):{},a(n||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),b=e=>a(s({},\"__esModule\",{value:!0}),e);var h=x((v,i)=>{i.exports=_jsx_runtime});var w={};S(w,{default:()=>u,frontmatter:()=>j});var r=_(h()),j={title:\"The Science Squad Centre\",summary:\"A website for The Science Squad coaching centre, serving students from grades 9 through 12.\",status:\"PUBLISHED\",publishedAt:\"2026-07-27\",repoUrl:\"https://github.com/mohdhuzkhn/The-Science-Squad-Centre\",tags:[\"education\",\"web-development\",\"html\"],related:[\"erp-education\",\"learning-management-system\"]};function d(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(n.p,{children:\"A public web presence for a coaching centre offering academic classes for secondary and higher-secondary students.\"})]})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return b(w);})();\n;return Component;"
+    },
+    "_id": "projects/science-squad-centre.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/science-squad-centre.mdx",
+      "sourceFileName": "science-squad-centre.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/science-squad-centre"
+    },
+    "type": "Project",
+    "slug": "science-squad-centre",
+    "url": "/projects/science-squad-centre",
+    "readingTime": 1
+  },
+  {
+    "title": "Passport Office Simulation",
+    "summary": "A Python simulation of passport-office operations created for a modelling and simulation university assignment.",
+    "status": "PUBLISHED",
+    "publishedAt": "2025-11-03T00:00:00.000Z",
+    "tags": [
+      "python",
+      "simulation",
+      "modelling",
+      "university"
+    ],
+    "related": [],
+    "repoUrl": "https://github.com/mohdhuzkhn/Simulation-Software",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nA simulation-software project exploring the behavior of a passport-office workflow as part of university coursework in modelling and simulation.\n",
+      "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(t,o)=>()=>{try{return o||t((o={exports:{}}).exports,o),o.exports}catch(n){throw o=0,n}},w=(t,o)=>{for(var n in o)r(t,n,{get:o[n],enumerable:!0})},a=(t,o,n,s)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let i of h(o))!x.call(t,i)&&i!==n&&r(t,i,{get:()=>o[i],enumerable:!(s=f(o,i))||s.enumerable});return t};var y=(t,o,n)=>(n=t!=null?p(d(t)):{},a(o||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),_=t=>a(r({},\"__esModule\",{value:!0}),t);var m=g((b,l)=>{l.exports=_jsx_runtime});var v={};w(v,{default:()=>c,frontmatter:()=>j});var e=y(m()),j={title:\"Passport Office Simulation\",summary:\"A Python simulation of passport-office operations created for a modelling and simulation university assignment.\",status:\"PUBLISHED\",publishedAt:\"2025-11-03\",repoUrl:\"https://github.com/mohdhuzkhn/Simulation-Software\",tags:[\"python\",\"simulation\",\"modelling\",\"university\"],related:[]};function u(t){let o={h2:\"h2\",p:\"p\",...t.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(o.h2,{children:\"Overview\"}),`\n`,(0,e.jsx)(o.p,{children:\"A simulation-software project exploring the behavior of a passport-office workflow as part of university coursework in modelling and simulation.\"})]})}function c(t={}){let{wrapper:o}=t.components||{};return o?(0,e.jsx)(o,{...t,children:(0,e.jsx)(u,{...t})}):u(t)}return _(v);})();\n;return Component;"
+    },
+    "_id": "projects/simulation-software.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/simulation-software.mdx",
+      "sourceFileName": "simulation-software.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/simulation-software"
+    },
+    "type": "Project",
+    "slug": "simulation-software",
+    "url": "/projects/simulation-software",
+    "readingTime": 1
+  },
+  {
+    "title": "The Webers: AI Software House",
+    "summary": "A technology-driven software house site focused on custom AI agents for support, sales outreach, lead qualification, and operations automation.",
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-15T00:00:00.000Z",
+    "tags": [
+      "ai-agents",
+      "automation",
+      "business-ai",
+      "javascript"
+    ],
+    "related": [
+      "ai-leads-generation"
+    ],
+    "repoUrl": "https://github.com/mohdhuzkhn/Software-House",
+    "screenshots": [],
+    "body": {
+      "raw": "\n## Overview\n\nThe Webers presents a service vision for helping small and medium-sized businesses use AI agents to automate recurring customer-facing and operational work.\n",
+      "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}},_=(e,t)=>{for(var s in t)a(e,s,{get:t[s],enumerable:!0})},i=(e,t,s,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of p(t))!g.call(e,o)&&o!==s&&a(e,o,{get:()=>t[o],enumerable:!(r=l(t,o))||r.enumerable});return e};var b=(e,t,s)=>(s=e!=null?d(f(e)):{},i(t||!e||!e.__esModule?a(s,\"default\",{value:e,enumerable:!0}):s,e)),j=e=>i(a({},\"__esModule\",{value:!0}),e);var c=x((I,u)=>{u.exports=_jsx_runtime});var w={};_(w,{default:()=>h,frontmatter:()=>v});var n=b(c()),v={title:\"The Webers: AI Software House\",summary:\"A technology-driven software house site focused on custom AI agents for support, sales outreach, lead qualification, and operations automation.\",status:\"PUBLISHED\",publishedAt:\"2026-08-15\",repoUrl:\"https://github.com/mohdhuzkhn/Software-House\",tags:[\"ai-agents\",\"automation\",\"business-ai\",\"javascript\"],related:[\"ai-leads-generation\"]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,n.jsx)(t.p,{children:\"The Webers presents a service vision for helping small and medium-sized businesses use AI agents to automate recurring customer-facing and operational work.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(m,{...e})}):m(e)}return j(w);})();\n;return Component;"
+    },
+    "_id": "projects/software-house.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/software-house.mdx",
+      "sourceFileName": "software-house.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/software-house"
+    },
+    "type": "Project",
+    "slug": "software-house",
+    "url": "/projects/software-house",
     "readingTime": 1
   }
 ]

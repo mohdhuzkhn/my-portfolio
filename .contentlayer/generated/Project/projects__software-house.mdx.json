@@ -1,0 +1,33 @@
+{
+  "title": "The Webers: AI Software House",
+  "summary": "A technology-driven software house site focused on custom AI agents for support, sales outreach, lead qualification, and operations automation.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-08-15T00:00:00.000Z",
+  "tags": [
+    "ai-agents",
+    "automation",
+    "business-ai",
+    "javascript"
+  ],
+  "related": [
+    "ai-leads-generation"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/Software-House",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nThe Webers presents a service vision for helping small and medium-sized businesses use AI agents to automate recurring customer-facing and operational work.\n",
+    "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}},_=(e,t)=>{for(var s in t)a(e,s,{get:t[s],enumerable:!0})},i=(e,t,s,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of p(t))!g.call(e,o)&&o!==s&&a(e,o,{get:()=>t[o],enumerable:!(r=l(t,o))||r.enumerable});return e};var b=(e,t,s)=>(s=e!=null?d(f(e)):{},i(t||!e||!e.__esModule?a(s,\"default\",{value:e,enumerable:!0}):s,e)),j=e=>i(a({},\"__esModule\",{value:!0}),e);var c=x((I,u)=>{u.exports=_jsx_runtime});var w={};_(w,{default:()=>h,frontmatter:()=>v});var n=b(c()),v={title:\"The Webers: AI Software House\",summary:\"A technology-driven software house site focused on custom AI agents for support, sales outreach, lead qualification, and operations automation.\",status:\"PUBLISHED\",publishedAt:\"2026-08-15\",repoUrl:\"https://github.com/mohdhuzkhn/Software-House\",tags:[\"ai-agents\",\"automation\",\"business-ai\",\"javascript\"],related:[\"ai-leads-generation\"]};function m(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,n.jsx)(t.p,{children:\"The Webers presents a service vision for helping small and medium-sized businesses use AI agents to automate recurring customer-facing and operational work.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(m,{...e})}):m(e)}return j(w);})();\n;return Component;"
+  },
+  "_id": "projects/software-house.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/software-house.mdx",
+    "sourceFileName": "software-house.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/software-house"
+  },
+  "type": "Project",
+  "slug": "software-house",
+  "url": "/projects/software-house",
+  "readingTime": 1
+}

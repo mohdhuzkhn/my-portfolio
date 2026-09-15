@@ -1,0 +1,30 @@
+{
+  "title": "Basic Calculator",
+  "summary": "A foundational calculator application built as an early web-development project.",
+  "status": "PUBLISHED",
+  "publishedAt": "2024-08-21T00:00:00.000Z",
+  "tags": [
+    "javascript",
+    "web-development",
+    "foundations"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/Calculator_Basic",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn early implementation of a basic calculator, retained as part of the engineering progression from simple interfaces to production AI systems.\n",
+    "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},g=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of h(e))!x.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?u(f(t)):{},i(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),b=t=>i(r({},\"__esModule\",{value:!0}),t);var l=_((A,c)=>{c.exports=_jsx_runtime});var y={};g(y,{default:()=>p,frontmatter:()=>v});var a=j(l()),v={title:\"Basic Calculator\",summary:\"A foundational calculator application built as an early web-development project.\",status:\"PUBLISHED\",publishedAt:\"2024-08-21\",repoUrl:\"https://github.com/mohdhuzkhn/Calculator_Basic\",tags:[\"javascript\",\"web-development\",\"foundations\"],related:[]};function m(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"An early implementation of a basic calculator, retained as part of the engineering progression from simple interfaces to production AI systems.\"})]})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(m,{...t})}):m(t)}return b(y);})();\n;return Component;"
+  },
+  "_id": "projects/calculator-basic.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/calculator-basic.mdx",
+    "sourceFileName": "calculator-basic.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/calculator-basic"
+  },
+  "type": "Project",
+  "slug": "calculator-basic",
+  "url": "/projects/calculator-basic",
+  "readingTime": 1
+}

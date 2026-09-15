@@ -1,0 +1,34 @@
+{
+  "title": "Financial RAG Application",
+  "summary": "A production-oriented, anti-hallucination RAG system for 10-K and 10-Q filings using parent-child multi-vector retrieval, compliance prompting, and RAGAS benchmarking.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-07-23T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "financial-ai",
+    "ragas",
+    "retrieval",
+    "llm-evaluation"
+  ],
+  "related": [
+    "rag-financial-eval"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Financial",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA financial-document RAG system designed to emphasize grounded retrieval, controlled answer generation, and systematic evaluation for regulatory information.\n",
+    "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var A=(n,t)=>()=>{try{return t||n((t={exports:{}}).exports,t),t.exports}catch(e){throw t=0,e}},v=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},l=(n,t,e,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of h(t))!f.call(n,i)&&i!==e&&r(n,i,{get:()=>t[i],enumerable:!(o=p(t,i))||o.enumerable});return n};var x=(n,t,e)=>(e=n!=null?u(g(n)):{},l(t||!n||!n.__esModule?r(e,\"default\",{value:n,enumerable:!0}):e,n)),_=n=>l(r({},\"__esModule\",{value:!0}),n);var c=A((R,s)=>{s.exports=_jsx_runtime});var j={};v(j,{default:()=>d,frontmatter:()=>y});var a=x(c()),y={title:\"Financial RAG Application\",summary:\"A production-oriented, anti-hallucination RAG system for 10-K and 10-Q filings using parent-child multi-vector retrieval, compliance prompting, and RAGAS benchmarking.\",status:\"PUBLISHED\",publishedAt:\"2026-07-23\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Financial\",tags:[\"rag\",\"financial-ai\",\"ragas\",\"retrieval\",\"llm-evaluation\"],related:[\"rag-financial-eval\"]};function m(n){let t={h2:\"h2\",p:\"p\",...n.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A financial-document RAG system designed to emphasize grounded retrieval, controlled answer generation, and systematic evaluation for regulatory information.\"})]})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(m,{...n})}):m(n)}return _(j);})();\n;return Component;"
+  },
+  "_id": "projects/rag-app-financial.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/rag-app-financial.mdx",
+    "sourceFileName": "rag-app-financial.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/rag-app-financial"
+  },
+  "type": "Project",
+  "slug": "rag-app-financial",
+  "url": "/projects/rag-app-financial",
+  "readingTime": 1
+}

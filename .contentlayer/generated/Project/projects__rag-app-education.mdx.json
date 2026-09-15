@@ -1,0 +1,37 @@
+{
+  "title": "Exam Architect Pro",
+  "summary": "An intelligent education SaaS agent that creates professional exam papers from PDFs, images, and spreadsheets with Gemini, structured JSON, and automated Word generation.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-02-18T00:00:00.000Z",
+  "tags": [
+    "rag",
+    "edtech",
+    "google-gemini",
+    "ocr",
+    "automation",
+    "streamlit"
+  ],
+  "related": [
+    "ai-powered-learning-os",
+    "learning-management-system"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/RAG-App-Education",
+  "demoUrl": "https://exam-architect-pro.streamlit.app",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nExam Architect Pro turns multimodal source material into structured exam content and Microsoft Word outputs, bringing automation to a repetitive academic workflow.\n",
+    "code": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}},_=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!x.call(t,r)&&r!==n&&o(t,r,{get:()=>e[r],enumerable:!(i=p(e,r))||i.enumerable});return t};var w=(t,e,n)=>(n=t!=null?l(g(t)):{},s(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),A=t=>s(o({},\"__esModule\",{value:!0}),t);var c=f((M,m)=>{m.exports=_jsx_runtime});var D={};_(D,{default:()=>d,frontmatter:()=>j});var a=w(c()),j={title:\"Exam Architect Pro\",summary:\"An intelligent education SaaS agent that creates professional exam papers from PDFs, images, and spreadsheets with Gemini, structured JSON, and automated Word generation.\",status:\"PUBLISHED\",publishedAt:\"2026-02-18\",repoUrl:\"https://github.com/mohdhuzkhn/RAG-App-Education\",demoUrl:\"https://exam-architect-pro.streamlit.app\",tags:[\"rag\",\"edtech\",\"google-gemini\",\"ocr\",\"automation\",\"streamlit\"],related:[\"ai-powered-learning-os\",\"learning-management-system\"]};function u(t){let e={h2:\"h2\",p:\"p\",...t.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(e.p,{children:\"Exam Architect Pro turns multimodal source material into structured exam content and Microsoft Word outputs, bringing automation to a repetitive academic workflow.\"})]})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(u,{...t})}):u(t)}return A(D);})();\n;return Component;"
+  },
+  "_id": "projects/rag-app-education.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/rag-app-education.mdx",
+    "sourceFileName": "rag-app-education.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/rag-app-education"
+  },
+  "type": "Project",
+  "slug": "rag-app-education",
+  "url": "/projects/rag-app-education",
+  "readingTime": 1
+}

@@ -1,0 +1,35 @@
+{
+  "title": "Learning Management System",
+  "summary": "A modern student dashboard and learning management system for an AI-focused school, built with Django, Python, and Tailwind CSS.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-04-19T00:00:00.000Z",
+  "tags": [
+    "django",
+    "python",
+    "edtech",
+    "lms",
+    "tailwind-css"
+  ],
+  "related": [
+    "ai-powered-learning-os",
+    "rag-app-education"
+  ],
+  "repoUrl": "https://github.com/mohdhuzkhn/Learning_Management_System",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nA foundational education platform focused on student workflows and modern dashboard UX, with a longer-term vision for an AI school in Pakistan.\n",
+    "code": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(n,t)=>()=>{try{return t||n((t={exports:{}}).exports,t),t.exports}catch(e){throw t=0,e}},x=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of g(t))!f.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=u(t,o))||s.enumerable});return n};var _=(n,t,e)=>(e=n!=null?l(p(n)):{},i(t||!n||!n.__esModule?r(e,\"default\",{value:n,enumerable:!0}):e,n)),j=n=>i(r({},\"__esModule\",{value:!0}),n);var m=w((M,d)=>{d.exports=_jsx_runtime});var b={};x(b,{default:()=>h,frontmatter:()=>y});var a=_(m()),y={title:\"Learning Management System\",summary:\"A modern student dashboard and learning management system for an AI-focused school, built with Django, Python, and Tailwind CSS.\",status:\"PUBLISHED\",publishedAt:\"2026-04-19\",repoUrl:\"https://github.com/mohdhuzkhn/Learning_Management_System\",tags:[\"django\",\"python\",\"edtech\",\"lms\",\"tailwind-css\"],related:[\"ai-powered-learning-os\",\"rag-app-education\"]};function c(n){let t={h2:\"h2\",p:\"p\",...n.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,a.jsx)(t.p,{children:\"A foundational education platform focused on student workflows and modern dashboard UX, with a longer-term vision for an AI school in Pakistan.\"})]})}function h(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(c,{...n})}):c(n)}return j(b);})();\n;return Component;"
+  },
+  "_id": "projects/learning-management-system.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/learning-management-system.mdx",
+    "sourceFileName": "learning-management-system.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/learning-management-system"
+  },
+  "type": "Project",
+  "slug": "learning-management-system",
+  "url": "/projects/learning-management-system",
+  "readingTime": 1
+}

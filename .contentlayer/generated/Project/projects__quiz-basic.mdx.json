@@ -1,0 +1,30 @@
+{
+  "title": "Online Quiz Game",
+  "summary": "A foundational online quiz-game project.",
+  "status": "PUBLISHED",
+  "publishedAt": "2024-11-05T00:00:00.000Z",
+  "tags": [
+    "javascript",
+    "web-development",
+    "foundations"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/Quiz_Basic",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn early online quiz-game implementation, preserved as part of the portfolio's build history and engineering progression.\n",
+    "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>{try{return n||e((n={exports:{}}).exports,n),n.exports}catch(t){throw n=0,t}},_=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of h(n))!g.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=d(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?p(f(e)):{},a(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),v=e=>a(i({},\"__esModule\",{value:!0}),e);var u=x((w,m)=>{m.exports=_jsx_runtime});var b={};_(b,{default:()=>c,frontmatter:()=>z});var o=j(u()),z={title:\"Online Quiz Game\",summary:\"A foundational online quiz-game project.\",status:\"PUBLISHED\",publishedAt:\"2024-11-05\",repoUrl:\"https://github.com/mohdhuzkhn/Quiz_Basic\",tags:[\"javascript\",\"web-development\",\"foundations\"],related:[]};function l(e){let n={h2:\"h2\",p:\"p\",...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h2,{children:\"Overview\"}),`\n`,(0,o.jsx)(n.p,{children:\"An early online quiz-game implementation, preserved as part of the portfolio's build history and engineering progression.\"})]})}function c(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(l,{...e})}):l(e)}return v(b);})();\n;return Component;"
+  },
+  "_id": "projects/quiz-basic.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/quiz-basic.mdx",
+    "sourceFileName": "quiz-basic.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/quiz-basic"
+  },
+  "type": "Project",
+  "slug": "quiz-basic",
+  "url": "/projects/quiz-basic",
+  "readingTime": 1
+}

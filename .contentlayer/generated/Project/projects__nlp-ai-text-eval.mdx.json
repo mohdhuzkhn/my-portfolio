@@ -1,0 +1,30 @@
+{
+  "title": "NLP Project: AI Text Evaluation",
+  "summary": "An NLP-focused project for evaluating AI-generated text.",
+  "status": "PUBLISHED",
+  "publishedAt": "2026-09-02T00:00:00.000Z",
+  "tags": [
+    "nlp",
+    "ai-evaluation",
+    "text-analysis"
+  ],
+  "related": [],
+  "repoUrl": "https://github.com/mohdhuzkhn/NLP-Project-AI-Text-Eval",
+  "screenshots": [],
+  "body": {
+    "raw": "\n## Overview\n\nAn evaluation-focused NLP project exploring how AI-generated text can be assessed and presented. The repository is the source of record for the implementation and experiment artifacts.\n",
+    "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}},g=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of m(t))!f.call(e,o)&&o!==n&&a(e,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return e};var v=(e,t,n)=>(n=e!=null?h(x(e)):{},i(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),A=e=>i(a({},\"__esModule\",{value:!0}),e);var u=j((I,c)=>{c.exports=_jsx_runtime});var _={};g(_,{default:()=>l,frontmatter:()=>P});var r=v(u()),P={title:\"NLP Project: AI Text Evaluation\",summary:\"An NLP-focused project for evaluating AI-generated text.\",status:\"PUBLISHED\",publishedAt:\"2026-09-02\",repoUrl:\"https://github.com/mohdhuzkhn/NLP-Project-AI-Text-Eval\",tags:[\"nlp\",\"ai-evaluation\",\"text-analysis\"],related:[]};function d(e){let t={h2:\"h2\",p:\"p\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(t.h2,{children:\"Overview\"}),`\n`,(0,r.jsx)(t.p,{children:\"An evaluation-focused NLP project exploring how AI-generated text can be assessed and presented. The repository is the source of record for the implementation and experiment artifacts.\"})]})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return A(_);})();\n;return Component;"
+  },
+  "_id": "projects/nlp-ai-text-eval.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/nlp-ai-text-eval.mdx",
+    "sourceFileName": "nlp-ai-text-eval.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/nlp-ai-text-eval"
+  },
+  "type": "Project",
+  "slug": "nlp-ai-text-eval",
+  "url": "/projects/nlp-ai-text-eval",
+  "readingTime": 1
+}
