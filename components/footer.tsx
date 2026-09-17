@@ -29,11 +29,26 @@ export function Footer() {
           ))}
         </div>
         <div className="flex flex-col items-start justify-between gap-4 border-t border-line pt-6 text-xs text-foreground-faint sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} Muhammad Huzaifa. Built with intent.</span>
+          <span>
+            © {new Date().getFullYear()} Muhammad Huzaifa. Built with intent.
+          </span>
           <div className="flex gap-5">
-            <a href="#" className="hover:text-foreground-dim">GitHub</a>
-            <a href="#" className="hover:text-foreground-dim">LinkedIn</a>
-            <a href="/writing/rss.xml" className="hover:text-foreground-dim">RSS</a>
+            <a
+              href="https://github.com/mohdhuzkhn"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-foreground-dim"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhammad-huzaifa-6b396a26a/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-foreground-dim"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

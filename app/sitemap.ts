@@ -7,7 +7,7 @@ const staticRoutes = [
   "",
   "research",
   "knowledge",
-  "lab",
+  "ai-systems",
   "projects",
   "architecture",
   "writing",
