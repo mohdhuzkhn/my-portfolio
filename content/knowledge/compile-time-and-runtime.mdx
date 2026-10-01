@@ -1,0 +1,67 @@
+---
+title: Compile Time and Runtime
+summary: Understand when TypeScript checks your code, what happens during execution, and why runtime validation remains necessary.
+category: Developer Tools
+status: PUBLISHED
+tags: [TypeScript, JavaScript, Compilation, Runtime]
+related: [zod-runtime-validation, how-tsx-executes-typescript-scripts]
+---
+
+Compile time and runtime describe different stages in a program's lifecycle. Understanding the distinction explains why code can pass TypeScript checks and still fail when it receives real data.
+
+## Compile time
+
+Compilation transforms source code into another representation. For TypeScript, this commonly means producing JavaScript. Type checking evaluates the program's declared types and how values are used.
+
+The TypeScript compiler can report invalid syntax, unknown identifiers, and incompatible types. These diagnostics help developers catch problems before deployment:
+
+```typescript
+const attempts: number = "three";
+// Type error: a string is not assignable to a number.
+```
+
+Compilation and type checking are not always the same step. Some tools remove TypeScript syntax without checking types. A build pipeline should run an explicit type check, such as `tsc --noEmit`, when its transpiler does not provide one. Compiler settings also determine whether JavaScript can be emitted despite diagnostics.
+
+## Runtime
+
+Runtime is the period in which the program executes. JavaScript runs in an engine within a browser, Node.js, or another host. Execution can happen on a server, in a background worker, or during a build as well as during a user's session.
+
+Real inputs and environmental conditions become relevant at this stage. Network requests can fail, configuration can be missing, and an API can return an unexpected value:
+
+```javascript
+const user = { email: null };
+console.log(user.email.toUpperCase());
+// Runtime TypeError: null has no toUpperCase method.
+```
+
+## How the stages compare
+
+<table>
+  <thead><tr><th>Aspect</th><th>Compile time</th><th>Runtime</th></tr></thead>
+  <tbody>
+    <tr><td>Activity</td><td>Transforming source and checking declared types</td><td>Executing the program with actual inputs</td></tr>
+    <tr><td>Typical tools</td><td>TypeScript compiler and build tools</td><td>JavaScript engine and its host environment</td></tr>
+    <tr><td>Typical failures</td><td>Invalid syntax, unknown names, incompatible types</td><td>Network failures, invalid data, unavailable resources</td></tr>
+    <tr><td>Impact</td><td>Can block a build when checks are enforced</td><td>Can interrupt a request, job, or user interaction</td></tr>
+    <tr><td>Controls</td><td>Type checking and build validation</td><td>Input validation, error handling, and monitoring</td></tr>
+  </tbody>
+</table>
+
+## Why both types and validation matter
+
+A TypeScript interface describes an assumption about a value; it does not inspect incoming JSON. A runtime schema checks that value before code uses it. Combine static checking with boundary validation, then handle operational failures separately.
+
+For example, a correctly typed request can still time out. A valid JSON response can still contain the wrong fields. A response that matches a schema can still violate a business rule that the schema does not express.
+
+## Practical workflow
+
+1. Define the expected data model and enable appropriate TypeScript checks.
+2. Run type checking before deployment.
+3. Treat external inputs as untrusted until they have been validated.
+4. Handle network, parsing, and validation failures with an intentional fallback.
+5. Monitor failures during execution so production issues are visible.
+
+## Further reading
+
+- [TypeScript handbook on checking, emitting, and erased types](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
+- [Zod and runtime validation](/knowledge/zod-runtime-validation)

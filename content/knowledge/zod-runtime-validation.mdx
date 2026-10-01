@@ -1,0 +1,106 @@
+---
+title: Zod and Runtime Validation
+summary: Validate external data with Zod, understand the limits of TypeScript, and compare alternative schema libraries.
+category: Developer Tools
+status: PUBLISHED
+tags: [Zod, TypeScript, Validation, API Design]
+related: [compile-time-and-runtime, understanding-contentlayer-internals]
+---
+
+Zod is a schema validation library for JavaScript and TypeScript. A schema describes the data your application accepts and checks actual values when the application runs. TypeScript types can be inferred from that schema, keeping validation rules and application types aligned.
+
+## Why TypeScript alone is insufficient
+
+TypeScript checks source code before execution. Its type annotations are erased from the JavaScript output, so an annotation does not validate a response from an API, a submitted form, or another external system.
+
+Consider an API response that is assigned a type without being checked:
+
+```typescript
+interface UserData {
+  id: number;
+  email: string;
+}
+
+const response = await fetch("/api/user");
+const user: UserData = await response.json();
+console.log(user.email.toUpperCase());
+```
+
+This can pass type checking because `response.json()` returns an unchecked value. If the server returns `email: null`, omits the field, or sends a different response shape, calling `toUpperCase()` produces a runtime `TypeError`. The impact depends on the application's error handling; it does not necessarily crash the entire application.
+
+## Validate data at the boundary
+
+Check external data before allowing the rest of the application to rely on it. The following example checks the HTTP response, parses the payload, and handles schema validation failures explicitly:
+
+```typescript
+import { z } from "zod";
+
+const UserSchema = z.object({
+  id: z.number(),
+  email: z.string(),
+});
+
+type UserData = z.infer<typeof UserSchema>;
+
+async function loadUser(): Promise<UserData | null> {
+  try {
+    const response = await fetch("/api/user");
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const rawData: unknown = await response.json();
+    const result = UserSchema.safeParse(rawData);
+
+    if (!result.success) {
+      console.error("The user response does not match the schema.");
+      return null;
+    }
+
+    console.log(result.data.email.toUpperCase());
+    return result.data;
+  } catch {
+    console.error("The user request could not be completed.");
+    return null;
+  }
+}
+```
+
+`safeParse()` returns either validated data or a validation error. `parse()` throws an error on invalid input instead. Choose the approach that fits the surrounding error handling.
+
+This schema checks that `email` is a string; it does not establish that the string is a valid email address or that the address belongs to the user. Add the validation rules your application actually requires. Successful validation establishes conformance to the schema at that boundary, not a guarantee against every future error.
+
+## Where validation belongs
+
+- **API responses:** verify the expected shape before rendering or transforming data.
+- **Forms and request bodies:** validate user input on the server as well as in the interface.
+- **Imported or stored data:** check records when their structure is not otherwise guaranteed.
+- **Configuration:** validate required environment values before starting dependent services.
+
+Manual checks are also possible. A schema library helps centralize those checks and provides structured validation errors as the data model grows.
+
+## Alternatives to Zod
+
+### Valibot
+
+Valibot uses modular functions and pipelines that support tree shaking. It is useful when client bundle size is a priority. Its functional composition style differs from Zod's chained methods; measure the actual application bundle instead of assuming a fixed library size.
+
+### ArkType
+
+ArkType expresses many constraints through a TypeScript-like string syntax and infers corresponding types. It is an option for teams that prefer that notation. Its parsing rules and advanced expressions still require familiarity; performance depends on the schema and workload.
+
+### Yup
+
+Yup provides schemas for validation and casting and is common in form workflows. It supports TypeScript inference, although defaults, coercion, and optionality deserve careful attention when matching a schema to application types.
+
+### TypeBox
+
+TypeBox builds JSON Schema definitions with corresponding TypeScript types. It fits systems that exchange JSON Schema or use schema-driven backend tooling. Validation and integration choices depend on the version and surrounding stack.
+
+## Further reading
+
+- [Zod basic usage](https://zod.dev/basics)
+- [Valibot documentation](https://valibot.dev/guides/introduction/)
+- [ArkType documentation](https://arktype.io/docs/)
+- [Yup documentation](https://github.com/jquense/yup)
+- [TypeBox documentation](https://github.com/sinclairzx81/typebox)

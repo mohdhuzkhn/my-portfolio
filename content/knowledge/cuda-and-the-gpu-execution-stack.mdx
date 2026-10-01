@@ -1,0 +1,101 @@
+---
+title: CUDA and the GPU Execution Stack
+summary: Follow an AI computation from Python and PyTorch through CUDA libraries, the runtime, the NVIDIA driver, and GPU hardware.
+category: GPU Computing
+status: PUBLISHED
+tags: [CUDA, PyTorch, NVIDIA, GPU, AI Infrastructure]
+related: [docker-for-ai-and-mlops]
+---
+
+CUDA is NVIDIA's parallel computing platform and programming model. It enables software to run supported computations on NVIDIA GPUs. In an AI application, a framework such as PyTorch handles much of the coordination between high-level tensor operations and lower-level GPU execution.
+
+## From application code to a result
+
+The following diagram is a conceptual path through the stack. Actual execution varies by operation: PyTorch can use optimized libraries, its own kernels, or generated kernels.
+
+```text
+Your Python code
+  Describe the computation
+          |
+          v
+PyTorch
+  Express tensor operations and model execution
+          |
+          v
+CUDA-enabled libraries or GPU kernels
+  Implement the required mathematical operations
+          |
+          v
+CUDA runtime
+  Manage GPU work and runtime resources
+          |
+          v
+NVIDIA driver
+  Provide access to the GPU
+          |
+          v
+GPU hardware
+  Execute operations in parallel
+          |
+          v
+Result
+```
+
+## Responsibilities of each layer
+
+### 1. Your Python code
+
+Application code defines the model, inputs, and desired computation. It also chooses devices, moves tensors when needed, and decides how results are used.
+
+### 2. PyTorch
+
+PyTorch provides tensors, automatic differentiation, and model-building tools. It dispatches operations according to factors such as tensor device and data type. Installing PyTorch does not automatically move every tensor or model to the GPU.
+
+### 3. CUDA enabled libraries
+
+Libraries such as **cuBLAS** and **cuDNN** provide optimized implementations of common mathematical and deep learning operations. They avoid requiring application developers to implement every GPU algorithm themselves. Not every operation passes through both libraries.
+
+### 4. CUDA runtime
+
+The runtime provides facilities for device memory, launching kernels, streams, and coordinating execution. A kernel is a function executed on the GPU; a stream orders a sequence of GPU work.
+
+### 5. NVIDIA driver
+
+The driver supplies the low-level interface needed to use the physical GPU. It must be compatible with the CUDA software used by the workload. A container normally relies on the host's driver rather than installing a replacement driver inside the image.
+
+### 6. GPU hardware
+
+The GPU performs many operations in parallel. Workloads with suitable parallel structure can benefit substantially, but speed depends on the model, input size, memory traffic, and execution overhead.
+
+## A minimal PyTorch example
+
+```python
+import torch
+
+if not torch.cuda.is_available():
+    raise RuntimeError("A CUDA-capable PyTorch environment is required.")
+
+device = torch.device("cuda")
+x = torch.tensor([1.0, 2.0, 3.0], device=device)
+y = x * 2
+
+print(y.cpu().tolist())  # [2.0, 4.0, 6.0]
+```
+
+The tensor is created on the CUDA device, the multiplication runs there, and the result is copied back to CPU memory for conversion to a Python list. For a model, both the model parameters and relevant input tensors must be on compatible devices.
+
+## Common sources of confusion
+
+- **CUDA is not the GPU itself.** It is the software platform used to program supported NVIDIA hardware.
+- **The driver and runtime have different roles.** A compatible runtime does not remove the need for a working host driver.
+- **A container does not provision hardware.** It must receive access to a GPU supplied by its host environment.
+- **GPU work can be asynchronous.** Accurate timing must account for completion of queued GPU operations.
+- **Device memory is finite.** Model parameters, activations, and batches compete for available GPU memory.
+
+When diagnosing a failure, work through the layers: host visibility, container GPU access, framework CUDA availability, and finally the application's device placement and memory requirements.
+
+## Further reading
+
+- [PyTorch CUDA semantics](https://docs.pytorch.org/docs/stable/notes/cuda.html)
+- [NVIDIA CUDA documentation](https://docs.nvidia.com/cuda/)
+- [Docker for AI and MLOps](/knowledge/docker-for-ai-and-mlops)

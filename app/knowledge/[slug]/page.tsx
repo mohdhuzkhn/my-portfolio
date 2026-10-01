@@ -1,5 +1,10 @@
 import { notFound } from "next/navigation";
-import { getBySlug, getPublishedByType, resolveRelated, resolveBacklinks } from "@/lib/content";
+import {
+  getBySlug,
+  getPublishedByType,
+  resolveRelated,
+  resolveBacklinks,
+} from "@/lib/content";
 import { contentMetadata, structuredData } from "@/lib/seo/metadata";
 import { MdxContent } from "@/components/mdx/mdx-content";
 import { RelatedPanel } from "@/components/content/related-panel";
@@ -9,14 +14,22 @@ export function generateStaticParams() {
   return getPublishedByType("BRAIN").map((doc) => ({ slug: doc.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const doc = getBySlug("BRAIN", slug);
   if (!doc) return {};
   return contentMetadata(doc);
 }
 
-export default async function KnowledgeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function KnowledgeDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const doc = getBySlug("BRAIN", slug);
   if (!doc || doc.status !== "PUBLISHED") notFound();
@@ -26,7 +39,7 @@ export default async function KnowledgeDetailPage({ params }: { params: Promise<
   const backlinks = resolveBacklinks(doc.slug);
 
   return (
-    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-[220px_1fr_240px]">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-[200px_minmax(0,1fr)] xl:grid-cols-[200px_minmax(0,1fr)_200px]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -35,8 +48,10 @@ export default async function KnowledgeDetailPage({ params }: { params: Promise<
         <KnowledgeCategoryTree activeSlug={doc.slug} />
       </aside>
 
-      <article>
-        <div className="mb-2 font-mono text-xs text-foreground-faint">{doc.category}</div>
+      <article className="min-w-0">
+        <div className="mb-2 font-mono text-xs text-foreground-faint">
+          {doc.category}
+        </div>
         <h1 className="font-display text-3xl font-semibold">{doc.title}</h1>
         <p className="mt-3 text-lg text-foreground-dim">{doc.summary}</p>
 
@@ -54,7 +69,7 @@ export default async function KnowledgeDetailPage({ params }: { params: Promise<
         )}
       </article>
 
-      <aside className="lg:pt-2">
+      <aside className="min-w-0 lg:col-start-2 xl:col-start-auto xl:pt-2">
         <RelatedPanel related={related} backlinks={backlinks} />
       </aside>
     </div>

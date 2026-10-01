@@ -55,12 +55,86 @@ body {
   max-width: 680px;
   line-height: 1.7;
   font-size: 1.0625rem;
+  overflow-wrap: anywhere;
 }
 .prose-institute h2,
 .prose-institute h3 {
   font-family: var(--font-display), sans-serif;
   margin-top: 2.25em;
   margin-bottom: 0.6em;
+}
+.prose-institute h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.prose-institute h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.prose-institute ul,
+.prose-institute ol {
+  margin: 0 0 1.5em;
+  padding-left: 1.5em;
+  color: var(--foreground-dim);
+}
+.prose-institute ul {
+  list-style: disc;
+}
+.prose-institute ol {
+  list-style: decimal;
+}
+.prose-institute li + li {
+  margin-top: 0.5em;
+}
+.prose-institute strong {
+  color: var(--foreground);
+}
+.prose-institute a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-institute pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-wrap: normal;
+}
+.prose-institute pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+.prose-institute table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.prose-institute th,
+.prose-institute td {
+  min-width: 9rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.prose-institute th {
+  background: var(--surface);
+}
+.prose-institute td {
+  color: var(--foreground-dim);
 }
 .prose-institute p {
   margin-bottom: 1.25em;
@@ -75,7 +149,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

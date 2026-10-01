@@ -1,0 +1,2 @@
+# Contentlayer frontmatter parsing requires consistent MDX line endings.
+*.mdx text eol=lf

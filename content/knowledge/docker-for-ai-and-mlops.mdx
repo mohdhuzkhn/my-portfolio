@@ -1,0 +1,107 @@
+---
+title: Docker for AI and MLOps
+summary: Package AI workloads with Docker and connect images, containers, queues, and GPU workers into a reproducible execution workflow.
+category: MLOps
+status: PUBLISHED
+tags: [Docker, MLOps, Containers, GPU, Queues]
+related: [cuda-and-the-gpu-execution-stack]
+---
+
+Docker packages an application and its user-space dependencies into an image that can be run as a container. For AI workloads, this helps keep Python packages, model-serving code, and supporting tools consistent across environments. GPU workloads still depend on compatible host hardware and drivers.
+
+## Core Docker concepts
+
+### Images and containers
+
+An **image** is the packaged filesystem and configuration used to create a container. A **container** is an instance of that image with its own process environment and writable layer. The same image can start multiple workers, each processing a different job.
+
+### Dockerfiles
+
+A Dockerfile records how an image is built: the base image, installed dependencies, copied source files, and startup command. Keep dependencies pinned and separate dependency installation from frequently changing application code to make builds more reproducible and caching more useful.
+
+### Ports
+
+A service listens on a port inside its container. Publishing a port maps it to the host so clients can reach it. A background ML worker that only consumes jobs may need no published application port.
+
+### Volumes
+
+Volumes store data independently of a container's writable layer. They are useful for model caches and persistent outputs. Bind mounts connect a specific host path to a container path and are often convenient for local development.
+
+### Environment variables
+
+Environment variables configure behavior such as queue addresses, model identifiers, and logging levels without rebuilding the image. Supply credentials through the deployment environment or its secret mechanism instead of baking them into an image.
+
+### Networks
+
+Docker networks let related containers communicate. In a Compose application, a worker can typically reach another service by its service name. Inside a container, `localhost` refers to that container rather than another service or the host.
+
+### Docker Compose
+
+Compose describes a set of services and their networks, volumes, and configuration in one file. It is useful for bringing up an API, queue, and worker together during development and for supported single-host deployments.
+
+### Registries
+
+A registry stores images so build systems and deployment hosts can exchange them. Tags identify versions by name; digests identify exact image content. Promoting the same tested image helps reduce differences between environments.
+
+### Health checks and container logs
+
+A health check tests a defined condition, such as whether a service can respond or whether a worker is ready to accept work. Process liveness and model readiness are different checks. A health status alone does not guarantee automatic recovery; the deployment system must act on it.
+
+Write application logs to standard output and standard error so the container platform can collect them. Include job identifiers and failure context to make worker activity traceable.
+
+## Queue based GPU worker architecture
+
+The queue separates incoming requests from expensive model execution. Redis-backed queues, RabbitMQ, and Amazon SQS are possible messaging choices; each has different delivery and operational characteristics.
+
+```text
+Jobs waiting in a queue
+Redis-backed queue / RabbitMQ / Amazon SQS
+                    |
+                    | Workers pull jobs
+                    v
+ML worker container
+PyTorch / Transformers + CUDA dependencies
+                    |
+                    | GPU access configured on the host
+                    v
+NVIDIA GPU
+For example: A10 or L4
+                    |
+                    v
+Persist result and acknowledge completed job
+```
+
+The worker receives a job, prepares the inputs, runs the model, and stores the result. Acknowledge completion only after the result is safely recorded. Design retries to tolerate duplicate delivery so a retried job does not create duplicate side effects.
+
+Container packaging and GPU provisioning are separate responsibilities. Docker defines the worker environment; the infrastructure supplies the GPU and the host configuration that exposes it to the container.
+
+## Operating a GPU container
+
+A CUDA-capable image cannot create GPU access by itself. The host needs an NVIDIA GPU, a compatible driver, and the appropriate container runtime configuration. Compose can request a GPU for an individual service once those prerequisites are met.
+
+Before processing real jobs, verify that the container can see the GPU and that the framework can allocate a tensor on it. Monitor GPU memory as well as utilization: loading too many model workers on one GPU can exhaust memory even when compute utilization is low.
+
+## Useful inspection commands
+
+```bash
+# Inspect running containers and published ports.
+docker ps
+
+# Follow a worker's standard output and error.
+docker logs --follow ml-worker
+
+# View resolved Compose configuration and service status.
+docker compose config
+docker compose ps
+
+# Inspect the host's NVIDIA GPU and driver.
+nvidia-smi
+```
+
+Use the actual container name in place of `ml-worker`. Start with a reproducible worker image, add observable job processing, and verify host GPU access before scaling the number of workers.
+
+## Further reading
+
+- [Docker concepts](https://docs.docker.com/get-started/docker-concepts/)
+- [GPU access with Docker Compose](https://docs.docker.com/compose/how-tos/gpu-support/)
+- [CUDA and the GPU execution stack](/knowledge/cuda-and-the-gpu-execution-stack)
