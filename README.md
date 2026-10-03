@@ -1,163 +1,778 @@
-# Muhammad Huzaifa — AI Engineering Institute
+# Muhammad Huzaifa — AI Engineering Second Brain 🧠
 
-Phase 1 (Foundation) of the platform. This is not a portfolio — it's the
-skeleton of a research institute: navigation, theming, SEO foundation, and
-database/auth wiring points are in place; content and the knowledge graph
-build out in the phases that follow.
+> **A living engineering knowledge system documenting what I learn, research, build, test, break, and improve across AI Engineering.**
 
-## Stack
+This repository powers my personal **AI Engineering Second Brain** — an evolving body of work connecting research, engineering knowledge, system architectures, projects, experiments, case studies, playbooks, datasets, and technical lessons.
 
-Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui ·
-Framer Motion · Prisma · PostgreSQL · NextAuth · Resend · React Hook Form +
-Zod · ESLint + Prettier + Husky + lint-staged.
+This is intentionally not a traditional portfolio.
 
-## What's built (Phase 1)
+A portfolio usually shows the final artifact.
 
-- App shell: root layout, theme system (light/dark via `next-themes`),
-  fonts (Inter / Space Grotesk / JetBrains Mono).
-- Navigation shell: primary nav, "Explore" mega-menu, mobile nav, footer
-  sitemap — matching the approved information architecture exactly
-  (`lib/nav-config.ts`).
-- SEO foundation: `app/sitemap.ts`, `app/robots.ts`, metadata API wired in
-  `app/layout.tsx`.
-- Stub routes for all 16 primary/secondary nav destinations, so the site
-  is fully navigable end to end (real content lands in Phases 2–5).
-- Prisma connected to Postgres via `DATABASE_URL` (minimal placeholder
-  schema — the full 14-content-type schema is Phase 2).
-- Code quality: ESLint + Prettier (non-conflicting config), Husky
-  pre-commit hook running lint-staged.
+This project also documents the **engineering thinking behind the artifact**.
 
-## What's built (Phase 2 — Content System)
-
-- **Full Prisma schema** (`prisma/schema.prisma`): the `Content` +
-  `ContentLink` backbone plus all 14 detail tables (Research — three
-  layers: Idea/Note/Paper — Knowledge, Architecture, Writing, Project,
-  Lab, Journey, Roadmap, Venture, Playbook, Case Study, Talk, Dataset,
-  Toolbox), tags, references, reading list, structured Now snapshot,
-  bookmarks, newsletter, contact requests.
-- **Contentlayer2** (`contentlayer.config.ts`): 14 MDX document types
-  mirroring the Prisma detail tables field-for-field. MDX under
-  `/content` is the authoring source of truth.
-- **14 real seed content items**, one per type (`/content/**/*.mdx`) —
-  no lorem ipsum, reusing established facts (NeuroFlow, RAG chunking,
-  the Production RAG playbook, etc.) so the pipeline is provable, not
-  just declared to work.
-- **`scripts/sync-content-to-db.ts`**: ingests every MDX document into
-  Postgres — Content row, detail row, tags, and `ContentLink` edges
-  resolved from each document's `related` slug list. This is what gives
-  Phase 3 (Knowledge Graph) and Phase 6 (Search) real relational data to
-  query, without a second content-authoring system.
-- **Three sections fully wired end-to-end** (index + detail pages, real
-  data, SEO metadata, JSON-LD): **Research** (three-layer index),
-  **Knowledge** (wiki-style category tree + article + related/backlinks),
-  **Playbooks** (ordered workflow steps + HowTo structured data). The
-  remaining 11 nav destinations keep their Phase 1 stub pages —
-  full page builds for all of them is Phase 4's explicit scope.
-- **Shared SEO helper** (`lib/seo/metadata.ts`): one `contentMetadata()` +
-  `structuredData()` pair generating Next.js Metadata and per-type
-  JSON-LD (HowTo for Playbooks, Dataset for Datasets, Review for Toolbox,
-  ScholarlyArticle for Research, TechArticle as the default) for every
-  content type from one function, not 14 bespoke implementations.
-
-### One deliberate scoping decision: Fumadocs
-
-`fumadocs-core`, `fumadocs-mdx`, and `fumadocs-ui` are installed per the
-mandated stack. Rather than run fumadocs-mdx as a second MDX compiler
-over the same `/content/knowledge` files Contentlayer already parses
-(two pipelines compiling the same source is a real maintenance cost, not
-a hedge), the Knowledge section is built with Contentlayer's data and a
-hand-rolled wiki layout (`components/knowledge/category-tree.tsx` +
-the three-pane page layout) that delivers the same UX fumadocs-ui's
-`DocsLayout` would (category sidebar, article, related/backlinks) —
-verified against fumadocs-ui's actual shipped type definitions in
-`node_modules`, not guessed. Swapping in fumadocs-ui's `DocsLayout` /
-`DocsPage` components directly is a reasonable Phase 4 decision once
-you're ready to invest in its full (fairly large, Radix-dependent)
-component surface — flagging this explicitly rather than silently
-half-wiring it.
-
-## Content pipeline commands
-
-```bash
-npm run content:sync   # ingest all /content MDX into Postgres (needs DATABASE_URL + db:generate)
-npx contentlayer2 build # regenerate .contentlayer/generated from /content
+```text
+Learn → Research → Design → Build → Evaluate → Document → Connect → Repeat
 ```
 
+---
 
+## Why I Built This
 
-1. **Install dependencies**
-   ```bash
-   npm install
-   ```
+As I moved deeper into AI Engineering, I noticed that my knowledge was becoming fragmented across:
 
-2. **Environment variables** — copy the template and fill in what you have:
-   ```bash
-   cp .env.example .env
-   ```
-   Only `DATABASE_URL` is required to run Phase 1. `NEXTAUTH_*`,
-   `RESEND_API_KEY`, and the Plausible domain are needed starting in
-   Phases 8–11 — leave them blank for now.
+- GitHub repositories
+- technical notes
+- research papers
+- experiments
+- architecture diagrams
+- project documentation
+- failed approaches
+- implementation lessons
+- learning roadmaps
 
-3. **Database** — point `DATABASE_URL` at any Postgres instance (Vercel
-   Postgres, Neon, Supabase, or local Postgres), then:
-   ```bash
-   npx prisma generate   # generates the Prisma client
-   npx prisma migrate dev # applies the schema
-   ```
+A list of projects could show **what I built**, but it could not show how those ideas related to one another or how my engineering thinking evolved.
 
-   **Note on Prisma 7:** this project uses Prisma ORM 7, which changed how
-   the database connection is configured — `datasource.url` is no longer
-   allowed inside `prisma/schema.prisma`. Instead:
-   - `prisma.config.ts` (project root) holds the connection string for the
-     CLI (`generate`/`migrate`/`studio`), reading `DATABASE_URL` from `.env`.
-   - `lib/db/client.ts` connects Prisma Client at runtime via an explicit
-     driver adapter (`@prisma/adapter-pg`), which is now required rather
-     than optional. Both files are already set up this way — you shouldn't
-     need to touch either unless you're switching database providers.
+So I started building a different kind of portfolio:
 
-4. **Run it**
-   ```bash
-   npm run dev
-   ```
-   Visit `http://localhost:3000`.
+**a public second brain for AI Engineering.**
 
-5. **Before committing**, Husky runs lint-staged automatically. To run
-   checks manually:
-   ```bash
-   npm run lint
-   npm run typecheck
-   npm run format
-   ```
+The long-term goal is to create a navigable graph of my engineering knowledge where a visitor can move naturally between concepts, implementations, experiments, research, and real projects.
 
-## Verified in this environment
+For example:
 
-`npm install`, `contentlayer2 build` (all 14 document type schemas
-validate against the 14 seed MDX files), `tsc --noEmit`, `eslint .`, and
-`next build` (27 routes, including SSG detail pages for Research,
-Knowledge, and Playbooks with real content) all pass clean.
+```text
+RAG
+│
+├── Chunking
+├── Embeddings
+├── Retrieval
+│   └── Qdrant
+├── Reranking
+├── Evaluation
+│   ├── Retrieval metrics
+│   ├── Faithfulness
+│   └── Guardrails
+│
+└── Production RAG Systems
+        │
+        ├── Architecture
+        ├── Playbook
+        ├── Experiments
+        └── Projects
+```
 
-Two things could not be fully verified here, both isolated and confirmed
-not to affect anything else:
-- **`prisma generate`** — blocked by this sandbox's network allowlist
-  (`binaries.prisma.sh` isn't reachable). The schema was hand-reviewed
-  for internal consistency (relation names, cascade paths, compound
-  unique keys) in lieu of the engine's own validation. Runs normally
-  once you have `DATABASE_URL` set and full network access.
-- **Google Fonts fetch inside `next build`** — same class of sandbox
-  network restriction as Phase 1 (`fonts.googleapis.com`). Confirmed by
-  temporarily stubbing the font imports and re-running the full build.
+---
 
-`lib/db/client.ts` and `scripts/sync-content-to-db.ts` are correct as
-written but depend on the generated Prisma client existing — run
-`npm run db:generate` before `npm run content:sync`.
+# What Lives Here
 
-## What's next
+The system is organized around several interconnected content types.
 
-**Phase 3 — Knowledge Graph**: build the graph *service* against the
-`ContentLink` table the sync script now populates — related-content and
-backlink queries as SQL joins (Phase 2's `resolveRelated`/
-`resolveBacklinks` in `lib/content/index.ts` are a file-based stand-in
-using the same `related` data, so pages already render correctly; Phase
-3 swaps the implementation, not the page code, once content is synced to
-Postgres), plus the `/knowledge/graph` visualization.
-"# my-portfolio" 
+### 🧠 Knowledge
+
+Technical notes explaining concepts I want to understand beyond surface-level definitions.
+
+Current areas include:
+
+- Retrieval-Augmented Generation
+- AI Agents
+- CUDA and GPU computing
+- Docker and MLOps
+- runtime validation
+- databases and infrastructure
+- AI evaluation
+- system design
+
+---
+
+### 🤖 AI Systems
+
+Production-oriented reference architectures for major AI engineering domains.
+
+Current system maps include:
+
+#### Retrieval-Augmented Generation
+
+```text
+Ingest
+  ↓
+Chunk
+  ↓
+Embed
+  ↓
+Retrieve
+  ↓
+Rerank
+  ↓
+Generate
+```
+
+Focus areas include hybrid retrieval, citations, context precision, latency, cost and evaluation.
+
+#### Agent Systems
+
+```text
+Goal
+ ↓
+Plan
+ ↓
+Select Tool
+ ↓
+Act
+ ↓
+Observe
+ ↓
+Evaluate
+```
+
+Focus areas include tool reliability, state management, checkpointing, permissions, human approval and task success.
+
+#### Model Adaptation
+
+Covers dataset preparation, fine-tuning, PEFT/LoRA, experiment tracking, model registries and serving.
+
+#### Evaluation & Safety
+
+Covers evaluation datasets, tracing, guardrails, PII protection, human review and AI-system quality measurement.
+
+---
+
+### 🏗 Architecture
+
+System architecture notes focused on engineering decisions rather than diagrams alone.
+
+Topics include:
+
+- production RAG
+- AI infrastructure
+- data pipelines
+- system boundaries
+- reliability
+- scaling decisions
+- deployment architecture
+
+The goal is to explain both:
+
+**what architecture was chosen**
+
+and
+
+**why it was chosen.**
+
+---
+
+### 🚀 Projects
+
+Projects are treated as engineering artifacts rather than gallery cards.
+
+The project catalog includes work across:
+
+- Retrieval-Augmented Generation
+- AI evaluation
+- healthcare AI
+- automation
+- backend engineering
+- CI/CD
+- education technology
+- AI-powered applications
+
+Selected work includes:
+
+#### NeuroFlow CFD
+
+A healthcare AI research project exploring cerebral aneurysm risk analysis through patient-specific computational fluid dynamics and hemodynamic feature extraction.
+
+Pipeline areas include:
+
+```text
+Medical Imaging
+      ↓
+Segmentation
+      ↓
+3D Vessel Reconstruction
+      ↓
+Mesh Generation
+      ↓
+CFD Simulation
+      ↓
+Hemodynamic Features
+      ↓
+Risk Analysis
+```
+
+Research topics include wall shear stress, oscillatory shear index and flow behavior around aneurysm geometry.
+
+---
+
+#### Financial RAG Evaluation
+
+Evaluation work focused on measuring retrieval and answer quality for financial-domain RAG systems.
+
+Key themes include:
+
+- retrieval quality
+- answer grounding
+- evaluation datasets
+- hallucination reduction
+- guardrails
+- high-stakes information reliability
+
+---
+
+### 🔬 Lab
+
+The Lab is my engineering notebook for experiments.
+
+Instead of publishing only successful outcomes, it records:
+
+- hypotheses
+- experimental setups
+- architecture choices
+- results
+- failures
+- lessons
+- future iterations
+
+Example areas include retrieval strategies, reranking, model behavior and AI-system performance.
+
+---
+
+### 📚 Research
+
+Research connects theoretical investigation with systems I actually build.
+
+Current topics include healthcare AI, CFD-derived hemodynamic analysis and AI engineering.
+
+Research pages distinguish between:
+
+```text
+Idea → Research Note → Paper → Implementation
+```
+
+rather than mixing early thinking with validated conclusions.
+
+---
+
+### 🧪 Case Studies
+
+Case studies focus on the engineering decisions behind projects.
+
+A project answers:
+
+> What did I build?
+
+A case study answers:
+
+> Why was it built this way?
+
+They document:
+
+- the problem
+- constraints
+- technical decisions
+- failures
+- trade-offs
+- lessons learned
+- future improvements
+
+---
+
+### 📖 Playbooks
+
+Playbooks turn engineering knowledge into repeatable workflows.
+
+Examples include production RAG engineering patterns and implementation processes.
+
+A typical playbook contains:
+
+```text
+Problem
+↓
+Prerequisites
+↓
+Architecture
+↓
+Implementation steps
+↓
+Recommended stack
+↓
+Common mistakes
+↓
+Trade-offs
+↓
+References
+```
+
+---
+
+### 🗺 Roadmaps
+
+Public learning roadmaps document how I approach unfamiliar engineering domains.
+
+Rather than listing courses, they connect:
+
+```text
+Fundamentals
+    ↓
+Core Systems
+    ↓
+Engineering Practice
+    ↓
+Production Systems
+    ↓
+Advanced Topics
+```
+
+---
+
+### 🧰 Toolbox
+
+The Toolbox documents technologies I have explored or used along with the reasoning behind them.
+
+Instead of simply listing tools, entries discuss:
+
+- why I use the technology
+- where it works well
+- weaknesses
+- alternatives
+- best use cases
+
+---
+
+### 📊 Datasets
+
+A curated record of datasets relevant to my research and AI projects, including their:
+
+- source
+- domain
+- license
+- possible use cases
+- engineering notes
+
+---
+
+### 📝 Engineering Logs
+
+Engineering logs capture smaller discoveries that often disappear during development.
+
+Examples include:
+
+- Contentlayer internals
+- Prisma driver adapters
+- Supabase connection pooling
+- TypeScript script execution
+- content synchronization pipelines
+
+These logs exist because understanding **why infrastructure behaves a certain way** matters as much as knowing the command that fixes it.
+
+---
+
+# Knowledge Graph
+
+One of the core ideas behind this project is that engineering knowledge should not live in isolated pages.
+
+Each content item can reference related content.
+
+At the data layer, those relationships are represented explicitly through a shared content model and `ContentLink` edges.
+
+Conceptually:
+
+```text
+Knowledge Article
+       │
+       ├──── explains ──── Architecture
+       │
+       ├──── used-in ───── Project
+       │
+       ├──── tested-by ─── Experiment
+       │
+       ├──── applied-in ── Playbook
+       │
+       └──── supported-by ─ Research
+```
+
+This enables:
+
+- related-content discovery
+- backlinks
+- cross-domain navigation
+- future graph visualization
+- unified search
+- connected learning paths
+
+The long-term goal is an interactive knowledge graph where visitors can explore the relationships between concepts, experiments, research and working systems.
+
+---
+
+# Architecture
+
+The platform uses a content-first architecture.
+
+```text
+                  MDX Content
+                       │
+                       ▼
+                  Contentlayer
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+          ▼                         ▼
+   Static Content               Sync Pipeline
+                                     │
+                                     ▼
+                                  Prisma
+                                     │
+                                     ▼
+                                PostgreSQL
+                                     │
+                          ┌──────────┴──────────┐
+                          │                     │
+                          ▼                     ▼
+                    Content Graph          Search / APIs
+```
+
+MDX remains the authoring source of truth while structured metadata is synchronized into PostgreSQL for relational features.
+
+---
+
+# Content Model
+
+The platform currently supports structured content types including:
+
+```text
+Research
+Knowledge
+Architecture
+Writing
+Project
+Lab Experiment
+Journey Milestone
+Roadmap
+Venture
+Playbook
+Case Study
+Talk
+Dataset
+Toolbox Entry
+```
+
+All content shares a common backbone while each type has its own specialized fields.
+
+This provides a consistent foundation for:
+
+- unified search
+- tags
+- backlinks
+- related content
+- SEO
+- bookmarks
+- graph relationships
+
+---
+
+# Technology Stack
+
+### Frontend
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- Lucide
+
+### Content
+
+- MDX
+- Contentlayer2
+- Fumadocs packages
+
+### Data
+
+- PostgreSQL
+- Prisma ORM
+- `@prisma/adapter-pg`
+
+### Validation & Forms
+
+- Zod
+- React Hook Form
+
+### Authentication & Communication
+
+- NextAuth
+- Resend
+
+### Engineering Quality
+
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- TypeScript type checking
+
+---
+
+# Repository Structure
+
+```text
+.
+├── app/                    # Next.js application routes
+│   ├── ai-systems/
+│   ├── architecture/
+│   ├── case-studies/
+│   ├── datasets/
+│   ├── journey/
+│   ├── knowledge/
+│   ├── lab/
+│   ├── playbooks/
+│   ├── projects/
+│   ├── research/
+│   └── roadmaps/
+│
+├── components/             # Shared UI components
+├── content/                # MDX knowledge/content source
+│   ├── architecture/
+│   ├── case-studies/
+│   ├── datasets/
+│   ├── journey/
+│   ├── knowledge/
+│   ├── lab/
+│   ├── playbooks/
+│   ├── projects/
+│   ├── research/
+│   ├── roadmaps/
+│   ├── talks/
+│   ├── toolbox/
+│   ├── ventures/
+│   └── writing/
+│
+├── lib/                    # Shared application logic
+├── prisma/
+│   └── schema.prisma       # Relational content model
+│
+├── scripts/
+│   └── sync-content-to-db.ts
+│
+├── contentlayer.config.ts
+├── prisma.config.ts
+└── package.json
+```
+
+---
+
+# Running Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/mohdhuzkhn/my-portfolio.git
+cd my-portfolio
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Configure at minimum:
+
+```env
+DATABASE_URL=
+```
+
+Additional authentication, email and analytics variables can be configured as those features are enabled.
+
+---
+
+### 4. Generate Prisma Client
+
+```bash
+npm run db:generate
+```
+
+---
+
+### 5. Apply database migrations
+
+```bash
+npm run db:migrate
+```
+
+---
+
+### 6. Build Contentlayer content
+
+```bash
+npx contentlayer2 build
+```
+
+---
+
+### 7. Synchronize MDX content to PostgreSQL
+
+```bash
+npm run content:sync
+```
+
+---
+
+### 8. Start development
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# Development Checks
+
+Run the engineering checks manually with:
+
+```bash
+npm run lint
+npm run typecheck
+npm run format
+npm run build
+```
+
+Husky and lint-staged also run formatting/linting checks before commits.
+
+---
+
+# Design Principles
+
+This project follows a few principles.
+
+### 1. Learn in public
+
+Knowledge becomes more useful when it is documented clearly enough for another engineer to inspect.
+
+### 2. Show reasoning, not only outcomes
+
+Architecture decisions, failures and trade-offs are part of the engineering artifact.
+
+### 3. Connect concepts to implementation
+
+A technical concept should eventually connect to code, experiments, architecture or real systems.
+
+### 4. Prefer evidence over buzzwords
+
+Claims should be backed by implementations, measurements, experiments or references wherever possible.
+
+### 5. Document failures
+
+Failed approaches often contain more engineering information than successful demos.
+
+### 6. Build systems, not demos
+
+The long-term focus is production-oriented AI engineering:
+
+- evaluation
+- reliability
+- observability
+- infrastructure
+- guardrails
+- data quality
+- deployment
+- maintainability
+
+---
+
+# Current Engineering Focus
+
+My current interests are concentrated around:
+
+```text
+AI Engineering
+│
+├── Retrieval-Augmented Generation
+│
+├── AI Agents
+│
+├── Evaluation & Guardrails
+│
+├── AI Infrastructure / MLOps
+│
+├── GPU Computing
+│
+├── Backend Engineering
+│
+├── Healthcare AI
+│
+└── Production AI Systems
+```
+
+---
+
+# Roadmap
+
+Major planned capabilities include:
+
+- [ ] interactive knowledge graph
+- [ ] unified semantic search
+- [ ] stronger project evaluation reports
+- [ ] experiment dashboards
+- [ ] architecture diagrams
+- [ ] CI/CD pipeline
+- [ ] richer project screenshots and demos
+- [ ] structured engineering metrics
+- [ ] research citation system
+- [ ] public activity feed
+- [ ] reading-room integration
+- [ ] AI-assisted knowledge navigation
+
+---
+
+# Philosophy
+
+I don't want this repository to represent only what I already know.
+
+I want it to record the process of becoming a better engineer.
+
+That means this repository will always contain a mixture of:
+
+```text
+Things I understand
+Things I am testing
+Things I am building
+Things I got wrong
+Things I am still trying to understand
+```
+
+That is intentional.
+
+The goal is not to present a perfect engineer.
+
+The goal is to build an increasingly rigorous record of **engineering growth, reasoning and proof of work**.
+
+---
+
+## Author
+
+**Muhammad Huzaifa**
+
+AI Engineering · RAG · AI Agents · Evaluation · MLOps · Healthcare AI
+
+GitHub:  
+https://github.com/mohdhuzkhn
+
+---
+
+> **The repository is the portfolio.  
+> The connections between the work are the second brain.**
