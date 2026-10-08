@@ -71,7 +71,7 @@ export default function Home() {
         <figure className="mx-auto w-full max-w-sm lg:justify-self-end">
           <div className="overflow-hidden rounded-2xl border border-line bg-surface">
             <Image
-              src="/huzaifa-profile.png"
+              src="/huzaifa-profile-studio.png"
               alt="Muhammad Huzaifa wearing a navy suit"
               width={1254}
               height={1254}

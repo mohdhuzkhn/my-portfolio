@@ -9,6 +9,7 @@ const staticRoutes = [
   "knowledge",
   "ai-systems",
   "projects",
+  "video",
   "architecture",
   "writing",
   "playbooks",

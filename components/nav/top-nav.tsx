@@ -29,7 +29,9 @@ export function TopNav() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-background/85 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 border-b border-line ${mobileOpen ? "bg-background" : "bg-background/85 backdrop-blur-md"}`}
+    >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
@@ -42,7 +44,7 @@ export function TopNav() {
           huzaifa.ai
         </Link>
 
-        <div className="hidden items-center gap-7 text-sm text-foreground-dim md:flex">
+        <div className="hidden items-center gap-7 text-sm text-foreground-dim lg:flex">
           {primaryNav.map((item) => (
             <Link
               key={item.href}
@@ -110,19 +112,19 @@ export function TopNav() {
             onClick={() =>
               window.dispatchEvent(new CustomEvent("open-command-palette"))
             }
-            className="hidden h-8 w-8 items-center justify-center rounded-[var(--radius-s)] text-foreground-dim transition-colors hover:text-foreground md:flex"
+            className="hidden h-8 w-8 items-center justify-center rounded-[var(--radius-s)] text-foreground-dim transition-colors hover:text-foreground lg:flex"
           >
             <Search size={16} />
           </button>
           <ThemeToggle />
           <Link
             href={workWithMe.href}
-            className="hidden rounded-[var(--radius-s)] border border-line px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent md:inline-block"
+            className="hidden rounded-[var(--radius-s)] border border-line px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent lg:inline-block"
           >
             {workWithMe.label}
           </Link>
           <button
-            className="text-foreground md:hidden"
+            className="text-foreground lg:hidden"
             aria-label="Open menu"
             onClick={() => setMobileOpen(true)}
           >
@@ -138,24 +140,30 @@ export function TopNav() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.2 }}
-            className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background p-6 md:hidden"
+            className="fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto bg-background p-6 lg:hidden"
           >
             <div className="mb-8 flex items-center justify-between">
               <span className="font-display text-lg font-semibold">Menu</span>
-              <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+              <button
+                aria-label="Close menu"
+                onClick={() => setMobileOpen(false)}
+              >
                 <X size={22} />
               </button>
             </div>
             <ul className="space-y-5 text-lg">
-              {[...primaryNav, ...exploreGroups.flatMap((g) => g.items), ...secondaryNav, workWithMe].map(
-                (item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} onClick={() => setMobileOpen(false)}>
-                      {item.label}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {[
+                ...primaryNav,
+                ...exploreGroups.flatMap((g) => g.items),
+                ...secondaryNav,
+                workWithMe,
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} onClick={() => setMobileOpen(false)}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
         )}
