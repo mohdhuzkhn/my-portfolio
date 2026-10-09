@@ -66,7 +66,7 @@ export function VideoLibrary() {
           </button>
         </div>
       ) : (
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 space-y-4">
           {videos.map((video) => {
             const rewatching =
               video.statuses.includes("watching") &&
@@ -75,14 +75,14 @@ export function VideoLibrary() {
             return (
               <article
                 key={video.id}
-                className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-m)] border border-line bg-background"
+                className="grid min-w-0 gap-5 rounded-[var(--radius-m)] border border-line bg-background p-5 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-6 sm:p-6"
               >
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Watch ${video.title} on YouTube (opens in a new tab)`}
-                  className="group relative block aspect-video overflow-hidden bg-surface focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent"
+                  className="group relative block aspect-video w-40 self-start overflow-hidden rounded-[var(--radius-s)] bg-surface sm:w-full focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent"
                 >
                   <Image
                     src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
@@ -90,7 +90,7 @@ export function VideoLibrary() {
                     fill
                     unoptimized
                     className="object-cover"
-                    sizes="(min-width: 768px) 540px, 100vw"
+                    sizes="(min-width: 640px) 200px, 160px"
                   />
                   <span className="absolute inset-0 flex items-center justify-center bg-black/15 transition-colors group-hover:bg-black/30">
                     <span className="rounded-full bg-black/70 p-3 text-white">
@@ -98,7 +98,7 @@ export function VideoLibrary() {
                     </span>
                   </span>
                 </a>
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex min-w-0 flex-col">
                   <div className="mb-3 flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-wide">
                     <span className="text-accent">{video.topic}</span>
                     <span className="rounded border border-line px-2 py-1 text-foreground-dim">
@@ -117,10 +117,10 @@ export function VideoLibrary() {
                   <p className="mt-2 text-sm text-foreground-dim">
                     {video.creator}
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-foreground-dim">
+                  <p className="mt-3 text-sm leading-relaxed text-foreground-dim">
                     {video.context}
                   </p>
-                  <div className="mt-5">
+                  <div className="mt-4">
                     <p className="font-mono text-xs text-foreground-dim">
                       Explore related work
                     </p>
@@ -136,7 +136,7 @@ export function VideoLibrary() {
                       ))}
                     </div>
                   </div>
-                  <div className="mt-auto flex flex-wrap gap-x-5 gap-y-3 pt-6">
+                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
                     <a
                       href={url}
                       target="_blank"
