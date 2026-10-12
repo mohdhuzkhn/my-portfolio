@@ -14,6 +14,8 @@ const staticRoutes = [
   "writing",
   "playbooks",
   "roadmaps",
+  "roadmaps/ai-forward-deployed-engineer",
+  "roadmaps/rag-engineering-roadmap",
   "journey",
   "reading-room",
   "ventures",

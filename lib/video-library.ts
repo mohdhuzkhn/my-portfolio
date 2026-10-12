@@ -15,6 +15,39 @@ export type LearningVideo = {
 // Add future selections with statuses: ["later"].
 export const learningVideos: LearningVideo[] = [
   {
+    id: "iJlyNupMOzA",
+    title:
+      "Brian Chesky: People Who Know What to Build With AI Will Pull Ahead",
+    creator: "Silicon Valley Girl",
+    topic: "AI Product Thinking",
+    context:
+      "A conversation about deciding what to build with AI, connected to problem discovery and customer-focused engineering.",
+    statuses: ["watched"],
+    related: [
+      {
+        label: "AI FDE roadmap",
+        href: "/roadmaps/ai-forward-deployed-engineer",
+      },
+      { label: "Projects", href: "/projects" },
+    ],
+  },
+  {
+    id: "zXysLUTLjw4",
+    title: "FDE: The $1M/Year AI Job Explained",
+    creator: "Greg Isenberg",
+    topic: "Forward Deployed Engineering",
+    context:
+      "An introduction to the FDE role, alongside a practical learning path for delivering AI inside business workflows.",
+    statuses: ["watched"],
+    related: [
+      {
+        label: "AI FDE roadmap",
+        href: "/roadmaps/ai-forward-deployed-engineer",
+      },
+      { label: "Agent systems", href: "/ai-systems/agents" },
+    ],
+  },
+  {
     id: "7xTGNNLPyMI",
     title: "Deep Dive into LLMs like ChatGPT",
     creator: "Andrej Karpathy",

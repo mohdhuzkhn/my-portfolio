@@ -1,0 +1,401 @@
+---
+title: "AI Forward Deployed Engineer Roadmap"
+summary: "A competency-based path from software and data foundations to reliable enterprise AI, followed by a repeatable 30-day client pilot playbook."
+status: PUBLISHED
+publishedAt: 2026-10-13
+tags: ["fde", "ai-engineering", "enterprise-ai", "evaluation", "integrations"]
+related:
+  [
+    "zod-runtime-validation",
+    "docker-for-ai-and-mlops",
+    "rag-chunking-strategies",
+    "rag-app-pdf",
+  ]
+stages:
+  [
+    {
+      "title": "Software and data engineering",
+      "order": 1,
+      "weeks": "Weeks 1–3",
+      "objective": "Build robust services and trustworthy data pipelines before introducing an LLM.",
+      "learn":
+        [
+          "Python: typing, Pydantic models, exceptions, logging, context managers, asyncio, and safe concurrency.",
+          "FastAPI: routes, request and response contracts, dependency injection, authentication, OpenAPI, webhooks, timeouts, and rate limits.",
+          "PostgreSQL: joins, indexes, transactions, Alembic migrations, isolation, constraints, and query plans.",
+          "Data pipelines: ETL/ELT, validation, pagination, backoff, idempotency keys, deduplication, and change tracking.",
+          "Engineering hygiene: pytest, fixtures, mocks, integration tests, Git, environment configuration, CI, and secrets management.",
+        ],
+      "project": "Project A: Enterprise ingestion API",
+      "build": "Sync a mock CRM contact feed into PostgreSQL. Expose /contacts, /sync, /jobs/{id}, and /health. Exercise duplicate webhooks, missing data, permission failures, and upstream outages.",
+      "gate": "Migrations run from an empty database, the OpenAPI contract is available, and CI passes. Duplicate events do not create duplicate records. Errors have traceable IDs and writes remain transaction-safe.",
+      "links":
+        [
+          {
+            "label": "Runtime validation",
+            "href": "/knowledge/zod-runtime-validation",
+          },
+        ],
+    },
+    {
+      "title": "Hybrid AI, retrieval and orchestration",
+      "order": 2,
+      "weeks": "Weeks 4–6",
+      "objective": "Add intelligence selectively while keeping state, permissions, and actions controllable.",
+      "learn":
+        [
+          "Establish a baseline with rules, deterministic classifiers, SQL, and text search before comparing an LLM implementation.",
+          "LLM interfaces: structured outputs, function and tool schemas, token limits, context budgets, timeouts, fallbacks, and validation.",
+          "RAG: parsing, chunking, metadata, embeddings, BM25 plus vector retrieval, reranking, source citations, and access filtering.",
+          "Retrieval storage: consider pgvector when PostgreSQL is already available. Choose Qdrant, Pinecone, or Weaviate when requirements justify a dedicated store.",
+          "Orchestration: start with explicit Python control flow. Use LangGraph for persistent state, checkpoints, and human approval. Add multiple agents only when specialization proves useful.",
+          "MCP: learn tools, resources, authorization boundaries, and the handling of untrusted tool output. The protocol does not automatically secure a system.",
+        ],
+      "project": "Project B: Policy-aware support or sales copilot",
+      "build": "Answer from approved knowledge, verify prices against a database, and create a CRM lead through a validated tool. Require approval before outbound messages or irreversible changes.",
+      "gate": "Consequential actions pass policy validation. Retrieval respects tenant and user permissions. The workflow resumes safely after failure, and a non-LLM baseline is documented.",
+      "links":
+        [
+          { "label": "RAG systems", "href": "/ai-systems/rag" },
+          { "label": "Agent systems", "href": "/ai-systems/agents" },
+          {
+            "label": "Chunking strategies",
+            "href": "/knowledge/rag-chunking-strategies",
+          },
+        ],
+    },
+    {
+      "title": "Evaluation, quality and safety",
+      "order": 3,
+      "weeks": "Weeks 7–9",
+      "objective": "Replace impressions from demos with repeatable evidence of system behavior.",
+      "learn":
+        [
+          "Curate labeled examples covering frequent, rare, multilingual, ambiguous, adversarial, and unavailable-information cases.",
+          "Score stages separately: retrieval recall and precision, groundedness, extraction accuracy, tool selection, parameter correctness, answer usefulness, and escalation behavior.",
+          "Use deterministic tests where possible. Calibrate LLM judges against human labels and resolve disagreements through human review.",
+          "Track regressions by model, prompt, retriever, and dataset version. Record cost per task and p50/p95 latency.",
+          "Test prompt injection, cross-tenant retrieval, PII leakage, malicious documents, excessive agency, and unexpected tool side effects.",
+          "Define escalation using policy triggers and measurable uncertainty signals, rather than model-generated confidence alone.",
+        ],
+      "project": "Project C: Evaluation harness",
+      "build": "Create 100–200 anonymized or synthetic cases. Compare a baseline with a candidate, export a scored CSV and report, and block release when a hard safety rule fails.",
+      "gate": "A saved dataset and versioned rubric produce reproducible comparisons. Safety violations block release, regressions are visible, and failed cases have documented mitigations.",
+      "links":
+        [
+          {
+            "label": "Evaluation & safety",
+            "href": "/ai-systems/evaluation-safety",
+          },
+        ],
+    },
+    {
+      "title": "Enterprise integration and operations",
+      "order": 4,
+      "weeks": "Weeks 10–12",
+      "objective": "Make a system dependable inside an enterprise workflow and recoverable by its operators.",
+      "learn":
+        [
+          "Integration contracts: REST/SOAP, webhooks, OAuth 2.0, least-privilege service accounts, field mapping, sandboxes, and change-data capture where appropriate.",
+          "Understand CRM platforms such as Salesforce or HubSpot, ERP and finance systems such as SAP or NetSuite, messaging, and legacy SQL at the workflow and API level.",
+          "Jobs and events: use Redis-backed queues or RabbitMQ for background processing. Introduce Kafka only when streaming, scale, or ordering requirements warrant it.",
+          "Deployment: Docker, managed cloud compute, CI/CD, staged rollout, and rollback. Adopt Kubernetes only when operational scale justifies it.",
+          "Security: tenant isolation, RBAC, secrets rotation, encryption, retention and deletion, audit events, data minimization, approval gates, and incident response.",
+          "Observability: distributed traces, correlation IDs, model and tool spans, errors, queue depth, latency, tokens, cost per task, and outcome quality. Learn OpenTelemetry and suitable LLM tracing tools.",
+        ],
+      "project": "Project D: Production-like connector",
+      "build": "Sync CRM updates, enqueue and retry jobs, and provide an administrator review flow for pending writes. Run the service in Docker, capture traces and metrics, and demonstrate rollback.",
+      "gate": "Least-privilege access and retry behavior are tested. Every write has an audit event, the data lifecycle is documented, and an operator can diagnose and recover failed jobs.",
+      "links":
+        [
+          {
+            "label": "Docker for AI and MLOps",
+            "href": "/knowledge/docker-for-ai-and-mlops",
+          },
+        ],
+    },
+    {
+      "title": "Customer-facing FDE delivery",
+      "order": 5,
+      "weeks": "Weeks 13–16 / optional capstone",
+      "objective": "Translate technical capability into a measured pilot with an accountable process owner.",
+      "learn":
+        [
+          "Discovery: shadow users and map the actor, trigger, input, current action, exceptions, approvals, and system of record.",
+          "Scope one workflow with a named owner, access prerequisites, explicit exclusions, success metrics, and accepted risks.",
+          "Plan training, operator playbooks, escalation ownership, handover, and adoption measurement.",
+          "Measure time per completed task, throughput, correction rate, operating cost, quality, adoption, and prevented errors.",
+        ],
+      "project": "Capstone: One permitted business workflow",
+      "build": "Choose a coaching-center admissions or finance assistant with approval-based receipts, a property lead qualification workflow with contextual handoff, or an internal knowledge and service-ticket triage system. Favor permitted access and a measurable baseline.",
+      "gate": "Stakeholders agree on the baseline, success criteria, measured benefit, limitations, and ownership of ongoing operations. Deliver the architecture, risk register, evaluation report, runbook, ROI model, and demo.",
+      "links":
+        [
+          { "label": "Projects", "href": "/projects" },
+          { "label": "Watched FDE videos", "href": "/video" },
+        ],
+    },
+  ]
+---
+
+<h2 id="architecture">Architecture decisions</h2>
+
+Choose the simplest reliable method that meets the requirement. Rules and SQL are strong starting points for structured tasks. Introduce retrieval, predictive models, or generative AI when the problem calls for them.
+
+<div className="my-6 space-y-4">
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Exact calculations and permissions</h3>
+    <p className="!mb-0">
+      Use deterministic application code or SQL for fee totals, eligibility
+      checks, and permission decisions. An LLM is usually unnecessary.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Field mapping and API synchronization</h3>
+    <p className="!mb-0">
+      Use schema mapping, validation, and retries. Consider an LLM only when
+      inconsistent free-text input requires interpretation.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Facts in approved documents</h3>
+    <p className="!mb-0">
+      Start with search, filtered SQL, or keyword retrieval. Add
+      evidence-grounded natural-language synthesis when it helps the user.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Variable emails and unstructured notes</h3>
+    <p className="!mb-0">
+      Extract into a defined JSON schema, validate the result, and route
+      uncertain cases for review.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Messages and business-record changes</h3>
+    <p className="!mb-0">
+      Use authorized API calls with audits and approval gates. A model may
+      propose an action, while policy determines whether execution is allowed.
+    </p>
+  </div>
+</div>
+
+Before selecting a model, ask whether the input is structured, the answer is exactly computable, an error is reversible, or a side effect is involved. Identify the decisions that require an authorized human.
+
+### Reference system
+
+<ol className="space-y-3">
+  <li>Channels, CRM, ERP, and legacy databases provide inputs.</li>
+  <li>
+    An authenticated FastAPI gateway establishes the caller and request
+    contract.
+  </li>
+  <li>
+    A policy and workflow router selects rules, SQL, search, or bounded LLM
+    extraction.
+  </li>
+  <li>
+    A validated tool adapter checks the proposed operation and its parameters.
+  </li>
+  <li>Approval gates control sensitive writes to systems of record.</li>
+</ol>
+
+Support the flow with PostgreSQL state and audit logs, queues and workers, a secret manager, tenant-aware RBAC, traces and metrics, offline and online evaluations, monitoring, and incident runbooks.
+
+<h2 id="evaluation">Evaluation gates</h2>
+
+Define release criteria before building the pilot. The following values are **illustrative starting targets**, not universal production standards. Adjust them to the workflow's risk and validate with an appropriate sample.
+
+<div className="my-6 grid gap-4 sm:grid-cols-2">
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Tool-action authorization</h3>
+    <p className="!mb-0">
+      100% compliance on the test suite. Block release on any violation.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Required structured fields</h3>
+    <p className="!mb-0">
+      At least 98% exact match on the curated evaluation set.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Grounded answer correctness</h3>
+    <p className="!mb-0">At least 90% on evaluated, in-scope questions.</p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <h3 className="!mt-0">Escalation and abstention</h3>
+    <p className="!mb-0">
+      At least 95% on known unanswerable or sensitive cases.
+    </p>
+  </div>
+</div>
+
+Measure p50/p95 latency and cost per task against the SLA and business case. High-impact workflows may require stricter controls and larger validation samples. Passing a curated test set alone does not establish production safety.
+
+<h2 id="client-pilot">The 30-day client pilot</h2>
+
+This is a delivery playbook for a narrowly scoped pilot, separate from the learning timeline. Confirm access and stakeholder availability before committing to dates.
+
+<div className="my-6 space-y-4">
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <p className="font-mono text-xs uppercase tracking-wide !text-accent">
+      Days 1–7 / Audit
+    </p>
+    <h3 className="!mt-0">Understand the workflow</h3>
+    <p>
+      Shadow users, map the process, classify tasks, measure volume, handling
+      time and errors, inventory permissions, and triage risks.
+    </p>
+    <p className="!mb-0">
+      <strong>Decision gate:</strong> A workflow map, baseline, problem
+      statement, named owner, scope, and success criteria support a go/no-go
+      decision.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <p className="font-mono text-xs uppercase tracking-wide !text-accent">
+      Days 8–18 / Build and evaluate
+    </p>
+    <h3 className="!mt-0">Compare a controlled prototype</h3>
+    <p>
+      Build the deterministic baseline, prototype bounded AI, integrate a mock
+      or sandbox, curate evaluation cases, and measure quality, cost, and
+      latency.
+    </p>
+    <p className="!mb-0">
+      <strong>Deliverables:</strong> A runnable MVP, API contract, scorecard,
+      defects log, and comparison with the baseline.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <p className="font-mono text-xs uppercase tracking-wide !text-accent">
+      Days 19–25 / Harden and integrate
+    </p>
+    <h3 className="!mt-0">Prepare for supervised use</h3>
+    <p>
+      Connect permitted production-like interfaces. Add RBAC, audit events,
+      approvals, rate limits, observability, retries, runbooks, and staged
+      tests.
+    </p>
+    <p className="!mb-0">
+      <strong>Release gate:</strong> Security checks, integration tests, an
+      operator guide, and a rollback plan are complete.
+    </p>
+  </div>
+  <div className="rounded-[var(--radius-m)] border border-line p-5">
+    <p className="font-mono text-xs uppercase tracking-wide !text-accent">
+      Days 26–30 / Measure and defend
+    </p>
+    <h3 className="!mt-0">Make the next decision with evidence</h3>
+    <p>
+      Run the supervised pilot, compare pre/post results, collect human
+      feedback, and calculate cost-benefit.
+    </p>
+    <p className="!mb-0">
+      <strong>Deliverables:</strong> An ROI report, dashboard snapshots, risk
+      ownership, and a scale, revise, or stop recommendation for the next 90
+      days.
+    </p>
+  </div>
+</div>
+
+<h2 id="discovery">Discovery and ROI</h2>
+
+### Questions for the discovery sprint
+
+- What triggers the workflow, and which system is the source of truth?
+- How many cases occur each week? What are handling time, rework, and error rates?
+- Which exceptions require an authorized human decision?
+- Which departments, tools, data classifications, and third-party vendors are involved?
+- What minimum improvement would make deployment worthwhile?
+
+### Establish the baseline first
+
+Use a representative sample. Include human review, correction, integration, and model costs in the pilot assessment.
+
+<div className="my-6 space-y-4 rounded-[var(--radius-m)] border border-line bg-surface p-5">
+  <p>
+    <strong>Monthly hours saved</strong>
+    <br />
+    Eligible monthly tasks × (baseline minutes per task − post-pilot human
+    minutes per task) ÷ 60.
+  </p>
+  <p>
+    <strong>Monthly net benefit</strong>
+    <br />
+    Verified labor or capacity value + avoided error cost − AI, infrastructure,
+    supervision, and support costs.
+  </p>
+  <p className="!mb-0">
+    <strong>Pilot ROI (%)</strong>
+    <br />
+    (Net operating benefit over the evaluation horizon − one-time implementation
+    cost) ÷ one-time implementation cost × 100.
+  </p>
+</div>
+
+Show assumptions and the evaluation horizon explicitly. When labor is redeployed rather than eliminated, report **capacity released**, rather than claiming cash savings. If implementation cost is zero, report net benefit instead of dividing by zero.
+
+- **Scale:** Quality and safety gates pass, value is positive, and a stakeholder owns the process.
+- **Revise:** Quality or adoption gaps are tractable. Define another limited test with clear criteria.
+- **Stop:** A safety violation, unreliable system of record, absent owner, or negative economics prevents responsible expansion.
+
+<h2 id="stack">Recommended stack</h2>
+
+### Master first
+
+Python, FastAPI, PostgreSQL, pytest, Git and GitHub Actions, and Docker. Develop depth in structured outputs, tool calling, OAuth, JSON Schema, and RBAC.
+
+### Add when the workflow needs it
+
+LangGraph, pgvector or Qdrant, Redis or RabbitMQ, OpenTelemetry, and LangSmith or Phoenix. Learn hybrid retrieval, rerankers, MCP, and managed cloud deployment as the requirements become concrete.
+
+### Recognize before specializing
+
+CrewAI and AutoGen alternatives, Kafka, Kubernetes, vendor-specific SAP or NetSuite features, knowledge graphs, multi-cloud orchestration, and specialized fine-tuning.
+
+Build one solid implementation per necessary category before spreading effort across competing frameworks. Add infrastructure because of demonstrated requirements, rather than a checklist of tools.
+
+<h2 id="evidence">Portfolio evidence</h2>
+
+Prepare a dossier that lets another engineer or stakeholder inspect the pilot's behavior and limits.
+
+- **Case study:** One page covering the customer problem, baseline, architecture, deployment scope, measured results, and limitations.
+- **Public sample repository:** Synthetic data, a clear README, architecture diagram, `.env.example`, Docker configuration, migrations, tests, and CI.
+- **Evaluation record:** Dataset provenance, scoring rubric, baseline/candidate comparison, failed cases, and mitigations.
+- **Operations record:** Threat model, access design, monitoring dashboard, incident and rollback procedures, and retention policy.
+- **Executive demo:** A three-minute workflow walkthrough and a one-slide ROI decision. Protect client information by using synthetic or properly anonymized examples.
+
+### Readiness checkpoints
+
+1. **Foundation:** A webhook-driven service survives retries and invalid inputs without corrupting data.
+2. **Agent design:** Tool use obeys permissions, produces schema-valid outputs, and can abstain.
+3. **Evaluation:** Model or prompt changes run against saved datasets and regression thresholds.
+4. **Operations:** Logs, traces, access controls, rollback, and human approvals work together.
+5. **FDE delivery:** Stakeholders agree on the baseline, success criteria, measured benefit, and ongoing owner.
+
+<h2 id="resources">Resources and caveats</h2>
+
+### Official learning resources
+
+- [FastAPI documentation](https://fastapi.tiangolo.com/)
+- [PostgreSQL documentation](https://www.postgresql.org/docs/)
+- [LangGraph persistence](https://docs.langchain.com/oss/python/langgraph/persistence)
+- [LangSmith evaluation types](https://docs.langchain.com/langsmith/evaluation-types)
+- [OWASP GenAI and LLM Top 10](https://genai.owasp.org/llm-top-10/)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [OpenTelemetry documentation](https://opentelemetry.io/docs/)
+- [Model Context Protocol documentation](https://modelcontextprotocol.io/)
+
+### Interpret the guide carefully
+
+The suggested 12–16 weeks is a planning estimate, not a guaranteed time to mastery. Adapt the route to your existing skills, budget, access, and engagement risks.
+
+Broad claims that “95% of GenAI pilots fail” are not used as verified facts here. Failure rates depend on definitions and study design.
+
+An LLM judge is an imperfect quality proxy. Calibrate it with human labels and avoid treating it as the sole authority for consequential decisions. Confidence thresholds also require calibration: combine evidence sufficiency, rule-based signals, and human-review routing.
+
+Logging complete prompts may conflict with privacy requirements. Apply redaction, access controls, defined retention periods, and auditable metadata.
+
+Compliance obligations differ by geography and data type. This guide is an engineering starting point, not compliance certification.
