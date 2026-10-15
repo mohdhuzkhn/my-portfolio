@@ -6,6 +6,7 @@ export const primaryNav: NavItem[] = [
   { label: "AI Systems", href: "/ai-systems" },
   { label: "Projects", href: "/projects" },
   { label: "Video", href: "/video" },
+  { label: "Books", href: "/books" },
 ];
 
 export const exploreGroups: { heading: string; items: NavItem[] }[] = [

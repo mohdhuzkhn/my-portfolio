@@ -15,6 +15,19 @@ export type LearningVideo = {
 // Add future selections with statuses: ["later"].
 export const learningVideos: LearningVideo[] = [
   {
+    id: "w7vqXL4PWEE",
+    title: "Learn to build effective Agentic AI systems with Andrew Ng",
+    creator: "DeepLearningAI",
+    topic: "Agentic AI",
+    context:
+      "Andrew Ng on building effective agentic AI systems, connected to my exploration of agent workflows and evaluation.",
+    statuses: ["watched"],
+    related: [
+      { label: "Agent systems", href: "/ai-systems/agents" },
+      { label: "Evaluation & safety", href: "/ai-systems/evaluation-safety" },
+    ],
+  },
+  {
     id: "iJlyNupMOzA",
     title:
       "Brian Chesky: People Who Know What to Build With AI Will Pull Ahead",

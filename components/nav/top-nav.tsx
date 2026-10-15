@@ -44,7 +44,7 @@ export function TopNav() {
           huzaifa.ai
         </Link>
 
-        <div className="hidden items-center gap-7 text-sm text-foreground-dim lg:flex">
+        <div className="hidden items-center gap-5 text-sm text-foreground-dim lg:flex xl:gap-7">
           {primaryNav.map((item) => (
             <Link
               key={item.href}
