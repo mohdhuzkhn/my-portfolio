@@ -11,6 +11,7 @@ const staticRoutes = [
   "projects",
   "video",
   "books",
+  "system-design",
   "architecture",
   "writing",
   "playbooks",
