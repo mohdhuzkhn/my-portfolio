@@ -23,3 +23,7 @@ Record the date and results here after each verification run.
 - 2026-11-09: `npm run typecheck` passed.
 - 2026-11-09: `npm run build` generated Prisma Client and Contentlayer documents, then stopped because this environment could not resolve `fonts.googleapis.com` for the existing `next/font` declarations in `app/layout.tsx` (network unavailable).
 - 2026-11-09: Slide data and all five image assets verified present and in the requested order.
+- 2026-11-10: `npm run lint` passed with the same 15 existing `no-explicit-any` warnings; no errors.
+- 2026-11-10: `npm run typecheck` passed.
+- 2026-11-10: All five slide images verified present. The live `/system-design` page was opened and confirmed to show the System Design link in the main navbar and the five-slide deck.
+- 2026-11-10: `npm run build` reached successful compilation after network access became available, but Next.js's lint/type worker exited with JavaScript heap out of memory. Retrying with `NODE_OPTIONS=--max-old-space-size=4096` produced the same worker memory failure.
